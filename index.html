@@ -132,7 +132,7 @@ footer .fl{display:flex;gap:18px;flex-wrap:wrap}
 .panel[data-w="florra-os"]{--acc:#8fb4d9}.panel[data-w="florra-records"]{--acc:#e55a46}
 .panel[data-w="bounty-sounds"]{--acc:#e0b352}.panel[data-w="redstring"]{--acc:#d43a3a}
 .panel[data-w="cleared"]{--acc:#7ec9a3}.panel[data-w="management"]{--acc:#d9c9a3}
-.panel[data-w="studio"]{--acc:#9ad0e0}.panel[data-w="campaigns"]{--acc:#e0908f}
+.panel[data-w="content"]{--acc:#9ad0e0}.panel[data-w="campaigns"]{--acc:#e0908f}
 .panel[data-w="press"]{--acc:#c9b998}.panel[data-w="greenhouse"]{--acc:#9adf6a}.panel[data-w="cucumbers"]{--acc:#a8d96a}
 .panel .tag{color:var(--acc,var(--mute))}
 #snd{position:fixed;right:18px;bottom:16px;z-index:60;font-size:13px;letter-spacing:.12em;color:var(--mute);border:1px solid var(--line);border-radius:999px;padding:7px 14px;background:rgba(7,7,7,.5)}
@@ -271,8 +271,8 @@ const WORLDS=[
   facts:[["for","artists · labels · clippers"],["model","per-1k verified views, funded purse"],["rails","stripe connect · whop"],["site","bountysounds.com"]],
   cta:[{t:"open bountysounds.com",h:"https://bountysounds.com",c:"solid",x:1},{t:"fund a bounty",h:"#contact"}]},
  {id:"redstring",name:"redstring",tag:"follow the string",status:"live beta",one:"the case board the internet keeps in its head, made visible.",
-  body:["true crime is the most engaged genre online and has no scoreboard. redstring is one: every unfolding case gets a heat reading, 0° to 100°, from tiktok velocity, news, podcasts, and what people do in the app.","verdict polls, threads, podcast charts, a watch list, and a founding pro tier for people who want it first.","agents scan the sources; a human desk approves the board. editorial is never for sale."],
-  facts:[["for","true crime fans · podcasts · brands"],["signal","heat 0–100° · reach · verdicts"],["tiers","free · founding 500 pro"],["platforms","web now · ios next"]],
+  body:["true crime is the most engaged genre online and has no scoreboard. redstring is one: every unfolding case gets a heat reading, 0° to 100°, from tiktok velocity, news, podcasts, and what people do in the app.","verdict polls, threads, podcast charts, a watch list, and a founding pro tier for people who want it first.","agents scan the sources; a human desk approves the board. editorial is never for sale.","it publishes, too. true crime books and podcasts under the florra name, marketed through the creators already covering the cases."],
+  facts:[["for","true crime fans · podcasts · brands"],["signal","heat 0–100° · reach · verdicts"],["also","publishing and promotion network"],["tiers","free · founding 500 pro"],["platforms","web now · ios next"]],
   cta:[{t:"open the board",h:"https://redstring-live.lovable.app",c:"solid",x:1},{t:"promote a show",h:"#contact"}]},
  {id:"cleared",name:"cleared",tag:"game graduations",status:"building",one:"you cleared it. it should count.",
   body:["a gaming companion for people who finish games. every clear goes on your shelf with a record, and a rewards system makes the next one worth it.","the shelf is built. rewards are next, with studios and creators we want alongside early.","queued behind bounty sounds and redstring on purpose. one thing at a time."],
@@ -282,17 +282,17 @@ const WORLDS=[
   body:["sound-first and internet-native: creator seeding at volume, fast informal deals, a back office that runs on our own tools.","ridgeclub is the proof: saxophonist abhi, from a bedroom project to millions of monthly listeners, global charts, a label deal, debut ep \"crawlspace\" out october 2, uk and eu tour in november.","ebril is huda al-hamami's iraqi-canadian project — signed to universal music canada, debut album \"in copula\" led by \"stranger in you\". mckayla maroney is building her music world from the ground up, first songs already streaming.","same terms for everyone: 15% commission, no retainer, no surprises."],
   facts:[["roster","ridgeclub · ebril · mckayla maroney"],["terms","15% commission · no retainer"],["lane","sound-first · internet-native"],["next","crawlspace, oct 2"]],
   cta:[{t:"ridgeclub",h:"https://ridgeclubhouse.com",c:"solid",x:1},{t:"ebril",h:"https://www.ebril.net",x:1},{t:"mckayla maroney",h:"https://open.spotify.com/artist/4YCIGc4mqhWaY5cQIv8Vcz",x:1},{t:"send a song",h:"#contact"}]},
- {id:"studio",name:"studio",tag:"local ugc + web",status:"booking",one:"the internet playbook, pointed at your zip code.",
+ {id:"content",name:"content",tag:"local ugc + web",status:"booking",one:"the internet playbook, pointed at your zip code.",
   body:["what breaks songs works for a restaurant, a gym, a dealership. we come to you, shoot ugc-style video that looks like a real customer made it, and cut it for tiktok, reels, and ads.","if your site is the weak link, we rebuild it: mobile-first, one action, live in days.","a shoot day, a batch of edits, a site, or all three monthly."],
   facts:[["for","local businesses · owner-operators"],["video","on-location ugc · tiktok / reels / ads"],["web","mobile-first · live in days"],["area","southern california, travel on request"]],
-  cta:[{t:"book a shoot",h:"mailto:max@florra.net?subject=studio",c:"solid"},{t:"rebuild my site",h:"mailto:max@florra.net?subject=website"}]},
+  cta:[{t:"book a shoot",h:"mailto:max@florra.net?subject=content",c:"solid"},{t:"rebuild my site",h:"mailto:max@florra.net?subject=website"}]},
  {id:"campaigns",name:"campaigns",tag:"political ugc",status:"taking briefs",one:"voters scroll past ads. they stop for people.",
   body:["we run political ugc the way we run music: real creators, real voices, high volume, a message that travels because it sounds like someone you know.","candidates, causes, pacs, ballot measures. every piece disclosed and cleared before it posts. reporting in plain numbers.","briefs answered same day. if the vote is in six weeks, that matters."],
   facts:[["for","candidates · causes · ballot measures"],["format","creator ugc · tiktok / reels / youtube"],["rules","disclosed · compliant · cleared"],["speed","briefs answered same day"]],
   cta:[{t:"send a brief",h:"mailto:max@florra.net?subject=campaign%20brief",c:"solid"}]},
  {id:"press",name:"press",tag:"we publish books",status:"in print",one:"if we keep explaining it, we write it down.",
-  body:["the publishing arm. short, practical books on how the internet side of the industry actually works.","print and digital, the usual stores, under the florra name.","got a playbook in your head? we publish for partners too."],
-  facts:[["what","books, print and digital"],["subject","the internet side of the industry"],["also","publishing for partners"],["find","the usual stores"]],
+  body:["the publishing arm. short, practical books on how the internet side of the industry actually works.","print and digital, the usual stores, under the florra name.","true crime runs on its own track through redstring: a publishing and promotion network for the genre. we put the books and podcasts out, then market them with the tiktok creators who already live in the cases.","got a playbook in your head? we publish for partners too."],
+  facts:[["what","books, print and digital"],["subject","the internet side of the industry"],["true crime","books and podcasts, via redstring"],["reach","tiktok creator network"],["also","publishing for partners"],["find","the usual stores"]],
   cta:[{t:"ask about press",h:"mailto:max@florra.net?subject=press",c:"solid"}]},
  {id:"cucumbers",name:"cucumbers",tag:"grown at home",status:"first harvest",
   body:["max grows cucumbers. they're good. the internet likes watching things grow, and it likes pickles even more — so this becomes florra's first physical consumer brand: a viral dtc cucumber and pickle company.","the playbook is the one that breaks songs: grow it on camera, jar it in small batches, drop it like merch. scarcity, story, and a label worth keeping.","name, jars, and the first drop are in the works. the garden is literal now."],
@@ -349,7 +349,7 @@ function deco(id){
   else if(id==='bounty-sounds'){for(let i=0;i<14;i++)s+=`<circle cx="${20+i*42}" cy="20" r="${r(4,10)}" fill="none" stroke="currentColor"/>`}
   else if(id==='cleared'){for(let x=8;x<600;x+=34){const h=r(10,30);s+=`<rect x="${x}" y="${36-h}" width="24" height="${h}" fill="currentColor" opacity=".55"/>`}}
   else if(id==='management'){for(let i=1;i<=4;i++)s+=`<path d="M0 ${40-i*7} Q300 ${40-i*7-r(8,22)} 600 ${40-i*7}" fill="none" stroke="currentColor" opacity="${1-i*.18}"/>`}
-  else if(id==='studio'){for(let x=4;x<600;x+=52)s+=`<rect x="${x}" y="8" width="40" height="24" fill="none" stroke="currentColor"/><circle cx="${x+6}" cy="4.5" r="1.6" fill="currentColor"/><circle cx="${x+34}" cy="4.5" r="1.6" fill="currentColor"/><circle cx="${x+6}" cy="35.5" r="1.6" fill="currentColor"/><circle cx="${x+34}" cy="35.5" r="1.6" fill="currentColor"/>`}
+  else if(id==='content'){for(let x=4;x<600;x+=52)s+=`<rect x="${x}" y="8" width="40" height="24" fill="none" stroke="currentColor"/><circle cx="${x+6}" cy="4.5" r="1.6" fill="currentColor"/><circle cx="${x+34}" cy="4.5" r="1.6" fill="currentColor"/><circle cx="${x+6}" cy="35.5" r="1.6" fill="currentColor"/><circle cx="${x+34}" cy="35.5" r="1.6" fill="currentColor"/>`}
   else if(id==='campaigns'){for(let i=0;i<90;i++)s+=`<circle cx="${r(0,600)}" cy="${r(4,36)}" r="${r(1,2.6)}" fill="currentColor" opacity="${r(.25,.9)}"/>`}
   else if(id==='press'){let x=6;while(x<590){const w=r(10,26);s+=`<rect x="${x}" y="${r(2,9)}" width="${w}" height="34" fill="none" stroke="currentColor"/>`;x+=w+5}}
   else if(id==='cucumbers'){for(let i=0;i<11;i++){const x=28+i*54,rr=r(9,15);s+=`<circle cx="${x}" cy="20" r="${rr}" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="${x}" cy="20" r="${rr*.62}" fill="none" stroke="currentColor" opacity=".5"/>`;for(let k=0;k<5;k++){const a=k/5*6.28;s+=`<circle cx="${x+Math.cos(a)*rr*.32}" cy="${20+Math.sin(a)*rr*.32}" r="1.1" fill="currentColor" opacity=".7"/>`}}}
