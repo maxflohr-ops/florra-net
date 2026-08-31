@@ -3,16 +3,26 @@
 the florra website — a WebGL flower where every petal is a door.
 
 one self-contained file: `index.html`. no build step, no dependencies to install.
-three.js loads from cdnjs, IM Fell English from Google Fonts (stand-in until the
-Fable Dust files are added), everything else — images, textures, styles, scripts —
-is inline.
+three.js loads from cdnjs and that is the only external request — Fable Dust is
+embedded as a base64 woff2, and everything else (images, textures, styles,
+scripts) is inline.
 
 ## worlds
 
-ten petals + the greenhouse bud: florra os, florra records, bounty sounds,
-redstring, cleared, management, studio, campaigns, press, cucumbers, greenhouse.
-each world is an entry in the `WORLDS` array in `index.html` — copy, facts,
-buttons, and accent color (`.panel[data-w=...]` CSS) live there.
+fifteen petals + the greenhouse bud. each world is an entry in the `WORLDS` array
+in `index.html` — copy, facts, buttons, and accent color (`.panel[data-w=...]`)
+live there. the `TIER` map right below it decides which ring a world sits on:
+
+- tier 0 — the roster, at the heart beside the f, in a pale pearl texture:
+  ridgeclub, ebril, mckayla
+- tier 1 — the flagships: florra os, redstring, bounty sounds, florra records,
+  management
+- tier 2 — the wider work: bandersnatch, press, content, campaigns, cleared,
+  cucumbers, capsule 01
+- greenhouse has no petal; it is the bud on the stem
+
+decorative petals (a guard skirt + three filler rings) come from `DECO` and are
+not clickable. never put a ring colour multiplier above 1 — three r128 overflows.
 
 ## behavior worth knowing before editing
 
@@ -41,6 +51,9 @@ project-create scope exists. `vercel.json` is ready; deploy is just
 
 ## brand
 
-lowercase always. times new roman body, display face IM Fell English (to be
-replaced by Fable Dust — licensed, file pending from creative market).
+lowercase always. **Fable Dust** (softulka, licensed via Creative Market) is the
+whole type system — display and body — embedded as a base64 woff2 in the
+`@font-face` at the top of the file. Times New Roman is the fallback stack only.
+To swap body copy back to Times, change `--serif` in `:root` and leave
+`--display` alone.
 logo kit lives in `logokit/` (12 marks, svg + png).
