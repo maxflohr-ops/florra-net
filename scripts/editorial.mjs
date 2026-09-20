@@ -3,7 +3,8 @@ const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&g
 export function specimen(id){return `<div class="specimen" data-kind="${category(id)}" aria-hidden="true"><span class="stem-study"></span>${Array.from({length:8},(_,i)=>`<span class="petal-study" style="--i:${i}"></span>`).join('')}<span class="specimen-letter">f</span></div>`;}
 const featured=`<section class="featured"><div class="wrap"><div class="feature-intro"><div><div class="eyebrow">a few things growing here</div><h2>different by nature.</h2></div><p>music, worlds, and the ideas<br>that grow between them.</p></div><div class="feature-grid">${[['management','01','the artists','sound first. always.'],['bandersnatch','02','the worlds','somewhere worth getting lost.'],['content','03','the work','ideas made tangible.']].map(([id,n,title,desc])=>`<a class="feature-card" href="/${id}"><div class="feature-art"><span class="plate-mark">florra / ${n}</span>${specimen(id)}<span class="plate-label">a study in ${category(id)}</span></div><div class="feature-info"><div><h3>${title}</h3><p>${desc}</p></div><span aria-hidden="true">↗</span></div></a>`).join('')}</div></div></section>`;
 export function homeDesign(html,worlds){
- let output=html.replace('</head>','<link rel="stylesheet" href="/assets/editorial.css"></head>')
+ let output=html.replace('<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>','').replace('</head>','<link rel="stylesheet" href="/assets/editorial.css"></head>')
+ .replace('<div id="glwrap"><canvas id="gl"></canvas></div>','<div id="glwrap"><canvas id="gl" hidden></canvas><div class="rose-art"><img class="rose-botanical" src="/assets/rose-botanical.png" alt="A sculptural crimson rose above the California hills" fetchpriority="high" width="1024" height="1536"><div class="rose-targets" role="group" aria-label="Explore projects by picking a rose petal"></div><button class="rose-reset" type="button" hidden>bloom again ↺</button></div></div>')
  .replace('<body>','<body><a class="skip-link" href="#worlds">skip to the worlds</a>')
  .replace('<li><a href="#work">','<li><a href="#worlds">the worlds</a></li><li><a href="#work">')
  .replace('<a href="#contact">contact</a>','<a class="nav-contact" href="#contact">get in touch ↗</a>')
@@ -16,9 +17,10 @@ export function homeDesign(html,worlds){
  .replace('roughness:.6,metalness:.05','roughness:.88,metalness:.01')
  .replace("const amb=new THREE.AmbientLight(0x5a5348,1.5)","const amb=new THREE.AmbientLight(0x827b68,1.25)")
  .replace("const key=new THREE.DirectionalLight(0xfff2dc,1.7)","const key=new THREE.DirectionalLight(0xfff2dc,1.25)")
+ .replace(/let R=null;[\s\S]*?\nfunction tick\(now\)\{/,'let renderFn=null;\nfunction tick(now){')
  .replace('function tick(now){',`let stageVisible=true;new IntersectionObserver(entries=>{stageVisible=entries[0].isIntersecting;}).observe(stage);\nfunction tick(now){\n  if(document.hidden||!stageVisible){requestAnimationFrame(tick);return;}`)
- .replace("document.getElementById('glwrap').style.display='none';",`document.getElementById('glwrap').innerHTML=${JSON.stringify(specimen('management'))};`)
- .replace('</body>','<script defer src="/assets/editorial.js"></script></body>');
+ .replace("document.getElementById('glwrap').style.display='none';","/* Botanical artwork is the renderer-independent fallback. */")
+ .replace('</body>','<script defer src="/assets/rose.js"></script><script defer src="/assets/editorial.js"></script></body>');
  worlds.forEach((w,i)=>{output=output.replace(`<a href="/${w.id}"><span class="nm">`,`<a href="/${w.id}" data-category="${category(w.id)}"><span class="row-index">${String(i+1).padStart(2,'0')}</span><span class="nm">`);output=output.replace(`<span class="st">${escape(w.status)}</span></a>`,`<span class="st">${escape(w.status)}</span><span class="row-arrow" aria-hidden="true">↗</span></a>`);});
  return output;
 }

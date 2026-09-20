@@ -29,6 +29,7 @@ for(const file of files){
  if(file!=='index.html') assert(html.includes('<dl>')&&html.includes('class="copy"'));
 }
 new vm.Script(await readFile('public/assets/editorial.js','utf8'));
+new vm.Script(await readFile('public/assets/rose.js','utf8'));
 const home=await readFile('public/index.html','utf8');
 assert.equal((home.match(/class="nm"/g)||[]).length,18);
 assert(!home.includes('list.appendChild'));

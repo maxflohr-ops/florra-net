@@ -12,7 +12,7 @@ The source was synchronized with production deployment `dpl_AAp6p5oP6NrF55MUoFdo
 
 ## Design system
 
-`scripts/editorial.mjs` creates the editorial homepage and brand layouts. `assets/editorial.css` controls the shared paper, forest-green and terracotta palette, typography, floral studies and responsive layouts. `assets/editorial.js` handles directory filters and accessible panel focus. The original interactive flower remains, with a static fallback and offscreen rendering paused.
+`scripts/editorial.mjs` creates the editorial homepage and brand layouts. `assets/editorial.css` controls the shared paper, forest-green and terracotta palette, typography, floral studies and responsive layouts. `assets/editorial.js` handles directory filters and accessible panel focus. The hero uses generated botanical rose artwork with independently animated petals, accessible project targets and reduced-motion support in `assets/rose.js`. The build omits the legacy WebGL renderer.
 
 ## Search Console
 
