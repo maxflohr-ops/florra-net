@@ -463,7 +463,7 @@ function petalGeo(L,W,cup,bend){
       const x=e*w*.5;
       const y=v*L;
       const z=cup*e*e*w*.28-bend*v*v*L*.25+Math.sin(v*Math.PI)*L*.14
-        +Math.sin(u*3*Math.PI+v*7)*Math.sin(v*Math.PI)*.035;
+        +Math.sin(u*3*Math.PI+v*7)*Math.sin(v*Math.PI)*.035+e*Math.pow(v,3)*.22;
       pos.push(x,y,z);uv.push(u,v);
       const c=new THREE.Color().setHSL(.985+v*.025,.86-v*.07,.065+.10*v+.015*Math.abs(e));
       colors.push(c.r,c.g,c.b);
@@ -534,18 +534,18 @@ DOORRINGS.forEach(R=>{
 });
 /* --- decoration rings: skirt behind, filler between the door tiers --- */
 const DECO=[
-  {key:'s',n:14,g:[4.9,3.35,.45,.55],z:-.62,open:.04,glow:.09,spin:-.019,amp:.055,tilt:.05,dark:.55},
-  {key:'f1',n:13,g:[3.95,2.8,.55,.36],z: .08,open:.40,glow:.20,spin:-.038,amp:.048,tilt:.07,dark:.85},
-  {key:'f2',n:11,g:[2.95,2.25,.65,.28],z: .58,open:.80,glow:.28,spin: .066,amp:.040,tilt:.09,dark:1.0},
-  {key:'f3',n: 9,g:[1.95,1.65,.75,.20],z: .80,open:1.10,glow:.40,spin:-.088,amp:.034,tilt:.11,dark:1.0}
+  {key:'s',n:9,g:[4.7,3.8,.55,.40],z:-.62,open:.04,glow:.09,spin:-.019,amp:.055,tilt:.05,dark:.55},
+  {key:'f1',n:8,g:[3.8,3.2,.72,.30],z: .08,open:.40,glow:.20,spin:-.038,amp:.048,tilt:.07,dark:.85},
+  {key:'f2',n:7,g:[2.8,2.6,.88,.22],z: .58,open:.80,glow:.28,spin: .066,amp:.040,tilt:.09,dark:1.0},
+  {key:'f3',n: 5,g:[1.9,2.0,1.05,.18],z: .80,open:1.10,glow:.40,spin:-.088,amp:.034,tilt:.11,dark:1.0}
 ];
 DECO.forEach((R,ri)=>{
   const geo=petalGeo(R.g[0],R.g[1],R.g[2],R.g[3]);
   const mat=petalMat(roseT,R.glow);mat.color.setScalar(R.dark);
   const grp=mkRing(R.key,R.z,R.spin,mat);
   for(let i=0;i<R.n;i++){
-    const hold=new THREE.Group();hold.rotation.z=(i+.5)*2*Math.PI/R.n;grp.add(hold);
-    const m=new THREE.Mesh(geo,mat);m.rotation.y=(Math.random()-.5)*R.tilt*2;hold.add(m);
+    const hold=new THREE.Group();hold.rotation.z=(i+.5)*2*Math.PI/R.n+ri*2.399;grp.add(hold);
+    const m=new THREE.Mesh(geo,mat);m.rotation.y=.22+Math.sin(i*2.399)*.12;hold.add(m);
     petals.push({m,door:false,ring:'x'+ri,ph:Math.random()*6.28,sp:.45+Math.random()*.55,
       d:(ri===0?.06:.30+ri*.14)+i*.03,hot:0,open:R.open,amp:R.amp,
       ang:(i+.5)*2*Math.PI/R.n,idx:i});
@@ -591,7 +591,7 @@ function pick(e){
   const r=cv.getBoundingClientRect();
   ptr.x=((e.clientX-r.left)/r.width)*2-1;ptr.y=-((e.clientY-r.top)/r.height)*2+1;
   ray.setFromCamera(ptr,cam);
-  const hits=ray.intersectObjects([core,bud,...petals.filter(p=>p.door).map(p=>p.m)]);
+  const hits=ray.intersectObjects([core,bud,...petals.filter(p=>p.door&&p.m.visible).map(p=>p.m)]);
   return hits[0]||null;
 }
 cv.addEventListener('pointermove',e=>{
@@ -602,16 +602,46 @@ cv.addEventListener('pointermove',e=>{
 });
 const camTarget=new THREE.Vector3(0,0,15);
 window.__resetCam=()=>camTarget.set(0,0,15);
-cv.addEventListener('click',e=>{
+let flight=null,gesture=null,pluckCount=0;
+cv.style.touchAction='none';cv.tabIndex=-1;cv.setAttribute('aria-label','Interactive rose. Pick a petal or use the world directory below.');
+function pluck(world,dx=0,dy=0){
+  if(flight)return;
+  const p=petals.find(p=>p.door&&p.m.userData.world===world);
+  if(!p||reduce){if(p)p.m.visible=false;open(world);return;}
+  // Preserve the exact world-space pose as the petal leaves its stem.
+  scene.updateMatrixWorld(true);
+  const m=p.m.clone();m.visible=true;
+  p.m.matrixWorld.decompose(m.position,m.quaternion,m.scale);scene.add(m);
+  const start=m.position.clone(),scale=m.scale.clone(),q=m.quaternion.clone();
+  p.m.visible=false;pluckCount++;
+  const distance=Math.hypot(dx,dy),flick=distance>22;
+  const direction=flick?Math.atan2(-dy,dx):(-.65+(pluckCount%3)*.55);
+  flight={m,start,scale,q,world,at:performance.now(),direction,
+    power:flick?Math.min(1.7,1+distance/220):1,sign:dx<0?-1:1};
+  hint.textContent='a world in every petal';setLabel(-1);
+}
+window.__pluckProject=world=>{
+  if(flight)return;
+  if(reduce){pluck(world);return;}
+  document.body.dataset.plucking="true";close(false);cv.focus({preventScroll:true});stage.scrollIntoView({behavior:'instant',block:'start'});pluck(world);
+};
+cv.addEventListener('pointerdown',e=>{
+  if(flight||e.button>0)return;
   const h=pick(e);if(!h)return;
-  if(h.object===core){openTarget=!openTarget;toggleAt=(performance.now()-t0)/1000;if(TOD==='night')hint.classList.add('gone');return}
-  if(h.object===bud){open(10);return}
-  const w=h.object.userData.world;
-  if(w!=null&&openTarget){
-    const tp=new THREE.Vector3();h.object.getWorldPosition(tp);
-    camTarget.set(tp.x*.32,tp.y*.32,11.6);
-    setTimeout(()=>open(w),380);
+  gesture={object:h.object,x:e.clientX,y:e.clientY};cv.setPointerCapture(e.pointerId);
+});
+cv.addEventListener('pointercancel',()=>{gesture=null;});
+cv.addEventListener('pointerup',e=>{
+  const g=gesture;gesture=null;if(!g||flight)return;
+  if(cv.hasPointerCapture(e.pointerId))cv.releasePointerCapture(e.pointerId);
+  if(g.object===core){
+    const picked=petals.some(p=>p.door&&!p.m.visible);
+    if(picked){petals.forEach(p=>p.m.visible=true);openTarget=true;hint.textContent='pick a petal. flick to explore.';}
+    else openTarget=!openTarget;
+    toggleAt=(performance.now()-t0)/1000;return;
   }
+  if(g.object===bud){open(10);return;}
+  if(openTarget)pluck(g.object.userData.world,e.clientX-g.x,e.clientY-g.y);
 });
 
 function fit(){
@@ -664,6 +694,21 @@ renderFn=function(t){
   for(const k in ringGroups){const rg=ringGroups[k];if(!rg.mat)continue;
     if(rg.base==null)rg.base=rg.mat.emissiveIntensity;
     rg.mat.emissiveIntensity=rg.base*(reduce?1:1+Math.sin(t*.55+rg.seed)*.16);}
+  if(flight){
+    const f=flight,u=Math.min(1,(performance.now()-f.at)/1150);
+    // A slow pluck towards the lens, then an accelerating throw beyond the frame.
+    const pull=Math.min(1,u/.48),ease=1-Math.pow(1-pull,3);
+    const toss=Math.max(0,(u-.48)/.52),arc=toss*toss;
+    f.m.position.copy(f.start);
+    f.m.position.z+=ease*5.2-arc*2;
+    f.m.position.x+=Math.sin(pull*Math.PI)*.35+Math.cos(f.direction)*arc*18*f.power;
+    f.m.position.y+=ease*.25+Math.sin(f.direction)*arc*13*f.power-arc*arc*5;
+    f.m.quaternion.copy(f.q);f.m.rotateY(ease*.45+arc*3.8*f.sign);f.m.rotateZ(arc*2.4*f.sign);
+    f.m.scale.copy(f.scale).multiplyScalar(1+ease*.12-toss*.22);
+    B.rotation.z=Math.sin(u*Math.PI*4)*(1-u)*.035;
+    if(u===1){scene.remove(f.m);flight=null;delete document.body.dataset.plucking;B.rotation.z=0;
+      hint.textContent='pick another petal · tap f to bloom again';open(f.world);}
+  }
   R.render(scene,cam);
 };
 }
@@ -722,8 +767,8 @@ function open(i,push=true){
 }
 function close(push=true){panel.classList.remove('open');document.body.style.overflow='';cur=-1;if(window.__resetCam)window.__resetCam();if(push)history.pushState({},'',location.pathname)}
 document.getElementById('closeBtn').addEventListener('click',()=>close());
-document.getElementById('prevBtn').addEventListener('click',()=>open((cur+N-1)%N));
-document.getElementById('nextBtn').addEventListener('click',()=>open((cur+1)%N));
+document.getElementById('prevBtn').addEventListener('click',()=>window.__pluckProject?window.__pluckProject((cur+N-1)%N):open((cur+N-1)%N));
+document.getElementById('nextBtn').addEventListener('click',()=>window.__pluckProject?window.__pluckProject((cur+1)%N):open((cur+1)%N));
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur>-1)close()});
 panel.addEventListener('click',e=>{if(e.target.closest('a[href^="#"]'))close()});
 function route(){const i=WORLDS.findIndex(w=>w.id===location.hash.slice(1));if(i>-1)open(i,false);else if(cur>-1)close(false)}

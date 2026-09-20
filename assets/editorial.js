@@ -15,7 +15,7 @@ if(dialog){
  const observer=new MutationObserver(()=>{
   const opened=dialog.classList.contains('open');
   surface.forEach(el=>el.inert=opened);
-  if(!opened&&document.activeElement&&dialog.contains(document.activeElement)) document.querySelector('a[href="#worlds"]')?.focus({preventScroll:true});
+  if(!opened&&document.activeElement&&dialog.contains(document.activeElement)) document.querySelector(document.body.dataset.plucking?'#gl':'a[href="#worlds"]')?.focus({preventScroll:true});
  });
  observer.observe(dialog,{attributes:true,attributeFilter:['class']});
  if(dialog.classList.contains('open')) surface.forEach(el=>el.inert=true);

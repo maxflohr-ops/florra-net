@@ -7,7 +7,7 @@ export function homeDesign(html,worlds){
  .replace('<body>','<body><a class="skip-link" href="#worlds">skip to the worlds</a>')
  .replace('<li><a href="#work">','<li><a href="#worlds">the worlds</a></li><li><a href="#work">')
  .replace('<a href="#contact">contact</a>','<a class="nav-contact" href="#contact">get in touch ↗</a>')
- .replace('<div class="hint" id="hint">pick a petal</div>',`<div class="hero-word" aria-hidden="true">florra</div><div class="hero-number" aria-hidden="true">independent by nature — southern california</div><div class="hero-caption"><p class="micro">music · culture · possibility</p><p>be different<br>to be better.</p></div><a class="hero-index" href="#worlds">explore the garden ↓</a><div class="hint" id="hint">pick a petal. find a world.</div>`)
+ .replace('<div class="hint" id="hint">pick a petal</div>',`<div class="hero-word" aria-hidden="true">florra</div><div class="hero-number" aria-hidden="true">independent by nature — southern california</div><div class="hero-caption"><p class="micro">music · culture · possibility</p><p>be different<br>to be better.</p></div><a class="hero-index" href="#worlds">explore the garden ↓</a><div class="hint" id="hint">pick a petal. flick to explore.</div>`)
  .replace('<section id="worlds">',featured+'<section id="worlds">')
  .replace('<div class="eyebrow reveal">florra, from flower</div>',`<div class="section-kicker"><span>the florra index</span><span>17 worlds. one ecosystem.</span></div><div class="section-heading"><div><div class="eyebrow">florra, from flower</div>`)
  .replace(/(<h1[^>]*>one stem\. many worlds\.<\/h1>)/,'$1</div>')
