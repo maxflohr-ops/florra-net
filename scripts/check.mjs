@@ -30,6 +30,7 @@ for(const file of files){
 }
 new vm.Script(await readFile('public/assets/editorial.js','utf8'));
 new vm.Script(await readFile('public/assets/rose.js','utf8'));
+new vm.Script(await readFile('public/assets/enchanted-rose.js','utf8'));
 new vm.Script(await readFile('public/assets/scroll-motion.js','utf8'));
 const home=await readFile('public/index.html','utf8');
 assert.equal((home.match(/class="nm"/g)||[]).length,17);
