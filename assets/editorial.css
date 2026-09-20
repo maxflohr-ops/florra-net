@@ -20,3 +20,5 @@ body.chapter{background:var(--paper);color:var(--forest);font:19px/1.65 var(--re
 .stage .vignette{background:linear-gradient(180deg,rgba(16,28,19,.54),rgba(21,32,22,.05) 32%,rgba(18,29,18,.08) 52%,rgba(13,25,16,.84) 100%)}
 .stage .hero-word{opacity:.09}.stage .hero-number{color:#e4e5d6}.stage .hero-caption,.stage .hero-index,.stage .hint{text-shadow:0 1px 12px #101c13}
 @media(max-width:760px){.stage .bg{background-position:46% center}.stage .hero-word{opacity:.12}}
+
+.consultant .chapter-plate{background:#5b3027}.consultant-monogram{min-height:360px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Fable Dust',Georgia,serif;font-size:clamp(130px,19vw,270px);line-height:1;color:#e8dac0;letter-spacing:-.08em}.consultant-monogram span{font:10px/1.5 Arial,sans-serif;letter-spacing:.14em;margin-top:30px}.consultant .consultant-work{margin:0;padding:70px max(5vw,24px);border-top:1px solid #26382b30;background:#e3dfd2}.consultant-work h2{font-size:clamp(38px,5vw,65px);margin:20px 0}.consultant-work p{font:18px/1.6 Georgia,serif;color:#59604f}.consultant .chapter-heading .intro{max-width:18ch}

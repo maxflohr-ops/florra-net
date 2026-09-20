@@ -6,6 +6,7 @@ const source=await readFile('index.html','utf8');
 const worlds=vm.runInNewContext(source.match(/const WORLDS=(\[[\s\S]*?\n\]);/)[1],{}, {timeout:1000});
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const metadata={
+ 'bruce-flohr':['Bruce Flohr — Brand Consultant | Florra','Brand consulting with Bruce Flohr. Explore his page on Florra and enquire about working together.'],
  'florra-os':['florra os — ai operations for creative teams','Explore Florra OS: agent-run research, CRM, outreach and reporting supporting Florra’s music, media and creative projects. Partner access by invitation.'],
  'florra-records':['florra records — independent label & music promotion','Florra Records signs individual songs and supports releases with creator seeding, clip campaigns and the Florra network. Send a song or explore promotion.'],
  'bounty-sounds':['bounty sounds — music clip bounties | florra','Bounty Sounds connects artists, labels and clippers through funded sound bounties and verified views. Explore Florra’s pre-launch music promotion platform.'],
