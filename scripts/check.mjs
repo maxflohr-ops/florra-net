@@ -5,7 +5,7 @@ const origin='https://www.florra.net';
 const files=(await readdir('public')).filter(p=>p.endsWith('.html')&&p!=='404.html');
 const titles=new Set(),descriptions=new Set();
 const sitemap=await readFile('public/sitemap.xml','utf8');
-assert.equal(files.length,19);
+assert.equal(files.length,18);
 for(const file of files){
  const html=await readFile('public/'+file,'utf8');
  const path=file==='index.html'?'/':'/'+file.replace('.html','');
@@ -31,8 +31,8 @@ for(const file of files){
 new vm.Script(await readFile('public/assets/editorial.js','utf8'));
 new vm.Script(await readFile('public/assets/rose.js','utf8'));
 const home=await readFile('public/index.html','utf8');
-assert.equal((home.match(/class="nm"/g)||[]).length,18);
+assert.equal((home.match(/class="nm"/g)||[]).length,17);
 assert(!home.includes('list.appendChild'));
 assert((await readFile('public/greenhouse.html','utf8')).includes('nothing here is an offer of securities'));
 assert((await readFile('public/robots.txt','utf8')).includes(origin+'/sitemap.xml'));
-console.log('19 pages checked: unique metadata, canonical URLs, sitemap, schema, headings, scripts, local links and brand content.');
+console.log('18 pages checked: unique metadata, canonical URLs, sitemap, schema, headings, scripts, local links and brand content.');
