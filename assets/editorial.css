@@ -50,6 +50,8 @@ body.chapter{background:var(--paper);color:var(--forest);font:19px/1.65 var(--re
 .enchanted-ready .bloom-project-target{pointer-events:auto;touch-action:none}.enchanted-ready .bloom-project-target:disabled{pointer-events:none}
 @media(max-width:760px){.bloom-invitation{bottom:22%}.enchanted-ready .rose-reset{bottom:14%;left:auto;right:5vw;transform:none}.stage .hero-caption{bottom:12%}}
 /* Every interaction belongs to the garden: an invitation, a specimen note, a trail. */
+body>nav{pointer-events:none}body>nav a{pointer-events:auto}
+.enchanted-ready .rose-botanical{mask-image:linear-gradient(to bottom,transparent 46%,#000 57%)}
 .enchanted-ready .rose-botanical{transform:translateX(-50%) rotate(var(--stem-sway,0deg));transform-origin:50% 90%}.bloom-invitation{bottom:18%;font-size:18px;transition:opacity .35s,translate .35s}.bloom-invitation span{color:#e1d3b2}.stage .label{display:none}.stage .hint{bottom:4%;font-size:9px;color:#d4d7bb}.stage .hero-caption,.stage .hero-index{bottom:9%}.enchanted-ready .rose-reset{bottom:3%;left:4.5vw;transform:none;border:none;background:transparent;padding:8px 0;color:#d1d3bd}
 .petal-preview{position:absolute;z-index:5;right:5vw;top:39%;width:min(23vw,270px);pointer-events:none;opacity:0;translate:0 12px;transition:opacity .3s,translate .45s;color:#f1e8d6;text-shadow:0 2px 20px #132314}.petal-preview.on{opacity:1;translate:0 0}.petal-preview:before{content:'';display:block;width:40px;height:1px;background:#d6bb7b;margin-bottom:20px}.petal-preview>span{font:8px/1.6 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#d8c89f;display:block}.petal-preview strong{display:block;font:clamp(26px,3.1vw,44px)/1.07 'Fable Dust',Georgia,serif;font-weight:400;margin:14px 0}.petal-preview p{font:14px/1.6 Georgia,serif;max-width:26ch;color:#e1e0cd}
 .garden-trail{position:absolute;bottom:9%;left:50%;transform:translateX(-50%);z-index:5;text-align:center;width:max-content;max-width:90vw}.garden-progress{font:9px/1.5 Arial,sans-serif;letter-spacing:.12em;color:#c4cdb1;margin:0 0 12px}.garden-trail-links{display:flex;justify-content:center;gap:2px}.garden-trail-link{position:relative;display:grid;place-items:center;width:24px;height:28px;font:8px Arial,sans-serif;color:#b5bea2;transition:color .25s,background .25s;border-radius:50%}.garden-trail-link:after{content:'';position:absolute;bottom:0;width:3px;height:3px;border-radius:50%;background:#a4ac8f66;transition:background .3s,box-shadow .3s}.garden-trail-link:hover,.garden-trail-link:focus-visible{background:#e7d09815;color:#f3e4bf}.garden-trail-link.is-discovered{color:#f4d79d}.garden-trail-link.is-discovered:after{background:#edc982;box-shadow:0 0 9px #f3bc5db0}.garden-trail-link[aria-current]{outline:1px solid #e8d49c66;outline-offset:1px}.garden-panel-note{font:9px/1.5 Arial,sans-serif;letter-spacing:.13em;color:#a9ba98;margin:0 0 26px;padding-bottom:18px;border-bottom:1px solid #d8ddbf22}.panel .close{border:0;color:#e8e5cf}.panel .inner{position:relative;z-index:1}.panel:before{content:'';position:fixed;right:-8vw;top:12vh;width:37vw;height:70vh;background:url('/assets/rose-botanical.png') center/contain no-repeat;opacity:.07;transform:rotate(-18deg);pointer-events:none}.bloom-heart-button:after{content:'';position:absolute;inset:-8px;border:1px solid #d7b87b30;border-radius:50%;pointer-events:none;animation:garden-heart 4s ease-in-out infinite}.is-picking .bloom-heart-button:after{animation:none;opacity:0}@keyframes garden-heart{0%,100%{transform:scale(.92);opacity:.2}50%{transform:scale(1.13);opacity:.75}}
@@ -58,3 +60,45 @@ body.chapter{background:var(--paper);color:var(--forest);font:19px/1.65 var(--re
 @media(prefers-reduced-motion:reduce){.bloom-heart-button:after{animation:none;opacity:.3}.petal-preview,.bloom-invitation{transition:none}.enchanted-ready .rose-botanical{transform:translateX(-50%)}}
 .garden-trail .garden-trail-links{position:static;inset:auto;padding:0;width:auto;background:none;border:0;backdrop-filter:none;z-index:auto}.garden-trail-link{flex-shrink:0;font-size:9px}#worldList>a.is-discovered .row-index{color:#a24c35}#worldList>a.is-discovered .row-index:after{content:' ·';color:#a24c35}
 .panel .close{background:transparent;border-bottom:1px solid #d6dec444;padding:12px 0}.panel .close:hover{color:#f5cf8b;background:transparent;border-color:#f5cf8b88}@media(max-width:760px){.stage .hero-index{bottom:7%}}
+
+/* The rose leads; the invitation and the visitor's trail follow. */
+.stage .bg{filter:saturate(.84) brightness(.79)!important}
+.stage .vignette{background:radial-gradient(ellipse at 50% 40%,transparent 24%,#17301b33 65%,#1028198c 100%),linear-gradient(180deg,#1328195c,transparent 36%,#152b1933 64%,#102519c2)}
+.stage .hero-number{display:none}
+.stage .hero-caption{bottom:15%;max-width:170px}
+.stage .hero-caption .micro{display:none}
+.stage .hero-caption p{font-size:17px;line-height:1.4;color:#d3ddc9}
+.stage .hero-index{left:4.5vw;right:auto;bottom:4.5%;font-size:10px;letter-spacing:.08em;padding-bottom:7px;color:#e4e8d7}
+.stage .bloom-invitation{bottom:19%;font-size:22px;line-height:1.35;color:#f2ead9}
+.stage .bloom-invitation span{font-size:8px;letter-spacing:.19em;color:#c3cdae;margin-bottom:10px}
+.stage .hint{visibility:hidden;opacity:0;bottom:6%;left:50%;transform:translateX(-50%);font-size:9px;letter-spacing:.08em;pointer-events:none}
+.stage:has(.rose-art.is-dragging) .hint,.stage:has(.rose-art.is-picking) .hint{visibility:visible;opacity:.85}
+.enchanted-ready .rose-reset{left:50%;right:auto;bottom:1%;transform:translateX(-50%);font-size:9px;letter-spacing:.08em;color:#d2dcc4;padding:10px 12px}
+.garden-trail{bottom:11%;width:min(355px,88vw);max-width:88vw}
+.garden-trail[hidden]{display:none}
+.garden-trail summary{display:flex;align-items:center;justify-content:center;gap:12px;min-height:32px;list-style:none;cursor:pointer;color:#c5d0b5}
+.garden-trail summary::-webkit-details-marker{display:none}
+.garden-trail summary:focus-visible{outline:1px solid #efd59b;outline-offset:6px;border-radius:3px}
+.garden-trail summary:hover{color:#f1e1bc}
+.garden-trail summary .garden-progress{font:9px/1.5 Arial,sans-serif;letter-spacing:.03em;color:inherit;margin:0}
+.garden-trail-toggle{font:9px/1.5 Arial,sans-serif;letter-spacing:.03em;border-bottom:1px solid #c5d0b54d;padding-bottom:2px}
+.garden-trail-toggle:after{content:' +';color:#d9c494}
+.garden-trail[open] .garden-trail-toggle:after{content:' −'}
+.garden-trail:not([open]) .garden-trail-links{display:none}
+.garden-trail[open] .garden-trail-links{display:grid;grid-template-columns:repeat(9,1fr);gap:6px 2px;width:100%;max-width:none;box-sizing:border-box;margin:12px 0 0;padding:13px;background:#172c20ed;border:1px solid #d6ddb326;border-radius:6px;box-shadow:0 12px 25px #0e21192b}
+.garden-trail .garden-trail-link{width:100%;min-width:0;height:32px;font-size:10px}
+.stage:has(.garden-trail[open]) .bloom-invitation{opacity:0}
+@media(max-width:760px){
+ .stage .bloom-invitation{bottom:22%;width:88vw;font-size:21px}
+ .stage .bloom-invitation span{font-size:8px;margin-bottom:8px}
+ .stage .hero-caption{display:none}
+ .stage .hero-index{left:5vw;right:auto;bottom:4.5%;font-size:10px}
+ .stage .hint{bottom:11%;left:50%;font-size:8px;width:80vw;text-align:center}
+ .garden-trail{bottom:15%;width:min(330px,88vw)}
+ .garden-trail summary{gap:10px}
+ .garden-trail summary .garden-progress,.garden-trail-toggle{font-size:9px}
+ .garden-trail[open] .garden-trail-links{padding:10px;gap:6px 1px}
+ .garden-trail .garden-trail-link{height:34px;font-size:10px}
+ .enchanted-ready .rose-reset{left:50%;right:auto;bottom:0;transform:translateX(-50%);font-size:9px}
+ .petal-preview{bottom:22%}
+}

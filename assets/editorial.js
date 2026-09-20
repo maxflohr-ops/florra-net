@@ -43,21 +43,26 @@ if(dialog){
  let discovered=new Set();
  try{const saved=JSON.parse(sessionStorage.getItem(storageKey)||'[]');if(Array.isArray(saved))discovered=new Set(saved.filter(id=>known.has(id)));}catch{}
  const ids=()=>worlds.filter(world=>discovered.has(world.id)).map(world=>world.id);
- const progress=document.createElement('p');progress.className='garden-progress';progress.setAttribute('role','status');progress.setAttribute('aria-live','polite');progress.setAttribute('aria-atomic','true');
+ const progress=document.createElement('span');progress.className='garden-progress';progress.setAttribute('role','status');progress.setAttribute('aria-live','polite');progress.setAttribute('aria-atomic','true');
  const trailLinks=[];
+ let trail;
  if(stage){
-  const trail=document.createElement('div');trail.className='garden-trail';
+  trail=document.createElement('details');trail.className='garden-trail';trail.hidden=true;
+  const summary=document.createElement('summary');
+  const toggle=document.createElement('span');toggle.className='garden-trail-toggle';toggle.textContent='view trail';
+  summary.append(progress,toggle);
+  trail.addEventListener('toggle',()=>{toggle.textContent=trail.open?'close trail':'view trail';});
   const links=document.createElement('nav');links.className='garden-trail-links';links.setAttribute('aria-label','Explore the garden projects');
   worlds.forEach((world,index)=>{
    const link=document.createElement('a');link.className='garden-trail-link';link.href='/'+world.id;link.dataset.worldId=world.id;link.textContent=String(index+1).padStart(2,'0');link.title=world.name;
    link.addEventListener('click',event=>{
     if(event.defaultPrevented||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
     if(!document.querySelector('.rose-art.enchanted-ready')||typeof window.__pluckProject!=='function')return;
-    event.preventDefault();window.__pluckProject(index);
+    event.preventDefault();trail.open=false;window.__pluckProject(index);
    });
    links.append(link);trailLinks.push({link,world,index});
   });
-  trail.append(progress,links);stage.append(trail);
+  trail.append(summary,links);stage.append(trail);
  }
  let note;
  if(dialog){
@@ -67,6 +72,13 @@ if(dialog){
  }
  function render(){
   progress.textContent=`${discovered.size} of ${worlds.length} worlds discovered`;
+  if(trail){
+   if(!discovered.size){
+    if(trail.contains(document.activeElement))(document.querySelector('.bloom-heart-button:not(:disabled)')||document.querySelector('.hero-index'))?.focus({preventScroll:true});
+    trail.open=false;
+   }
+   trail.hidden=discovered.size===0;
+  }
   trailLinks.forEach(({link,world,index})=>{
    const visited=discovered.has(world.id);link.classList.toggle('is-discovered',visited);
    link.setAttribute('aria-label',`${String(index+1).padStart(2,'0')} — ${world.name}${visited?' — discovered':''}`);
