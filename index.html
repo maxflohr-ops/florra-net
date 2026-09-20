@@ -439,6 +439,7 @@ if(!R){document.getElementById('glwrap').style.display='none';}
 let renderFn=null;
 if(R){
 R.setPixelRatio(Math.min(devicePixelRatio,2));
+R.outputEncoding=THREE.sRGBEncoding;R.toneMapping=THREE.ACESFilmicToneMapping;R.toneMappingExposure=1.12;
 const scene=new THREE.Scene();
 const cam=new THREE.PerspectiveCamera(42,1,.1,100);cam.position.set(0,0,15);
 const amb=new THREE.AmbientLight(0x5a5348,1.5);scene.add(amb);
@@ -449,34 +450,39 @@ if(TOD==='dusk'){key.color.set(0xffc890);key.intensity=1.5;amb.intensity=1.2;}
 if(TOD==='night'){key.color.set(0xa9c0e8);key.intensity=.75;amb.color.set(0x2a3448);amb.intensity=1.0;red.intensity=.25;rim.intensity=.9;rim.color.set(0x33507a);}
 
 const loader=new THREE.TextureLoader();
-const roseT=loader.load(ROSE,()=>{petals.forEach(p=>{if(p.roster||p.leaf)return;const mm=p.m.material.map;mm.image=roseT.image;mm.needsUpdate=true;});});
-const leafT=loader.load(LEAF,()=>{petals.forEach(p=>{if(p.leaf){const mm=p.m.material.map;mm.image=leafT.image;mm.needsUpdate=true;}});});
+const roseT=loader.load(ROSE,()=>{petals.forEach(p=>{if(p.roster||p.leaf)return;const mm=p.m.material.map;if(mm){mm.image=roseT.image;mm.needsUpdate=true;}});});
+const leafT=loader.load(LEAF,()=>{petals.forEach(p=>{if(p.leaf){const mm=p.m.material.map;if(mm){mm.image=leafT.image;mm.needsUpdate=true;}}});});
 
+/* Rounded, cupped surfaces with a quiet satin finish instead of a photograph
+   repeated across sharp blades. Vertex colour gives each petal its own depth. */
 function petalGeo(L,W,cup,bend){
-  const su=20,sv=28,pos=[],uv=[],idx=[];
+  const su=28,sv=36,pos=[],uv=[],colors=[],idx=[];
   for(let j=0;j<=sv;j++){const v=j/sv;
-    const w=W*Math.pow(Math.sin(Math.PI*Math.pow(v,.92)),.85)+.02;
-    for(let i=0;i<=su;i++){const u=i/su;
-      const x=(u-.5)*w;
+    const w=W*Math.pow(Math.sin(Math.PI*v),.48)*(.65+.35*v)+.012;
+    for(let i=0;i<=su;i++){const u=i/su,e=(u-.5)*2;
+      const x=e*w*.5;
       const y=v*L;
-      const z=cup*Math.pow(Math.abs(u-.5)*2,1.6)*w*.9 - bend*v*v*L*.5 + Math.sin(v*Math.PI)*bend*L*.12;
+      const z=cup*e*e*w*.28-bend*v*v*L*.25+Math.sin(v*Math.PI)*L*.14
+        +Math.sin(u*3*Math.PI+v*7)*Math.sin(v*Math.PI)*.035;
       pos.push(x,y,z);uv.push(u,v);
+      const c=new THREE.Color().setHSL(.985+v*.025,.86-v*.07,.065+.10*v+.015*Math.abs(e));
+      colors.push(c.r,c.g,c.b);
     }}
   for(let j=0;j<sv;j++)for(let i=0;i<su;i++){
-    const a=j*(su+1)+i,b=a+su+1;
-    idx.push(a,b,a+1,b,b+1,a+1);
+    const a=j*(su+1)+i,b=a+su+1;idx.push(a,a+1,b,b,a+1,b+1);
   }
   const g=new THREE.BufferGeometry();
   g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));
   g.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));
+  g.setAttribute('color',new THREE.Float32BufferAttribute(colors,3));
   g.setIndex(idx);g.computeVertexNormals();return g;
 }
 function petalMat(tex,glow){
-  const t=tex.clone();t.needsUpdate=true;
-  t.wrapS=t.wrapT=THREE.MirroredRepeatWrapping;
-  t.repeat.set(.55,.85);t.offset.set(Math.random()*.4,Math.random()*.15);
-  t.center.set(.5,.5);t.rotation=(Math.random()-.5)*.8;
-  return new THREE.MeshStandardMaterial({map:t,bumpMap:t,bumpScale:.04,roughness:.6,metalness:.05,side:THREE.DoubleSide,emissive:new THREE.Color(0x2a0c08),emissiveIntensity:glow});
+  const botanical=tex===roseT;
+  return new THREE.MeshPhysicalMaterial({map:null,vertexColors:botanical,
+    color:botanical?0xd98c84:(tex===leafT?0x29482b:0x9f5349),roughness:.72,metalness:0,
+    clearcoat:.08,clearcoatRoughness:.8,side:THREE.DoubleSide,
+    emissive:new THREE.Color(0x260509),emissiveIntensity:glow*.08});
 }
 const G=new THREE.Group();scene.add(G);
 const B=new THREE.Group();B.position.y=.8;G.add(B);
@@ -505,9 +511,9 @@ function mkRing(key,z,spin,mat){const g=new THREE.Group();g.position.z=z;B.add(g
 
 /* --- door rings --- */
 const DOORRINGS=[
-  {tier:2,geo:[4.9,2.20,.86,.56],z:-.18,open:.20,glow:0,spin: .052,amp:.048,key:'d2'},
-  {tier:1,geo:[3.6,1.72,1.04,.42],z: .34,open:.60,glow:0,spin:-.070,amp:.042,key:'d1'},
-  {tier:0,geo:[2.15,1.42,1.02,.24],z: .74,open:.80,glow:0,spin: .095,amp:.030,key:'d0'}
+  {tier:2,geo:[4.5,3.15,.55,.40],z:-.18,open:.20,glow:0,spin: .052,amp:.048,key:'d2'},
+  {tier:1,geo:[3.5,2.7,.65,.32],z: .34,open:.60,glow:0,spin:-.070,amp:.042,key:'d1'},
+  {tier:0,geo:[2.15,1.85,.72,.22],z: .74,open:.80,glow:0,spin: .095,amp:.030,key:'d0'}
 ];
 DOORRINGS.forEach(R=>{
   const list=tierOf(R.tier), n=list.length;
@@ -522,16 +528,16 @@ DOORRINGS.forEach(R=>{
                  m.material.roughness=.62;m.material.bumpScale=.02;}
     m.userData.world=d.i;hold.add(m);
     petals.push({m,door:true,ring:R.tier,leaf:isLeaf,roster:isRoster,
-      hb:isRoster?.15:(.10+HEAT[d.i]*.3),ph:Math.random()*6.28,sp:.5+Math.random()*.5,
+      hb:isRoster?.15:(.025+HEAT[d.i]*.06),ph:Math.random()*6.28,sp:.5+Math.random()*.5,
       d:(2-R.tier)*.20+k*.07,hot:0,open:R.open,amp:R.amp,ang:k*2*Math.PI/n,idx:k});
   });
 });
 /* --- decoration rings: skirt behind, filler between the door tiers --- */
 const DECO=[
-  {key:'s',n:14,g:[5.4,2.35,.60,.84],z:-.62,open:.04,glow:.09,spin:-.019,amp:.055,tilt:.05,dark:.55},
-  {key:'f1',n:13,g:[4.1,1.95,.98,.48],z: .08,open:.40,glow:.20,spin:-.038,amp:.048,tilt:.07,dark:.85},
-  {key:'f2',n:11,g:[3.0,1.48,1.22,.36],z: .58,open:.80,glow:.28,spin: .066,amp:.040,tilt:.09,dark:1.0},
-  {key:'f3',n: 9,g:[2.0,1.05,1.44,.26],z: .80,open:1.10,glow:.40,spin:-.088,amp:.034,tilt:.11,dark:1.0}
+  {key:'s',n:14,g:[4.9,3.35,.45,.55],z:-.62,open:.04,glow:.09,spin:-.019,amp:.055,tilt:.05,dark:.55},
+  {key:'f1',n:13,g:[3.95,2.8,.55,.36],z: .08,open:.40,glow:.20,spin:-.038,amp:.048,tilt:.07,dark:.85},
+  {key:'f2',n:11,g:[2.95,2.25,.65,.28],z: .58,open:.80,glow:.28,spin: .066,amp:.040,tilt:.09,dark:1.0},
+  {key:'f3',n: 9,g:[1.95,1.65,.75,.20],z: .80,open:1.10,glow:.40,spin:-.088,amp:.034,tilt:.11,dark:1.0}
 ];
 DECO.forEach((R,ri)=>{
   const geo=petalGeo(R.g[0],R.g[1],R.g[2],R.g[3]);
@@ -545,8 +551,8 @@ DECO.forEach((R,ri)=>{
       ang:(i+.5)*2*Math.PI/R.n,idx:i});
   }
 });
-const core=new THREE.Mesh(new THREE.SphereGeometry(.92,32,24),new THREE.MeshStandardMaterial({color:0x190a0d,roughness:.5}));
-core.position.z=1.34;B.add(core);
+const core=new THREE.Mesh(new THREE.SphereGeometry(.62,40,28),new THREE.MeshStandardMaterial({color:0x190a0d,roughness:.94}));
+core.position.z=2.05;B.add(core);
 const cnv=document.createElement('canvas');cnv.width=cnv.height=128;
 const cx2=cnv.getContext('2d');
 const fTex=new THREE.CanvasTexture(cnv);
@@ -554,7 +560,7 @@ function drawF(fam){cx2.clearRect(0,0,128,128);cx2.font='84px '+fam;cx2.fillStyl
 drawF('"Fable Dust", Times New Roman, serif');
 if(document.fonts&&document.fonts.load)document.fonts.load('84px "Fable Dust"').then(()=>drawF('"Fable Dust", Times New Roman, serif')).catch(()=>{});
 const fS=new THREE.Sprite(new THREE.SpriteMaterial({map:fTex,transparent:true}));
-fS.scale.set(1.05,1.05,1);fS.position.z=2.34;B.add(fS);
+fS.scale.set(1.05,1.05,1);fS.position.z=2.72;B.add(fS);
 
 const v3=(x,y,z)=>new THREE.Vector3(x,y,z);
 const sc=new THREE.CatmullRomCurve3([v3(-.2,-11,-1.6),v3(.55,-6.5,-1),v3(-.4,-3,-.4),v3(.05,.6,-.05)]);
@@ -564,7 +570,7 @@ const STEMIDX=stem.geometry.index.count;
 G.add(stem);
 const leaves=[];
 [[.42,1,-.45],[.62,-1,.5]].forEach(([tt,side,rz],k)=>{
-  const lf=new THREE.Mesh(petalGeo(2.7,1.5,.5,.9),new THREE.MeshStandardMaterial({map:leafT,bumpMap:leafT,bumpScale:.03,roughness:.9,metalness:0,side:THREE.DoubleSide,color:0x8fae8f}));
+  const lf=new THREE.Mesh(petalGeo(2.7,1.5,.5,.9),new THREE.MeshStandardMaterial({roughness:.94,metalness:0,side:THREE.DoubleSide,color:0x29482b}));
   const p=sc.getPoint(tt);lf.position.copy(p);
   lf.rotation.z=side>0?-1.9:1.9;lf.rotation.x=rz;lf.rotation.y=side*.5;
   lf.scale.setScalar(.001);
@@ -628,9 +634,9 @@ renderFn=function(t){
   cam.position.y+=(camTarget.y-cam.position.y)*.07;
   cam.position.z+=(camTarget.z-cam.position.z)*.07;
   bud.material.emissiveIntensity=.22+Math.sin(t*1.7)*.12;
-  G.rotation.y=mx*.34;G.rotation.x=-my*.24;
+  G.rotation.y=mx*.18+Math.sin(t*.22)*.025;G.rotation.x=-my*.12;
   /* every ring turns at its own rate and direction — the bloom shimmers instead of spinning */
-  if(!reduce)for(const k in ringGroups)ringGroups[k].g.rotation.z=t*ringGroups[k].spin;
+  if(!reduce)for(const k in ringGroups)ringGroups[k].g.rotation.z=Math.sin(t*.13+ringGroups[k].seed)*.035;
   /* slow breath, and a wandering gust that crosses the flower by angle */
   const breath=reduce?1:1+Math.sin(t*.42)*.012;
   B.scale.setScalar(breath);
@@ -652,7 +658,7 @@ renderFn=function(t){
     p.m.rotation.x=1.42-(1.42-p.open)*Math.max(b,0)+sway+p.rc-p.hot*.10;
     p.m.rotation.z=reduce?0:Math.sin(t*p.sp*.7+p.ph*1.7)*p.amp*.5;
     p.m.scale.setScalar(Math.max(.02,b)*(1+p.hot*.07));
-    if(p.door)p.m.material.emissiveIntensity=(p.hb||.14)+p.hot*(p.roster?1.15:.9);
+    if(p.door)p.m.material.emissiveIntensity=(p.hb||.14)+p.hot*(p.roster?.28:.22);
   });
   /* deco rings glow as a unit — one write per ring, not per petal */
   for(const k in ringGroups){const rg=ringGroups[k];if(!rg.mat)continue;
