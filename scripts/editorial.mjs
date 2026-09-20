@@ -22,13 +22,13 @@ export function homeDesign(html,worlds){
  .replace('function tick(now){',`let stageVisible=true;new IntersectionObserver(entries=>{stageVisible=entries[0].isIntersecting;}).observe(stage);\nfunction tick(now){\n  if(document.hidden||!stageVisible){requestAnimationFrame(tick);return;}`)
  .replace("document.getElementById('glwrap').style.display='none';","/* Botanical artwork is the renderer-independent fallback. */")
  .replace('</body>','<script defer src="/assets/scroll-motion.js"></script><script defer src="/assets/vendor/three.min.js"></script><script defer src="/assets/enchanted-rose.js"></script><script defer src="/assets/editorial.js"></script></body>');
- worlds.forEach((w,i)=>{output=output.replace(`<a href="/${w.id}"><span class="nm">`,`<a href="/${w.id}" data-category="${category(w.id)}"><span class="row-index">${String(i+1).padStart(2,'0')}</span><span class="nm">`);output=output.replace(`<span class="st">${escape(w.status)}</span></a>`,`<span class="st">${escape(w.status)}</span><span class="row-arrow" aria-hidden="true">↗</span></a>`);});
+ worlds.forEach((w,i)=>{output=output.replace(`<a href="/${w.id}"><span class="nm">`,`<a href="/${w.id}" data-world-id="${escape(w.id)}" data-category="${category(w.id)}"><span class="row-index">${String(i+1).padStart(2,'0')}</span><span class="nm">`);output=output.replace(`<span class="st">${escape(w.status)}</span></a>`,`<span class="st">${escape(w.status)}</span><span class="row-arrow" aria-hidden="true">↗</span></a>`);});
  return output;
 }
 export function chapterDesign(html,w,index){
  let page=html.replace('</head>','<link rel="stylesheet" href="/assets/editorial.css"></head>')
  .replace("if(TOD==='night')hint.textContent='tap the f to wake the flower';",'')
- .replace('<body>','<body class="chapter"><a class="skip-link" href="#chapter-content">skip to content</a>')
+ .replace('<body>',`<body class="chapter" data-world-id="${escape(w.id)}" data-world-index="${index}"><a class="skip-link" href="#chapter-content">skip to content</a>`)
  .replace('<main>','<main><div class="chapter-hero"><div class="chapter-heading">')
  .replace('<div class="copy">',`${w.one?`<p class="intro">${escape(w.one)}</p>`:''}</div><div class="chapter-plate"><div class="plate-top"><span>florra / ${String(index+1).padStart(2,'0')}</span><span>${category(w.id)}</span></div>${specimen(w.id)}<div class="plate-bottom"><span>independent by nature</span><span>↗</span></div></div></div><div class="chapter-content" id="chapter-content"><div class="copy">`)
  .replace(/(<div class="copy">)<p class="intro">[\s\S]*?<\/p>/,'$1')
@@ -36,10 +36,10 @@ export function chapterDesign(html,w,index){
  .replace('<p><a href="/#','<p class="garden-link"><a href="/#')
  .replace('</main>','</aside></div></main>');
  if(w.id==='bruce-flohr'){
-  page=page.replace('<body class="chapter">','<body class="chapter consultant">')
+  page=page.replace('<body class="chapter"','<body class="chapter consultant"')
    .replace('<h1>bruce flohr</h1>','<h1>Bruce Flohr</h1>')
    .replace(specimen(w.id),'<div class="consultant-monogram" aria-hidden="true">bf<span>perspective shapes possibility.</span></div>')
    .replace('</main>','<section class="consultant-work" aria-labelledby="case-studies-title"><div class="eyebrow">selected work</div><h2 id="case-studies-title">Case studies</h2><p>A closer look at the work. Coming soon.</p></section></main>');
  }
- return page.replace('</body>','<script defer src="/assets/scroll-motion.js"></script></body>');
+ return page.replace('</body>','<script defer src="/assets/scroll-motion.js"></script><script defer src="/assets/editorial.js"></script></body>');
 }
