@@ -1,5 +1,6 @@
 import {readFile,writeFile,mkdir,copyFile,rm} from 'node:fs/promises';
 import vm from 'node:vm';
+import {homeDesign,chapterDesign} from './editorial.mjs';
 const origin='https://www.florra.net';
 const source=await readFile('index.html','utf8');
 const worlds=vm.runInNewContext(source.match(/const WORLDS=(\[[\s\S]*?\n\]);/)[1],{}, {timeout:1000});
@@ -31,6 +32,9 @@ const jsonld=nodes=>`<script type="application/ld+json">${JSON.stringify({'@cont
 const head=(title,description,path)=>`<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(title)}</title><meta name="description" content="${esc(description)}"><link rel="canonical" href="${origin}${path}"><meta property="og:type" content="website"><meta property="og:site_name" content="florra"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${origin}${path}"><meta property="og:image" content="${origin}/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="florra — be different to be better"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(title)}"><meta name="twitter:description" content="${esc(description)}"><meta name="twitter:image" content="${origin}/og.jpg"><link rel="icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">`;
 await rm('public',{recursive:true,force:true});await mkdir('public/assets',{recursive:true});
 for(const file of ['og.jpg','apple-touch-icon.png']) await copyFile('assets/'+file,'public/'+file);
+for(const file of ['editorial.css','editorial.js']) await copyFile('assets/'+file,'public/assets/'+file);
+const roseData=source.match(/const ROSE="data:image\/jpeg;base64,([^"]+)/)[1];
+await writeFile('public/assets/rose-texture.jpg',Buffer.from(roseData,'base64'));
 const font=source.match(/@font-face\s*\{[\s\S]*?\}/)[0];
 await writeFile('public/assets/brand.css',font+`\n*{box-sizing:border-box}body{margin:0;background:#0e100e;color:#eee9dc;font-family:'Fable Dust',Georgia,serif;font-size:20px;line-height:1.6}a{color:inherit;text-underline-offset:5px}a:focus-visible{outline:2px solid #c9e8b0;outline-offset:7px}header,main,footer{max-width:1000px;margin:auto;padding:28px clamp(22px,6vw,80px)}header{display:flex;justify-content:space-between;gap:24px;border-bottom:1px solid #ffffff29}header a{text-decoration:none}main{padding-top:70px;padding-bottom:70px}h1{font-size:clamp(46px,9vw,100px);line-height:1.05;font-weight:400;margin:20px 0 32px;overflow-wrap:anywhere}h2{font-size:32px;font-weight:400}.eyebrow{font-size:14px;letter-spacing:.12em;color:#bdc6b5}.intro{font-size:clamp(24px,4vw,36px);line-height:1.35}.copy{max-width:700px}dl{border-top:1px solid #ffffff29;margin:42px 0}dl div{display:grid;grid-template-columns:100px 1fr;gap:20px;padding:15px 0;border-bottom:1px solid #ffffff29}dt{color:#bdc6b5}dd{margin:0}.actions{display:flex;flex-wrap:wrap;gap:14px}.actions a{padding:12px 20px;border:1px solid #b3bba9;border-radius:3px;text-decoration:none}.actions a:hover{background:#252d24}footer{border-top:1px solid #ffffff29;font-size:16px}footer nav{display:flex;flex-wrap:wrap;gap:12px 24px;margin:20px 0}.breadcrumb{font-size:15px} @media(max-width:500px){dl div{grid-template-columns:1fr;gap:2px}.actions a{width:100%}}`);
 let home=source.replace(/<title>[\s\S]*?<\/title>/,`<title>${homeTitle}</title>`)
@@ -45,7 +49,7 @@ let home=source.replace(/<title>[\s\S]*?<\/title>/,`<title>${homeTitle}</title>`
  .replace(/WORLDS\.forEach\(\(w,i\)=>\{const b=document.createElement\('button'\);[^\n]+/,'// Brand links are rendered at build time; the flower still opens interactive panels.')
  .replace("document.getElementById('pCta').innerHTML=w.cta.map", "document.getElementById('pCta').innerHTML=[{t:'explore '+w.name,h:'/'+w.id},...w.cta].map")
  .replace('</head>',jsonld([organization,website])+'<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript></head>');
-await writeFile('public/index.html',home);
+await writeFile('public/index.html',homeDesign(home,worlds));
 for(const w of worlds){
  const [title,description]=metadata[w.id];const path='/'+w.id;
  const page={'@type':'WebPage','@id':origin+path+'#webpage',url:origin+path,name:title,description,isPartOf:{'@id':website['@id']},publisher:{'@id':organization['@id']}};
@@ -53,7 +57,7 @@ for(const w of worlds){
  const href=h=>h.startsWith('#')?'/'+h:h;
  const analytics=source.match(/<!-- Google tag[\s\S]*?<\/script>[\s\S]*?<\/script>/)?.[0]||'';
  const html=`<!doctype html><html lang="en"><head>${head(title,description,path)}<meta name="theme-color" content="#0e100e"><link rel="stylesheet" href="/assets/brand.css">${jsonld([organization,website,page,breadcrumbs])}${analytics}</head><body><header><a href="/">florra</a><a href="/#contact">work with us ↗</a></header><main><nav class="breadcrumb" aria-label="breadcrumb"><a href="/">florra</a> / ${esc(w.name)}</nav><p class="eyebrow">${esc(w.tag)} · ${esc(w.status)}</p><h1>${esc(w.name)}</h1><div class="copy">${w.one?`<p class="intro">${esc(w.one)}</p>`:''}${w.body.map(p=>`<p>${esc(p)}</p>`).join('')}</div><dl>${w.facts.map(([k,v])=>`<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl><div class="actions">${w.cta.map(c=>`<a href="${esc(href(c.h))}"${c.x?' target="_blank" rel="noopener"':''}>${esc(c.t)}</a>`).join('')}</div><p><a href="/#${w.id}">see ${esc(w.name)} in the garden →</a></p></main><footer><h2>more from florra</h2><nav aria-label="florra worlds">${worlds.filter(o=>o.id!==w.id).map(o=>`<a href="/${o.id}">${esc(o.name)}</a>`).join('')}</nav><p><a href="mailto:max@florra.net">max@florra.net</a> · florra llc</p></footer></body></html>`;
- await writeFile('public/'+w.id+'.html',html);
+ await writeFile('public/'+w.id+'.html',chapterDesign(html,w,worlds.indexOf(w)));
 }
 await writeFile('public/robots.txt',`User-agent: *\nAllow: /\n\nSitemap: ${origin}/sitemap.xml\n`);
 await writeFile('public/sitemap.xml',`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${['',...worlds.map(w=>w.id)].map(id=>`<url><loc>${origin}/${id}</loc></url>`).join('\n')}\n</urlset>\n`);
