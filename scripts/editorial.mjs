@@ -20,7 +20,7 @@ export function homeDesign(html,worlds){
  .replace(/let R=null;[\s\S]*?\nfunction tick\(now\)\{/,'let renderFn=null;\nfunction tick(now){')
  .replace('function tick(now){',`let stageVisible=true;new IntersectionObserver(entries=>{stageVisible=entries[0].isIntersecting;}).observe(stage);\nfunction tick(now){\n  if(document.hidden||!stageVisible){requestAnimationFrame(tick);return;}`)
  .replace("document.getElementById('glwrap').style.display='none';","/* Botanical artwork is the renderer-independent fallback. */")
- .replace('</body>','<script defer src="/assets/rose.js"></script><script defer src="/assets/editorial.js"></script></body>');
+ .replace('</body>','<script defer src="/assets/scroll-motion.js"></script><script defer src="/assets/rose.js"></script><script defer src="/assets/editorial.js"></script></body>');
  worlds.forEach((w,i)=>{output=output.replace(`<a href="/${w.id}"><span class="nm">`,`<a href="/${w.id}" data-category="${category(w.id)}"><span class="row-index">${String(i+1).padStart(2,'0')}</span><span class="nm">`);output=output.replace(`<span class="st">${escape(w.status)}</span></a>`,`<span class="st">${escape(w.status)}</span><span class="row-arrow" aria-hidden="true">↗</span></a>`);});
  return output;
 }
@@ -39,5 +39,5 @@ export function chapterDesign(html,w,index){
    .replace(specimen(w.id),'<div class="consultant-monogram" aria-hidden="true">bf<span>perspective shapes possibility.</span></div>')
    .replace('</main>','<section class="consultant-work" aria-labelledby="case-studies-title"><div class="eyebrow">selected work</div><h2 id="case-studies-title">Case studies</h2><p>A closer look at the work. Coming soon.</p></section></main>');
  }
- return page;
+ return page.replace('</body>','<script defer src="/assets/scroll-motion.js"></script></body>');
 }
