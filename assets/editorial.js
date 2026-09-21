@@ -11,7 +11,7 @@ filters.forEach(button=>button.addEventListener('click',()=>{
 }));
 const dialog=document.querySelector('#panel');
 if(dialog){
- const surface=[...document.body.children].filter(el=>el!==dialog&&!['SCRIPT','STYLE'].includes(el.tagName));
+ const surface=[...document.body.children].filter(el=>el!==dialog&&!['SCRIPT','STYLE'].includes(el.tagName)&&!el.matches('#snd,.soundtrack-credit,.soundtrack-status'));
  const observer=new MutationObserver(()=>{
   const opened=dialog.classList.contains('open');
   surface.forEach(el=>el.inert=opened);

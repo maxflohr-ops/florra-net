@@ -102,3 +102,8 @@ body>nav{pointer-events:none}body>nav a{pointer-events:auto}
  .enchanted-ready .rose-reset{left:50%;right:auto;bottom:0;transform:translateX(-50%);font-size:9px}
  .petal-preview{bottom:22%}
 }
+
+/* A quiet credit above the opt-in sound control. */
+.soundtrack-credit{position:fixed;right:22px;bottom:66px;z-index:60;max-width:calc(100vw - 44px);margin:0;font:9px/1.5 Arial,sans-serif;letter-spacing:.035em;color:#d8dec8;text-align:right;text-shadow:0 1px 7px #13251b;pointer-events:none}
+.soundtrack-credit[hidden],#florra-soundtrack[hidden]{display:none}
+.soundtrack-status{position:fixed;width:1px;height:1px;margin:-1px;padding:0;border:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}

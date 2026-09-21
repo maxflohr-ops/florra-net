@@ -26,13 +26,22 @@ for(const file of files){
   const filePath=href==='/'?'index.html':href.slice(1)+(href.includes('.')?'':'.html');
   await access('public/'+filePath);
  }
- if(file!=='index.html') assert(html.includes('<dl>')&&html.includes('class="copy"'));
+ if(file!=='index.html'){
+  assert(html.includes('<dl>')&&html.includes('class="copy"'));
+  assert(!html.includes('/assets/soundtrack.js'),'soundtrack belongs only on the homepage');
+ }
 }
 new vm.Script(await readFile('public/assets/editorial.js','utf8'));
 new vm.Script(await readFile('public/assets/rose.js','utf8'));
 new vm.Script(await readFile('public/assets/enchanted-rose.js','utf8'));
 new vm.Script(await readFile('public/assets/scroll-motion.js','utf8'));
+new vm.Script(await readFile('public/assets/soundtrack.js','utf8'));
 const home=await readFile('public/index.html','utf8');
+assert(home.includes('src="/assets/soundtrack.js"'));
+assert(!/AudioContext|createOscillator|createBufferSource|const PENTA/.test(home),'synthesized audio must not overlay the song');
+const soundtrack=await readFile('public/assets/audio/biting-bullets.m4a');
+assert(soundtrack.length>1000&&soundtrack.toString('ascii',4,8)==='ftyp','soundtrack must be a packaged MP4 audio asset');
+await import('./soundtrack-check.mjs');
 assert.equal((home.match(/class="nm"/g)||[]).length,16);
 assert(!files.includes('capsule-01.html'));
 assert(!sitemap.includes('/capsule-01'));
