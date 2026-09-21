@@ -16,6 +16,8 @@ The source was synchronized with production deployment `dpl_AAp6p5oP6NrF55MUoFdo
 
 `scripts/editorial.mjs` creates the editorial homepage and brand layouts. `assets/editorial.css` controls the shared paper, forest-green and terracotta palette, typography, floral studies and responsive layouts. `assets/editorial.js` handles directory filters and accessible panel focus. The hero combines botanical image textures with an articulated WebGL flower in `assets/enchanted-rose.js`. The local Three.js runtime and license are in `assets/vendor/`. It includes accessible project controls, reduced-motion support, loading fallbacks, and pauses offscreen or behind a project panel. The build removes the obsolete inline renderer and background animation loop.
 
+The interface uses collection and chapter language, with a small encounter note and a persistent visitor trail. Project controls pair readable serif labels with drawn arrows; opening or changing a project triggers a short, cancellable entrance sequence. Reduced-motion preferences keep the text immediately still.
+
 ## Soundtrack
 
 The homepage sound button plays Ridgeclub's “Biting Bullets,” sourced from the user's Google Drive audio file. `assets/audio/biting-bullets.m4a` is the full 149.54-second stereo track, encoded as optimized AAC for browser playback. The original WAV is not published. Playback is opt-in and the audio file is loaded only after the sound button is pressed. `assets/soundtrack.js` owns playback, fades, pause/resume and the now-playing credit.

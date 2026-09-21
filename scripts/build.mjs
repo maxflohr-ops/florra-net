@@ -21,7 +21,7 @@ const metadata={
  cited:['cited — ai search visibility services | florra','Cited by Florra helps businesses improve AI search visibility through structured data, readable site content, answer-ready pages and citation tracking.'],
  ridgeclub:['ridgeclub — artist roster & management | florra','Meet Ridgeclub, the saxophone project by Abhi on Florra’s artist roster. Explore the music, artist website and Florra’s management work.'],
  ebril:['ebril — artist roster & management | florra','Meet Ebril, Huda Al-Hamami’s Iraqi-Canadian music project on Florra’s artist roster. Explore the artist’s music, website and management.'],
- mckayla:['mckayla maroney — music & artist management | florra','Explore Mckayla Maroney’s music project on Florra’s artist roster, listen to her songs and discover her work on the Bandersnatch world.']
+ mckayla:['mckayla maroney — music, books & brand | florra','Explore McKayla Maroney’s music, livestream, books and brand work with Florra, including creative collaborations and commercial partnerships.']
 };
 const homeTitle='florra — artist management, records & creative campaigns';
 const homeDescription='Florra connects music, creator campaigns and independent brands. Explore artist management, record releases, UGC video, publishing and creative tools.';
@@ -45,12 +45,11 @@ let home=source.replace(/<title>[\s\S]*?<\/title>/,`<title>${homeTitle}</title>`
  .replace(/<meta (property="og:title"|name="twitter:title") content="[^"]*">/g,`<meta $1 content="${homeTitle}">`)
  .replace(/<meta (property="og:description"|name="twitter:description") content="[^"]*">/g,`<meta $1 content="${homeDescription}">`)
  .replaceAll('https://florra.net','https://www.florra.net')
- .replace('one stem. nine petals.','one stem. many worlds.')
  .replace('<h2 class="reveal">one stem. many worlds.</h2>','<h1 class="reveal" style="font:inherit;font-size:clamp(38px,5.5vw,70px);line-height:1.05;margin:0">one stem. many worlds.</h1>')
  .replace('<div class="list reveal" id="worldList"></div>',`<div class="list" id="worldList">${worlds.map(w=>`<a href="/${w.id}"><span class="nm">${esc(w.name)}</span><span class="st">${esc(w.status)}</span></a>`).join('\n')}</div>`)
  .replace('.list button{','.list > a{').replace('.list button:hover','.list > a:hover')
  .replace(/WORLDS\.forEach\(\(w,i\)=>\{const b=document.createElement\('button'\);[^\n]+/,'// Brand links are rendered at build time; the flower still opens interactive panels.')
- .replace("document.getElementById('pCta').innerHTML=w.cta.map", "document.getElementById('pCta').innerHTML=[{t:'explore '+w.name,h:'/'+w.id},...w.cta].map")
+ .replace("document.getElementById('pCta').innerHTML=w.cta.map", "document.getElementById('pCta').innerHTML=[{t:'take a closer look ↗',h:'/'+w.id},...w.cta].map")
  .replace('</head>',jsonld([organization,website])+'<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript></head>');
 await writeFile('public/index.html',homeDesign(home,worlds));
 for(const w of worlds){
@@ -59,10 +58,10 @@ for(const w of worlds){
  const breadcrumbs={'@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'florra',item:origin+'/'},{'@type':'ListItem',position:2,name:w.name,item:origin+path}]};
  const href=h=>h.startsWith('#')?'/'+h:h;
  const analytics=source.match(/<!-- Google tag[\s\S]*?<\/script>[\s\S]*?<\/script>/)?.[0]||'';
- const html=`<!doctype html><html lang="en"><head>${head(title,description,path)}<meta name="theme-color" content="#0e100e"><link rel="stylesheet" href="/assets/brand.css">${jsonld([organization,website,page,breadcrumbs])}${analytics}</head><body><header><a href="/">florra</a><a href="/#contact">work with us ↗</a></header><main><nav class="breadcrumb" aria-label="breadcrumb"><a href="/">florra</a> / ${esc(w.name)}</nav><p class="eyebrow">${esc(w.tag)} · ${esc(w.status)}</p><h1>${esc(w.name)}</h1><div class="copy">${w.one?`<p class="intro">${esc(w.one)}</p>`:''}${w.body.map(p=>`<p>${esc(p)}</p>`).join('')}</div><dl>${w.facts.map(([k,v])=>`<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl><div class="actions">${w.cta.map(c=>`<a href="${esc(href(c.h))}"${c.x?' target="_blank" rel="noopener"':''}>${esc(c.t)}</a>`).join('')}</div><p><a href="/#${w.id}">see ${esc(w.name)} in the garden →</a></p></main><footer><h2>more from florra</h2><nav aria-label="florra worlds">${worlds.filter(o=>o.id!==w.id).map(o=>`<a href="/${o.id}">${esc(o.name)}</a>`).join('')}</nav><p><a href="mailto:max@florra.net">max@florra.net</a> · florra llc</p></footer></body></html>`;
+ const html=`<!doctype html><html lang="en"><head>${head(title,description,path)}<meta name="theme-color" content="#0e100e"><link rel="stylesheet" href="/assets/brand.css">${jsonld([organization,website,page,breadcrumbs])}${analytics}</head><body><header><a href="/">florra</a><a href="/#contact">work with us ↗</a></header><main><nav class="breadcrumb" aria-label="breadcrumb"><a href="/">florra</a> / ${esc(w.name)}</nav><p class="eyebrow">${esc(w.tag)} · ${esc(w.status)}</p><h1>${esc(w.name)}</h1><div class="copy">${w.one?`<p class="intro">${esc(w.one)}</p>`:''}${w.body.map(p=>`<p>${esc(p)}</p>`).join('')}</div><dl>${w.facts.map(([k,v])=>`<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl><div class="actions">${w.cta.map(c=>`<a href="${esc(href(c.h))}"${c.x?' target="_blank" rel="noopener"':''}>${esc(c.t)}</a>`).join('')}</div><p><a href="/#${w.id}">view ${esc(w.name)} in the collection →</a></p></main><footer><h2>elsewhere in the collection.</h2><nav aria-label="florra worlds">${worlds.filter(o=>o.id!==w.id).map(o=>`<a href="/${o.id}">${esc(o.name)}</a>`).join('')}</nav><p><a href="mailto:max@florra.net">max@florra.net</a> · florra llc</p></footer></body></html>`;
  await writeFile('public/'+w.id+'.html',chapterDesign(html,w,worlds.indexOf(w)));
 }
 await writeFile('public/robots.txt',`User-agent: *\nAllow: /\n\nSitemap: ${origin}/sitemap.xml\n`);
 await writeFile('public/sitemap.xml',`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${['',...worlds.map(w=>w.id)].map(id=>`<url><loc>${origin}/${id}</loc></url>`).join('\n')}\n</urlset>\n`);
-await writeFile('public/404.html',`<!doctype html><html lang="en"><head>${head('page not found | florra','This Florra page could not be found.','/404')}<meta name="robots" content="noindex"><link rel="stylesheet" href="/assets/brand.css"></head><body><main><h1>this path ends here.</h1><p><a href="/">return to florra →</a></p></main></body></html>`);
+await writeFile('public/404.html',`<!doctype html><html lang="en"><head>${head('page not found | florra','This Florra page could not be found.','/404')}<meta name="robots" content="noindex"><link rel="stylesheet" href="/assets/brand.css"></head><body><main><h1>this path ends here.</h1><p><a href="/">back to the bloom →</a></p></main></body></html>`);
 console.log(`Built homepage and ${worlds.length} brand pages.`);

@@ -7,11 +7,11 @@
  let ready=false,failed=false;let renderer,raf=0,last=0,visible=true,flight=null,gesture=null,hover=null,turn=0,bloom=0,age=0,awakened=false,activeTime=0;
  let recoil=0,recoilVelocity=0,openingPulse=false;const sparks=[],distantBlooms=[];
  const coreButton=document.createElement('button');coreButton.type='button';coreButton.className='bloom-heart-button';coreButton.textContent='f';coreButton.setAttribute('aria-label','Wake the flower');art.append(coreButton);coreButton.disabled=true;
- const caption=document.createElement('p');caption.className='bloom-invitation';caption.innerHTML='<span>independent by nature</span>pick a petal to explore.';stage.append(caption);
+ const caption=document.createElement('p');caption.className='bloom-invitation';caption.innerHTML='<span>independent by nature</span>pick a petal.<br>see what unfolds.';stage.append(caption);
  const preview=document.createElement('div');preview.className='petal-preview';preview.setAttribute('aria-hidden','true');
  const previewKind=document.createElement('span'),previewName=document.createElement('strong'),previewCopy=document.createElement('p');preview.append(previewKind,previewName,previewCopy);stage.append(preview);
- hint.textContent='drag a petal to pick it';
- function fallback(){failed=true;ready=false;coreButton.disabled=false;art.classList.add('bloom-fallback');coreButton.setAttribute('aria-label','Explore the Florra worlds');coreButton.onclick=()=>document.querySelector('#worlds').scrollIntoView({behavior:pref.matches?'instant':'smooth'});caption.innerHTML='<span>a living garden</span>explore the worlds below.';}
+ hint.textContent='drag a petal. let it go.';
+ function fallback(){failed=true;ready=false;coreButton.disabled=false;art.classList.add('bloom-fallback');coreButton.setAttribute('aria-label','Explore the Florra collection');coreButton.onclick=()=>document.querySelector('#worlds').scrollIntoView({behavior:pref.matches?'instant':'smooth'});caption.innerHTML='<span>independent by nature</span>find your next beginning.<br>explore the collection below.';}
  if(!T){fallback();return;}
  const cv=document.createElement('canvas');cv.className='enchanted-canvas';cv.setAttribute('aria-hidden','true');
  try{renderer=new T.WebGLRenderer({canvas:cv,alpha:true,antialias:true,powerPreference:'high-performance'});}catch{fallback();return;}
@@ -52,7 +52,7 @@
   }
  }
  function name(p){if(p?.world==null)return;const w=WORLDS[p.world];label.textContent=w.name;
-  previewKind.textContent='world '+String(p.world+1).padStart(2,'0')+' / '+w.tag;previewName.textContent=w.name;previewCopy.textContent=w.one||w.status;
+  previewKind.textContent='chapter '+String(p.world+1).padStart(2,'0')+' · '+w.tag;previewName.textContent=w.name;previewCopy.textContent=w.one||w.status;
   preview.classList.add('on');stage.classList.add('petal-hovered');}
  function hoverPetal(p){if(hover===p)return;hover=p;if(p){name(p);if(typeof pluck==='function')pluck(p.world);}else{preview.classList.remove('on');stage.classList.remove('petal-hovered');label.classList.remove('on');}resume();}
  function syncGarden(){
@@ -82,7 +82,7 @@
   });
   reset.hidden=visited.size===0;reset.disabled=!!flight;
   if(remaining.length)coreButton.setAttribute('aria-label',visited.size?'Bloom again':awakened?'Let the flower rest':'Wake the flower');
-  if(!remaining.length){hint.textContent='you explored the garden. bloom again.';coreButton.setAttribute('aria-label','Bloom again');}
+  if(!remaining.length){hint.textContent='every story, found. let it bloom again.';coreButton.setAttribute('aria-label','Bloom again');}
  }
  function ensureProject(index){
   let p=projectPetals.find(p=>p.world===index&&!p.removed);if(p)return p;
@@ -97,14 +97,14 @@
   const velocity=Math.hypot(vx,vy);
   flight={mesh:clone,start:clone.position.clone(),quaternion:clone.quaternion.clone(),scale:clone.scale.clone(),p,index,time:0,dx,dy,duration:clamp(1.08-velocity*.12,.76,1.08),
    angle:velocity>.35?Math.atan2(-vy,vx):Math.hypot(dx,dy)>24?Math.atan2(-dy,dx):.65+(turn%3)*.3};
-  p.removed=true;p.mesh.visible=false;reset.disabled=true;turn++;hoverPetal(null);hint.textContent='a world in every petal';coreButton.disabled=true;
+  p.removed=true;p.mesh.visible=false;reset.disabled=true;turn++;hoverPetal(null);hint.textContent='a story takes flight.';coreButton.disabled=true;
   recoilVelocity=-2.2;releasePollen(clone.position,24);art.classList.add('is-picking');
   if(typeof pluck==='function')pluck(index);resume();
  }
  function finishFlight(){
   const f=flight;if(!f)return;scene.remove(f.mesh);f.mesh.geometry.dispose();flight=null;coreButton.disabled=false;reset.disabled=false;art.classList.remove('is-picking');discovered(f.index);
   updateControls();delete document.body.dataset.plucking;
-  hint.textContent=visited.size===WORLDS.length?'you explored the garden. bloom again.':'pick another petal. discover another world.';
+  hint.textContent=visited.size===WORLDS.length?'every story, found. let it bloom again.':'another petal. another beginning.';
   open(f.index);
  }
  // A newer route always wins over a petal that is still in flight.
@@ -114,7 +114,7 @@
   if(pointerId!==undefined)for(const target of [cv,...buttons.map(({b})=>b)]){if(target.hasPointerCapture(pointerId))target.releasePointerCapture(pointerId);}
   if(flight){scene.remove(flight.mesh);flight.mesh.geometry.dispose();flight.p.removed=false;flight=null;}
   art.classList.remove('is-picking','is-dragging');delete document.body.dataset.plucking;coreButton.disabled=false;reset.disabled=false;hoverPetal(null);
-  if(ready){updateControls();hint.textContent='drag a petal to pick it';resume();}
+  if(ready){updateControls();hint.textContent='drag a petal. let it go.';resume();}
  }
  addEventListener('popstate',cancelInteraction);addEventListener('hashchange',cancelInteraction);
  function pick(e){
@@ -134,7 +134,7 @@
   hold(p,e,cv);
  });
  cv.addEventListener('pointerup',e=>release(e,cv));cv.addEventListener('pointercancel',cancelPull);
- function rebloom(){if(flight)return;hoverPetal(null);visited.clear();projectPetals.forEach(p=>{p.world=null;p.removed=true;});age=0;bloom=0;openingPulse=false;sparks.length=0;awakened=true;window.FlorraGarden?.reset();updateControls();hint.textContent='drag a petal to pick it';resume();}
+ function rebloom(){if(flight)return;hoverPetal(null);visited.clear();projectPetals.forEach(p=>{p.world=null;p.removed=true;});age=0;bloom=0;openingPulse=false;sparks.length=0;awakened=true;window.FlorraGarden?.reset();updateControls();hint.textContent='drag a petal. let it go.';resume();}
  reset.addEventListener('click',rebloom);
  coreButton.addEventListener('click',()=>{if(!ready)return;if(visited.size){rebloom();return;}awakened=!awakened;coreButton.setAttribute('aria-label',awakened?'Let the flower rest':'Wake the flower');resume();});
  window.__pluckProject=index=>{
