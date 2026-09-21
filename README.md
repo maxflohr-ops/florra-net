@@ -18,6 +18,8 @@ The source was synchronized with production deployment `dpl_AAp6p5oP6NrF55MUoFdo
 
 The interface uses collection and chapter language, with a small encounter note and a persistent visitor trail. Project controls pair readable serif labels with drawn arrows; opening or changing a project triggers a short, cancellable entrance sequence. Reduced-motion preferences keep the text immediately still.
 
+`assets/scroll-motion.js` and `assets/scroll-score.css` provide eased native-scroll choreography for the homepage, project dialogs and standalone pages. Section frames stay fixed in the layout while botanical artwork moves within them; individual paragraphs and rows reveal as they enter the reading area. The motion loop settles when the visitor stops scrolling, pauses in hidden tabs and is removed for reduced-motion preferences.
+
 ## Soundtrack
 
 The homepage sound button plays Ridgeclub's “Biting Bullets,” sourced from the user's Google Drive audio file. `assets/audio/biting-bullets.m4a` is the full 149.54-second stereo track, encoded as optimized AAC for browser playback. The original WAV is not published. Playback is opt-in and the audio file is loaded only after the sound button is pressed. `assets/soundtrack.js` owns playback, fades, pause/resume and the now-playing credit.
