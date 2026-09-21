@@ -41,7 +41,7 @@ if(dialog){
  if(!worlds.length)return;
  const known=new Set(worlds.map(world=>world.id));
  let discovered=new Set();
- try{const saved=JSON.parse(sessionStorage.getItem(storageKey)||'[]');if(Array.isArray(saved))discovered=new Set(saved.filter(id=>known.has(id)));}catch{}
+ try{const saved=JSON.parse(sessionStorage.getItem(storageKey)||'[]');if(Array.isArray(saved)){discovered=new Set(saved.map(id=>id==='capsule-01'?'bandersnatch':id).filter(id=>known.has(id)));sessionStorage.setItem(storageKey,JSON.stringify([...discovered]));}}catch{}
  const ids=()=>worlds.filter(world=>discovered.has(world.id)).map(world=>world.id);
  const progress=document.createElement('span');progress.className='garden-progress';progress.setAttribute('role','status');progress.setAttribute('aria-live','polite');progress.setAttribute('aria-atomic','true');
  const trailLinks=[];
@@ -93,7 +93,7 @@ if(dialog){
   try{sessionStorage.setItem(storageKey,JSON.stringify(ids()));}catch{}
   render();window.dispatchEvent(new CustomEvent('florra:garden-change',{detail:{ids:ids()}}));
  }
- function discover(id){if(!known.has(id)||discovered.has(id))return false;discovered.add(id);changed();return true;}
+ function discover(id){if(id==='capsule-01')id='bandersnatch';if(!known.has(id)||discovered.has(id))return false;discovered.add(id);changed();return true;}
  window.FlorraGarden=Object.freeze({ids,discover,reset(){discovered.clear();changed();}});
  function discoverRoute(){
   if(document.body.dataset.worldId)discover(document.body.dataset.worldId);

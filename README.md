@@ -1,6 +1,8 @@
 # florra.net
 
-Florra's interactive flower and 17 crawlable brand pages. The production site is https://www.florra.net/.
+Florra's interactive flower and 16 crawlable brand pages. The production site is https://www.florra.net/.
+
+Bandersnatch is Florra's first brand built around lore and fashion. It consolidates the former Capsule 01 listing; legacy page URLs permanently redirect to `/bandersnatch`, the old garden hash resolves to Bandersnatch, and saved discoveries carry forward.
 
 ## Build and check
 

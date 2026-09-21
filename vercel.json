@@ -1,6 +1,10 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {"source": "/capsule-01", "destination": "/bandersnatch", "permanent": true},
+    {"source": "/capsule-01.html", "destination": "/bandersnatch", "permanent": true}
+  ],
   "headers": [
     {
       "source": "/(.*)",
