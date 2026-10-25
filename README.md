@@ -27,3 +27,7 @@ The homepage sound button plays Ridgeclub's “Biting Bullets,” sourced from t
 ## Search Console
 
 The domain property was verified on September 20, 2026. The sitemap was submitted successfully with 18 discovered URLs. Search Console reported the homepage indexed, and a fresh indexing request was submitted. Search Console access is required to confirm indexing, selected canonicals, queries, impressions and Core Web Vitals. These changes do not guarantee ranking or indexing. Separate brand websites are outside this change.
+
+## /live — the make it back report's second screen
+
+`live/index.html` is copied to `/live` at build time (canonical, og tags and the GA tag added). It's a read-only phone page for stream viewers: it polls the public `live` row in the Redstring Supabase (`stream_config`, publishable key, read-only) every 5 s. The show's helper on Max's Mac writes that row through the reader-token function when the Show Desk's *Second screen* is switched to Publish. The source of truth for the page is `overlays/live.html` in the stream project; copy it here when it changes.

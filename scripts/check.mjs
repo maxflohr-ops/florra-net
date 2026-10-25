@@ -54,4 +54,7 @@ for(const source of ['/capsule-01','/capsule-01.html'])assert(redirects.some(r=>
 assert(!home.includes('list.appendChild'));
 assert((await readFile('public/greenhouse.html','utf8')).includes('nothing here is an offer of securities'));
 assert((await readFile('public/robots.txt','utf8')).includes(origin+'/sitemap.xml'));
-console.log('17 pages checked: unique metadata, canonical URLs, sitemap, schema, headings, scripts, local links, brand content and Bandersnatch consolidation.');
+const live=await readFile('public/live/index.html','utf8');
+assert(live.includes(`rel="canonical" href="${origin}/live"`)&&live.includes('stream_config?key=eq.live'),'the second screen reads the live key');
+for(const match of live.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)) new vm.Script(match[1]);
+console.log('17 pages checked: unique metadata, canonical URLs, sitemap, schema, headings, scripts, local links, brand content and Bandersnatch consolidation, plus /live (the stream second screen).');
