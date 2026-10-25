@@ -9,7 +9,7 @@
 <style>
   /* MAKE IT BACK LIVE: the second screen. A read-only phone page viewers keep open next to the stream.
      Served by the helper at /live (it reads /live/state); on a public host it reads the "live" row in Supabase. */
-  :root { --ink: #0A0A0A; --ink2: #141413; --ink3: #1c1c1a; --paper: #F4F3EE; --red: #FF3B1F; --dim: #8C8B85; --dim2: #5d5c57; --rule: #2a2a28; --gold: #F2B63D;
+  :root { --ink: #0A0A0A; --ink2: #141413; --ink3: #1c1c1a; --paper: #F4F3EE; --red: #FF4429; --dim: #8C8B85; --dim2: #5d5c57; --rule: #2a2a28; --gold: #F2B63D;
           --display: "Anton", Impact, "Arial Narrow Bold", sans-serif; --ui: "Inter Tight", "Helvetica Neue", Arial, sans-serif;
           --mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace; --spring: cubic-bezier(.22,1,.36,1); color-scheme: dark; }
   * { box-sizing: border-box; }
@@ -35,7 +35,7 @@
   .kick { font: 800 11px/1.2 var(--ui); letter-spacing: .22em; text-transform: uppercase; color: var(--dim); }
   .mrow1 { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 6px; }
   .mast h1 { margin: 0; display: flex; align-items: center; gap: 12px; font: 400 clamp(46px, 16vw, 88px)/.9 var(--display); text-transform: uppercase; letter-spacing: -.005em; min-width: 0; text-wrap: balance; }
-  .mast h1 .dot { flex: none; width: .2em; height: .2em; border-radius: 50%; background: var(--red); box-shadow: 0 0 0 .07em rgba(255,59,31,.22); animation: breathe 1.8s ease-in-out infinite; display: none; }
+  .mast h1 .dot { flex: none; width: .2em; height: .2em; border-radius: 50%; background: var(--red); box-shadow: 0 0 0 .07em rgba(255,68,41,.22); animation: breathe 1.8s ease-in-out infinite; display: none; }
   .mast[data-air="live"] h1 .dot { display: block; }
   .mast[data-air="off"] h1, .mast[data-air="wait"] h1 { color: var(--dim); }
   .tw { flex: none; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; background: var(--paper); color: var(--ink); font: 900 12px/1 var(--ui); letter-spacing: .16em;
@@ -768,10 +768,10 @@ function spark(svg, hist, up) {
   const lo = Math.min(...hs), hi = Math.max(...hs), rng = Math.max(.5, hi - lo);
   const pts = hs.map((v, i) => `${(i / (hs.length - 1) * 94 + 1).toFixed(1)},${(34 - (v - lo) / rng * 32).toFixed(1)}`).join(" ");
   const pl = document.createElementNS(NS, "polyline");
-  pl.setAttribute("points", pts); pl.setAttribute("fill", "none"); pl.setAttribute("stroke", up ? "#F4F3EE" : "#FF3B1F");
+  pl.setAttribute("points", pts); pl.setAttribute("fill", "none"); pl.setAttribute("stroke", up ? "#F4F3EE" : "#FF4429");
   pl.setAttribute("stroke-width", "2.5"); pl.setAttribute("stroke-linejoin", "round"); pl.setAttribute("stroke-linecap", "round");
   const last = pts.split(" ").pop().split(","), dot = document.createElementNS(NS, "circle");
-  dot.setAttribute("cx", last[0]); dot.setAttribute("cy", last[1]); dot.setAttribute("r", "3"); dot.setAttribute("fill", up ? "#F4F3EE" : "#FF3B1F");
+  dot.setAttribute("cx", last[0]); dot.setAttribute("cy", last[1]); dot.setAttribute("r", "3"); dot.setAttribute("fill", up ? "#F4F3EE" : "#FF4429");
   svg.append(pl, dot);
 }
 function renderStock(x) {
