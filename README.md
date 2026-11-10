@@ -31,6 +31,10 @@ not clickable. never put a ring colour multiplier above 1 — three r128 overflo
 - petal brightness is driven by the `HEAT` array
 - redstring's panel fetches the live top case from supabase (anon key, read-only)
 - sound is synthesized (webaudio), opt-in via the bottom-right button
+- horde hunt door: `const HUNT=null` sits under `HEAT`. paste the line
+  `horde-hunt/hunt/compile.py` (NeuroForge repo) prints to arm it;
+  `florra.net/#hunt=<code>` checks the code in the browser (pbkdf2) and opens
+  the door petal. the code itself is never in this file
 - the greenhouse is an interest list ONLY — keep the "nothing here is an offer
   of securities" line until counsel says otherwise
 
