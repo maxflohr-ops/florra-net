@@ -1,3 +1,5 @@
+> **Superseded Nov 22 2026.** florra.net is now the management-only site from branch `mgmt-only` (this branch has it merged in). See AGENTS.md. Do not `vercel --prod` from the Codex branch: it would restore the old full site. The management version of this GEO pass is scripts/geo-mgmt.mjs.
+
 # GEO pass (AI search visibility), Nov 22 2026
 
 Production builds from the local Codex branch `codex/show-uploader-info`, which is not on GitHub.
