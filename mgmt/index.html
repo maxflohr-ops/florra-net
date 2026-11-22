@@ -114,9 +114,12 @@ footer{display:flex;justify-content:space-between;padding:26px 4.5vw;border-top:
 /* ---- type: fable dust headlines + instrument sans (option b, picked nov 22) ---- */
 /* real font weights instead of the outline/shadow trick */
 :root{--reading:'Instrument Sans',Arial,sans-serif;--label:'Instrument Sans',Arial,sans-serif;
-  --heft-display:.03em;--heft-reading:0;--heft-label:0;--thick-reading:none;--thick-label:none;
-  --thick-display:0 .04em .14em rgba(0,0,0,.4)}
-body{-webkit-text-stroke:0;text-shadow:none;font-weight:500;font-size:18px;line-height:1.6}
+  --heft-display:.03em;--heft-reading:0;--heft-label:0;
+  /* deep cast shadow: a tight contact shadow plus a long soft fall */
+  --thick-display:0 .035em .01em rgba(0,0,0,.45),0 .09em .18em rgba(0,0,0,.5),0 .18em .45em rgba(0,0,0,.45);
+  --thick-reading:0 1px 1px rgba(0,0,0,.5),0 3px 6px rgba(0,0,0,.45),0 6px 16px rgba(0,0,0,.35);
+  --thick-label:0 1px 1px rgba(0,0,0,.5),0 2px 5px rgba(0,0,0,.45)}
+body{-webkit-text-stroke:0;text-shadow:var(--thick-reading);font-weight:500;font-size:18px;line-height:1.6}
 .label{font-weight:700}
 header nav a,.artist .more{font-family:'Instrument Sans',sans-serif;font-weight:600;font-size:14px}
 </style>
