@@ -1,0 +1,108 @@
+/* The living collection. Progressive enhancement: native scroll, real links. */
+body:not(.chapter){--paper:#ebe7d9;--forest:#20372a}
+body:not(.chapter)>nav{padding-top:28px;padding-bottom:28px}
+.stage{isolation:isolate;min-height:800px}
+.stage .bg{filter:saturate(.58) brightness(.57)!important;background-position:center 58%}
+.stage .vignette{background:linear-gradient(90deg,#102b23c9,transparent 80%),linear-gradient(0deg,#10271f 0%,transparent 50%)}
+.stage .hero-word{left:4.5vw;right:auto;top:24%;text-align:left;font:400 clamp(100px,12vw,190px)/.88 'Fable Dust',Georgia,serif;letter-spacing:-.065em;color:#f0ebd9;opacity:1;z-index:3;max-width:62vw}
+.hero-word em{font-weight:400;color:#d3c49f}
+.stage .rose-art{left:68%;width:min(860px,78vw)}
+.stage .hero-caption{left:5vw;bottom:18%;max-width:240px}
+.stage .hero-caption p{font:21px/1.4 Georgia,serif;color:#e7e7d8}
+.hero-coordinate{position:absolute;left:5vw;top:17%;z-index:3;color:#d8ddca;font:9px/1.8 Arial,sans-serif;letter-spacing:.17em;text-transform:uppercase}
+.hero-edition{position:absolute;right:4vw;top:47%;z-index:3;writing-mode:vertical-rl;font:9px Arial,sans-serif;letter-spacing:.17em;color:#d9d7c0}
+.stage .bloom-invitation{left:68%;bottom:16%;font-size:17px;max-width:40vw}
+.stage .garden-trail{left:68%;bottom:9%}
+.stage .petal-preview{right:7vw;top:auto;bottom:15%;width:32vw}
+.stage .hero-index{bottom:7%;font:11px Arial,sans-serif;letter-spacing:.12em}
+.stage #glwrap{inset:0}
+.growth-scene{position:relative;height:175svh;min-height:1150px;padding:0;background:#10271f;color:#eae5d5;border:0}
+.growth-sticky{height:100svh;min-height:650px;position:sticky;top:0;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding:7vw;isolation:isolate}
+.growth-label{position:absolute;top:13%;left:7vw;font:9px Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#b5c2a7}
+.growth-statement{z-index:2;font:clamp(70px,11vw,166px)/.87 'Fable Dust',Georgia,serif;letter-spacing:-.05em;position:relative;pointer-events:none}
+.growth-statement span,.growth-statement em{display:block;width:max-content}
+.growth-statement em{font-weight:400;margin-left:19vw;color:#d9c6a0}
+.growth-statement span:last-child{margin-left:8vw}
+.growth-orbit{position:absolute;right:-2vw;top:9%;width:60vw;height:80%;z-index:1;perspective:1000px;opacity:.6;transform:rotate(-17deg)}
+.growth-orbit .specimen{height:100%;background:none;transform:rotateY(35deg) rotateX(15deg)}
+.growth-orbit .specimen:before{inset:7%;border-color:#d3cca146;border-width:1px}
+.growth-orbit .specimen-letter{background:#10271f}
+.growth-orbit .petal-study{width:26%;height:40%;background-image:linear-gradient(115deg,#cb955d,#4b3123 65%,#9d8652);mix-blend-mode:normal;opacity:.8}
+.growth-note{position:absolute;right:7vw;bottom:10%;font:16px/1.5 Georgia,serif;color:#cbd1bd;z-index:3}
+.growth-next{position:absolute;left:7vw;bottom:10%;font:10px Arial,sans-serif;letter-spacing:.1em;z-index:3;border-bottom:1px solid #bac5ac;padding-bottom:12px}
+.immersive-ready .growth-statement span:first-child{transform:translateX(calc(var(--growth,0)*-8vw))}
+.immersive-ready .growth-statement span:last-child{transform:translateX(calc(var(--growth,0)*10vw))}
+.immersive-ready .growth-orbit{transform:rotate(calc(-17deg + var(--growth,0)*65deg)) scale(calc(.8 + var(--growth,0)*.45))}
+.featured{position:relative;background:#d7d6bc;color:#24372b;padding:110px 0 150px;border-radius:44px 44px 0 0;margin-top:-44px;z-index:2}
+.featured .feature-intro{margin-bottom:70px}.featured .feature-intro p{color:#4c5e47}.featured h2{font-size:clamp(50px,8vw,115px);max-width:9ch;line-height:.94}
+.feature-grid{grid-template-columns:1.2fr .8fr 1fr;gap:3vw;align-items:start}
+.feature-card:nth-child(2){margin-top:150px}.feature-card:nth-child(3){margin-top:65px}
+.feature-art{height:440px;border:0;border-radius:180px 180px 4px 4px;background:#1b3027;color:#e7e3d1}
+.feature-card:nth-child(2) .feature-art{height:310px;border-radius:4px;background:#873e31}
+.feature-card:nth-child(3) .feature-art{height:390px;border-radius:4px 4px 160px 160px;background:#82805a}
+.feature-art .plate-mark{top:45px;left:50%;transform:translateX(-50%);white-space:nowrap}
+.feature-art .plate-label{bottom:30px;left:0;right:0;text-align:center}
+.feature-info{border-color:#293c3038}.feature-info p{color:#52604c}.feature-info h3{font-size:32px}.feature-info>span{border:1px solid #28423455;flex:0 0 40px;height:40px;display:grid;place-items:center;border-radius:50%;transition:background .25s,color .25s}.feature-card:hover .feature-info>span{background:#24372b;color:#eee9d7}
+#worlds{padding-top:110px;padding-bottom:140px}#worlds .section-heading h1{font-size:clamp(60px,8vw,120px);line-height:.95;max-width:9ch}#worlds .section-heading{grid-template-columns:1.2fr .8fr;gap:8vw}#worlds .lede{font-size:22px;max-width:30ch}
+.collection-layout{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:6vw;align-items:start}
+.collection-preview{position:sticky;top:130px;margin-top:22px;min-height:520px;background:#293d30;color:#e7e3d4;overflow:hidden;padding:28px;display:flex;flex-direction:column;justify-content:space-between;isolation:isolate;border-radius:2px 160px 2px 2px}
+.collection-preview .specimen{position:absolute;inset:40px -35px 80px;z-index:-1;transition:transform .65s,filter .65s}.collection-preview[data-kind=music]{background:#593d32}.collection-preview[data-kind=worlds]{background:#666e4c}.collection-preview .preview-index{font:10px Arial,sans-serif;letter-spacing:.14em}.collection-preview .preview-name{font:45px/1 'Fable Dust',Georgia,serif;max-width:10ch}.collection-preview .preview-category{font:9px Arial,sans-serif;letter-spacing:.15em;text-transform:uppercase;margin-top:14px}.collection-preview .preview-visit{margin-top:26px;display:block;font:12px Arial,sans-serif}.collection-preview .specimen-letter{opacity:.7}.list>a{grid-template-columns:25px 1fr 100px 20px;gap:15px;padding:26px 4px}.list .nm{font-size:31px}.list .st{font-size:9px}.list>a:hover{padding-left:12px}.list>a:focus-visible{background:#dddccc;outline-offset:2px}
+#work{background:#c4c7ad;position:relative}#work>.wrap{display:grid;grid-template-columns:.8fr 1.2fr;column-gap:8vw}#work>.wrap>.eyebrow{grid-column:1/-1;margin-bottom:40px}#work>.wrap>h2{font-size:clamp(45px,5.3vw,78px);position:sticky;top:130px;align-self:start}#work .lanes{margin-top:0;grid-template-columns:1fr;gap:0}#work .lane{padding:30px 0 50px}#work .lane:first-child{padding-top:0;border-top:0}#work .lane h3{font-size:40px}#work .lane .who:after{font:24px 'Fable Dust',serif}
+#max{padding:140px 0}#max h2{font-size:clamp(80px,13vw,185px);line-height:1;letter-spacing:-.05em;margin-bottom:40px}.founder{align-items:end}.contact{position:relative;overflow:hidden;background:#a84b36;padding:150px 0 130px}.contact:after{content:'f';font:500px/.8 'Fable Dust',serif;position:absolute;right:0;bottom:-60px;color:#e9b99a22;pointer-events:none}.contact h2{font-size:clamp(65px,10vw,145px);line-height:.95;max-width:11ch;position:relative;z-index:1}.contact .mail{position:relative;z-index:1}
+.chapter .chapter-plate{border-radius:0 0 0 180px}.chapter .chapter-heading{min-height:650px}.chapter .chapter-hero{border:0}.chapter .chapter-content{border-top:1px solid #253c2b33}
+@media(max-width:1050px){.collection-layout{grid-template-columns:1.4fr 1fr;gap:3vw}.list>a{grid-template-columns:22px 1fr 18px}.list .st{grid-column:2;grid-row:2}.list .row-arrow{grid-column:3;grid-row:1/3}.collection-preview{min-height:470px;padding:24px}.collection-preview .preview-name{font-size:38px}.stage .hero-word{font-size:13vw}.feature-art{height:360px}.feature-card:nth-child(3) .feature-art{height:330px}}
+@media(max-width:760px){body:not(.chapter)>nav{padding:20px 5vw}.stage{min-height:790px;height:100svh}.stage .hero-word{top:18%;font-size:20vw;line-height:.92;max-width:90vw;left:6vw;z-index:1}.hero-coordinate{top:12%;left:6vw;font-size:7px}.hero-edition{display:none}.stage .rose-art{left:57%;width:110vw;top:17%;height:82%}.stage .bloom-invitation{left:50%;bottom:13%;max-width:85vw;font-size:17px}.stage .garden-trail{left:50%;bottom:7.5%}.stage .hero-index{bottom:3%;font-size:9px}.stage .petal-preview{bottom:13%;width:85vw;left:50%;right:auto}.stage .hero-caption{display:none}.growth-scene{height:140svh;min-height:0}.growth-sticky{height:100svh;min-height:0;padding:7vw}.growth-statement{font-size:19vw;line-height:.94}.growth-statement em{margin-left:13vw}.growth-statement span:last-child{margin-left:0}.growth-label{top:14%;font-size:8px}.growth-orbit{width:100vw;height:65%;right:-30vw;top:15%}.growth-note{right:auto;left:7vw;bottom:17%;font-size:14px}.growth-next{bottom:9%;font-size:9px}.featured{border-radius:26px 26px 0 0;margin-top:-26px;padding:75px 0}.featured h2{font-size:65px}.featured .feature-intro{margin-bottom:35px}.feature-grid{grid-template-columns:1fr;gap:38px}.feature-card{width:85%}.feature-card:nth-child(2){margin:0 0 0 auto;width:76%}.feature-card:nth-child(3){margin:0;width:88%}.feature-art,.feature-card:nth-child(2) .feature-art,.feature-card:nth-child(3) .feature-art{height:370px}.feature-info h3{font-size:31px}.feature-info p{font-size:13px}.collection-layout{display:block}.collection-preview{display:none}#worlds{padding:75px 0 90px}#worlds .section-heading{grid-template-columns:1fr;gap:25px}#worlds .section-heading h1{font-size:65px}#worlds .lede{font-size:19px}.list .nm{font-size:29px}.filters button{padding:11px 12px}#work>.wrap{display:block}#work>.wrap>h2{position:static;font-size:56px;margin:25px 0 50px}#work .lane h3{font-size:35px}#max{padding:90px 0}#max h2{font-size:95px}.contact{padding:90px 0}.contact h2{font-size:64px}.contact:after{font-size:350px;right:-50px}.chapter .chapter-heading{min-height:0}.chapter .chapter-plate{border-radius:0 0 0 100px}}
+/* Touch scroll takes priority over a petal drag; pointercancel restores the bloom. */
+.enchanted-ready .bloom-project-target{touch-action:pan-y}
+.stage .bloom-heart-button{width:44px;height:44px}
+/* Short windows read the interlude as a page, without a clipped sticky viewport. */
+@media(max-height:600px){
+ .growth-scene{height:auto;min-height:0}
+ .growth-sticky{position:relative;height:auto;min-height:0;padding:105px 7vw 70px;gap:28px}
+ .growth-label,.growth-note,.growth-next{position:relative;inset:auto}
+ .growth-statement{font-size:clamp(48px,11vw,95px);margin:0}
+ .growth-note{margin:0}
+ .growth-next{align-self:flex-start}
+ .growth-orbit{height:70%;top:15%}
+}
+@media(prefers-reduced-motion:reduce){.growth-scene{height:auto;min-height:0}.growth-sticky{position:relative;height:auto;min-height:min(700px,100svh)}.immersive-ready .growth-statement span,.immersive-ready .growth-orbit{transform:none}.stage .rose-art{transform:translateX(-50%)!important}.collection-preview .specimen{transition:none}}
+
+/* Final interaction polish: sculpture has a single stem, artwork has distinct silhouettes. */
+.stage .rose-art.enchanted-ready>.rose-botanical{opacity:0}
+.stage .rose-art.bloom-fallback>.rose-botanical{opacity:1}
+.collection-preview .preview-description{font:16px/1.5 Georgia,serif;color:#e1e3d2;max-width:28ch;margin:18px 0 0}
+.collection-preview .preview-visit{min-height:44px;display:flex;align-items:center;border-top:1px solid #e1e3d244;padding-top:12px}
+.collection-preview{min-height:580px}
+.feature-card:first-child .specimen:before{inset:20%;border:1px solid #bcbfa55c;background:repeating-radial-gradient(circle,transparent 0 7px,#ded4a11c 8px 9px);box-shadow:0 20px 40px #0005}
+.feature-card:first-child .petal-study{height:25%;width:18%;border-radius:70% 5% 65% 12%;opacity:.65}
+.feature-card:nth-child(2) .specimen:before{inset:17% 25%;border-radius:50% 50% 5% 5%;transform:rotate(-15deg);border-color:#f3d1ae55}
+.feature-card:nth-child(2) .petal-study{height:31%;width:17%;background-image:linear-gradient(120deg,#ebca9c,#a77744 40%,#3c3727);mix-blend-mode:normal;opacity:.84;border-radius:95% 0 95% 0}
+.feature-card:nth-child(3) .specimen:before{inset:20%;transform:rotate(45deg);border-radius:12%;border-color:#f0edc36b}
+.feature-card:nth-child(3) .petal-study{height:28%;background-image:linear-gradient(135deg,#e8dfad,#8f8e61 50%,#354c3d);mix-blend-mode:normal;opacity:.85}
+.feature-card:focus-visible{outline:2px solid #7b452e;outline-offset:8px}
+.filters button{min-height:44px}
+.filters button{min-width:44px}
+.stage .hero-index,.growth-next{min-height:44px;display:flex;align-items:center}
+body>nav a{min-height:44px;display:inline-flex;align-items:center}
+@media(max-width:760px){
+ .stage{min-height:min(790px,100svh)}
+ .stage .hero-word{font-size:19vw;top:19%}
+ .stage .hero-index{bottom:1.5%}
+ .stage .rose-art{top:19%;height:77%}
+ .collection-preview{display:none}
+ .feature-card:first-child .specimen:before{inset:19%}
+ .filters{gap:7px}
+}
+@media(max-width:760px) and (max-height:700px){
+ .stage .hero-word{top:20%;font-size:17vw}
+ .stage .bloom-invitation{bottom:12%;font-size:15px}
+ .stage .bloom-invitation span{font-size:7px;margin-bottom:5px}
+ .stage .rose-art{top:18%;height:77%}
+ .stage .garden-trail{bottom:7%}
+}
+@media(prefers-reduced-motion:reduce){.feature-card .specimen,.collection-preview .specimen{transform:none!important}.stage .hero-word{translate:none!important}}
+/* Keep the mobile headline readable above the interactive sculpture. */
+@media(max-width:760px){
+ .stage .hero-word{z-index:3;pointer-events:none}
+ .stage .rose-art.enchanted-ready{top:34%;height:52%;width:86vw;left:56%}
+}
