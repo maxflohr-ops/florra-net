@@ -1,1 +1,1 @@
-{"name": "florra-net", "private": true, "type": "module", "scripts": {"build": "node scripts/build-mgmt.mjs && node scripts/geo-mgmt.mjs", "build:collection": "node scripts/build.mjs", "test": "node scripts/check.mjs"}}
+{"name": "florra-net", "private": true, "type": "module", "scripts": {"build": "node scripts/build-mgmt.mjs && node scripts/artist-pages.mjs && node scripts/geo-mgmt.mjs", "build:collection": "node scripts/build.mjs", "test": "node scripts/check.mjs"}}

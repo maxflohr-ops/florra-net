@@ -85,6 +85,7 @@ header nav a:hover{border-bottom-color:currentColor}
 .artist p{color:#dcdccf;font-size:17px}
 .artist .more{margin-top:auto;padding-top:10px;font-family:var(--label);font-size:13px;letter-spacing:.06em;text-decoration:none;-webkit-text-stroke:var(--heft-label) currentColor;text-shadow:var(--thick-label)}
 .artist .more:hover{text-decoration:underline}
+.artist .more.mgmt-link{margin-top:0;padding-top:0}
 .artist:nth-child(1) img{object-position:62% 50%}
 
 /* approach */
@@ -126,7 +127,7 @@ header nav a,.artist .more{font-family:'Instrument Sans',sans-serif;font-weight:
 /* faq */
 .faq{border-top:1px solid var(--rule)}
 .faq>h2{color:var(--muted);margin-bottom:28px}
-.faq-list{display:grid;grid-template-columns:repeat(3,1fr);gap:4vw}
+.faq-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:4vw}
 .faq-item h3{font-size:30px;line-height:1.1;margin-bottom:14px}
 .faq-item p{color:#dcdccf;font-size:17px}
 @media (max-width:900px){.faq-list{grid-template-columns:1fr;gap:34px}}
@@ -162,6 +163,7 @@ header nav a,.artist .more{font-family:'Instrument Sans',sans-serif;font-weight:
           <span class="who label">abhi · saxophone</span>
           <p>ridgeclub began with abhi recording saxophone in a bedroom. within about a year it reached millions of monthly listeners, global charts, and a label deal. debut ep "crawlspace" is out now.</p>
           <a class="more" href="https://ridgeclubhouse.com" target="_blank" rel="noopener">ridgeclubhouse.com ↗</a>
+          <a class="more mgmt-link" href="/ridgeclub">management &amp; contact →</a>
         </div>
       </article>
       <article class="artist">
@@ -171,6 +173,7 @@ header nav a,.artist .more{font-family:'Instrument Sans',sans-serif;font-weight:
           <span class="who label">huda al-hamami · universal music canada</span>
           <p>ebril is the iraqi-canadian project of huda al-hamami, signed to universal music canada. the debut album "in copula" is led by "stranger in you".</p>
           <a class="more" href="https://www.ebril.net" target="_blank" rel="noopener">ebril.net ↗</a>
+          <a class="more mgmt-link" href="/ebril">management &amp; contact →</a>
         </div>
       </article>
       <article class="artist">
@@ -180,6 +183,7 @@ header nav a,.artist .more{font-family:'Instrument Sans',sans-serif;font-weight:
           <span class="who label">music · livestream · writing</span>
           <p>mckayla maroney brings together music, livestreaming, and her work as an online book author. we're building her livestream, supporting her writing, and growing her brand.</p>
           <a class="more" href="https://open.spotify.com/artist/4YCIGc4mqhWaY5cQIv8Vcz" target="_blank" rel="noopener">listen on spotify ↗</a>
+          <a class="more mgmt-link" href="/mckayla-maroney">management &amp; contact →</a>
         </div>
       </article>
     </div>
@@ -202,7 +206,7 @@ header nav a,.artist .more{font-family:'Instrument Sans',sans-serif;font-weight:
   <section class="contact" id="contact" aria-labelledby="contact-title">
     <h2 id="contact-title">send a song.</h2>
     <a class="mail" href="mailto:max@florra.net">max@florra.net</a>
-    <p>a song and a sentence is plenty.</p>
+    <p>maxwell flohr, florra. a song and a sentence is plenty.</p>
   </section>
 </main>
 

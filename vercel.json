@@ -63,18 +63,8 @@
       "permanent": false
     },
     {
-      "source": "/ridgeclub",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/ebril",
-      "destination": "/",
-      "permanent": false
-    },
-    {
       "source": "/mckayla",
-      "destination": "/",
+      "destination": "/mckayla-maroney",
       "permanent": false
     },
     {
@@ -148,18 +138,8 @@
       "permanent": false
     },
     {
-      "source": "/ridgeclub.html",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/ebril.html",
-      "destination": "/",
-      "permanent": false
-    },
-    {
       "source": "/mckayla.html",
-      "destination": "/",
+      "destination": "/mckayla-maroney",
       "permanent": false
     },
     {

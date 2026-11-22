@@ -1,0 +1,34 @@
+[
+  {
+    "slug": "ridgeclub", "name": "Ridgeclub", "lower": "ridgeclub", "type": "MusicGroup",
+    "who": "abhi · saxophone",
+    "img": "/assets/roster/ridgeclub.jpg", "w": 1600, "h": 1143, "pos": "62% 50%",
+    "alt": "Abhi of Ridgeclub holding a saxophone among trees", "credit": "",
+    "bio": "ridgeclub began with abhi recording saxophone in a bedroom. within about a year it reached millions of monthly listeners, global charts, and a label deal. debut ep \"crawlspace\" is out now.",
+    "desc": "Ridgeclub is the saxophone project of Abhi. Debut EP \"Crawlspace\" is out now.",
+    "site": "https://ridgeclubhouse.com", "siteLabel": "ridgeclubhouse.com",
+    "sameAs": ["https://ridgeclubhouse.com"], "aliases": ["Ridge Club", "RIDGECLUB"]
+  },
+  {
+    "slug": "ebril", "name": "Ebril", "lower": "ebril", "type": "MusicGroup",
+    "who": "huda al-hamami · universal music canada",
+    "img": "/assets/roster/ebril.jpg", "w": 1096, "h": 1096, "pos": "50% 50%",
+    "alt": "Ebril, eyes shut and smiling, with a green beetle on her cheek", "credit": "",
+    "bio": "ebril is the iraqi-canadian project of huda al-hamami, signed to universal music canada. the debut album \"in copula\" is led by \"stranger in you\".",
+    "desc": "Ebril is the Iraqi-Canadian project of Huda Al-Hamami, signed to Universal Music Canada. Debut album \"In Copula\", led by \"Stranger in You\".",
+    "label": "Universal Music Canada",
+    "site": "https://www.ebril.net", "siteLabel": "ebril.net",
+    "sameAs": ["https://www.ebril.net"], "aliases": ["EBRIL", "Huda Al-Hamami"]
+  },
+  {
+    "slug": "mckayla-maroney", "name": "McKayla Maroney", "lower": "mckayla maroney", "type": "Person",
+    "who": "music · livestream · writing",
+    "img": "/assets/roster/mckayla.jpg", "w": 1021, "h": 1176, "pos": "50% 30%",
+    "alt": "McKayla Maroney looking over her shoulder against a red wall", "credit": "",
+    "bio": "mckayla maroney brings together music, livestreaming, and her work as an online book author. we're building her livestream, supporting her writing, and growing her brand.",
+    "desc": "McKayla Maroney works across music, livestreaming and writing.",
+    "site": "https://open.spotify.com/artist/4YCIGc4mqhWaY5cQIv8Vcz", "siteLabel": "listen on spotify",
+    "sameAs": ["https://open.spotify.com/artist/4YCIGc4mqhWaY5cQIv8Vcz", "https://en.wikipedia.org/wiki/McKayla_Maroney"],
+    "aliases": ["McKayla"]
+  }
+]
