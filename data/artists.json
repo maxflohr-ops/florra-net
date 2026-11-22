@@ -16,13 +16,55 @@
     "site": "https://ridgeclubhouse.com",
     "siteLabel": "ridgeclubhouse.com",
     "sameAs": [
-      "https://ridgeclubhouse.com"
+      "https://music.apple.com/ca/artist/ridgeclub/1747819774",
+      "https://open.spotify.com/artist/4MT74NV1GnOKWtwpEVRRu1",
+      "https://ridgeclub.bandcamp.com/",
+      "https://ridgeclubhouse.com",
+      "https://www.instagram.com/ridgeclubhouse/",
+      "https://www.tiktok.com/@ridgeclub",
+      "https://www.youtube.com/channel/UC-NfZoVAQrulU4EBQ0hVWjA"
     ],
     "aliases": [
       "Ridge Club",
       "RIDGECLUB"
     ],
-    "kind": "the saxophone project of Abhi"
+    "kind": "the saxophone project of Abhi",
+    "links": [
+      [
+        "spotify",
+        "https://open.spotify.com/artist/4MT74NV1GnOKWtwpEVRRu1"
+      ],
+      [
+        "instagram",
+        "https://www.instagram.com/ridgeclubhouse/"
+      ],
+      [
+        "tiktok",
+        "https://www.tiktok.com/@ridgeclub"
+      ],
+      [
+        "youtube",
+        "https://www.youtube.com/channel/UC-NfZoVAQrulU4EBQ0hVWjA"
+      ],
+      [
+        "apple music",
+        "https://music.apple.com/ca/artist/ridgeclub/1747819774"
+      ],
+      [
+        "bandcamp",
+        "https://ridgeclub.bandcamp.com/"
+      ]
+    ],
+    "proof": [
+      [
+        "featured in tmrw magazine",
+        "https://tmrwmagazine.com/en/news/ridgeclub-one-man-band"
+      ],
+      [
+        "on the departure festival 2026 lineup in toronto",
+        "https://departureto.com/?p=4487"
+      ]
+    ]
   },
   {
     "slug": "ebril",
@@ -42,13 +84,55 @@
     "site": "https://www.ebril.net",
     "siteLabel": "ebril.net",
     "sameAs": [
-      "https://www.ebril.net"
+      "https://ebril.bandcamp.com/",
+      "https://music.apple.com/us/artist/ebril/1697659161",
+      "https://open.spotify.com/artist/6p7XMnNGDeGqm0ZhgPtuFp",
+      "https://www.ebril.net",
+      "https://www.instagram.com/ehugiii/",
+      "https://www.tiktok.com/@ebbionline",
+      "https://www.youtube.com/channel/UC_U01UV1HYIkkXM8cKP3Grg"
     ],
     "aliases": [
       "EBRIL",
       "Huda Al-Hamami"
     ],
-    "kind": "the Iraqi-Canadian artist signed to Universal Music Canada"
+    "kind": "the Iraqi-Canadian artist signed to Universal Music Canada",
+    "links": [
+      [
+        "spotify",
+        "https://open.spotify.com/artist/6p7XMnNGDeGqm0ZhgPtuFp"
+      ],
+      [
+        "instagram",
+        "https://www.instagram.com/ehugiii/"
+      ],
+      [
+        "tiktok",
+        "https://www.tiktok.com/@ebbionline"
+      ],
+      [
+        "youtube",
+        "https://www.youtube.com/channel/UC_U01UV1HYIkkXM8cKP3Grg"
+      ],
+      [
+        "apple music",
+        "https://music.apple.com/us/artist/ebril/1697659161"
+      ],
+      [
+        "bandcamp",
+        "https://ebril.bandcamp.com/"
+      ]
+    ],
+    "proof": [
+      [
+        "signed to universal music canada in november 2025",
+        "https://ca.billboard.com/business/record-labels/universal-music-canada-ebril"
+      ],
+      [
+        "new video covered by the fader",
+        "https://www.thefader.com/2026/11/11/look-behind-the-scenes-of-bedroom-rocker-ebrils-new-music-video"
+      ]
+    ]
   },
   {
     "slug": "mckayla-maroney",
@@ -67,12 +151,29 @@
     "site": "https://open.spotify.com/artist/4YCIGc4mqhWaY5cQIv8Vcz",
     "siteLabel": "listen on spotify",
     "sameAs": [
+      "https://en.wikipedia.org/wiki/McKayla_Maroney",
       "https://open.spotify.com/artist/4YCIGc4mqhWaY5cQIv8Vcz",
-      "https://en.wikipedia.org/wiki/McKayla_Maroney"
+      "https://twitch.tv/mckaylamaroney007"
     ],
     "aliases": [
       "McKayla"
     ],
-    "kind": "the musician, livestreamer and author"
+    "kind": "the musician, livestreamer and author",
+    "links": [
+      [
+        "twitch",
+        "https://twitch.tv/mckaylamaroney007"
+      ],
+      [
+        "spotify",
+        "https://open.spotify.com/artist/4YCIGc4mqhWaY5cQIv8Vcz"
+      ]
+    ],
+    "proof": [
+      [
+        "2012 olympic team gold and vault silver, two-time world vault champion",
+        "https://en.wikipedia.org/wiki/McKayla_Maroney"
+      ]
+    ]
   }
 ]

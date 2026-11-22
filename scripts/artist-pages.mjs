@@ -23,6 +23,9 @@ const extra = `<style>
 .artist-page dt{color:var(--muted)}
 .artist-page dd{font-size:18px}
 .artist-page dd a{text-decoration:none;border-bottom:1px solid currentColor}
+.artist-page .proof{margin-top:16px;font-size:16px;color:#cfd0c3}
+.artist-page .proof a{color:inherit;text-decoration:none;border-bottom:1px dotted currentColor}
+.artist-page dd.links a{border-bottom:none;text-decoration:underline;text-underline-offset:3px}
 .back{display:inline-block;margin-top:30px;font-weight:600;font-size:14px;text-decoration:none}
 @media (max-width:900px){.artist-page{grid-template-columns:1fr;padding-top:120px}.artist-page dl div{grid-template-columns:1fr;gap:4px}}
 </style>`;
@@ -95,10 +98,12 @@ ${extra}
       <p class="label">artist management · florra</p>
       <h1 id="title">${esc(a.lower)} management &amp; contact</h1>
       <p class="bio">${esc(a.bio)}</p>
+      ${a.proof ? `<p class="proof">${a.proof.map(([t,u]) => `<a href="${u}" target="_blank" rel="noopener">${esc(t)}</a>`).join(' · ')}</p>` : ''}
       <dl>
         <div><dt class="label">manager</dt><dd>${MANAGER}, florra</dd></div>
         <div><dt class="label">management contact</dt><dd><a href="mailto:${EMAIL}">${EMAIL}</a></dd></div>
         ${a.label ? `<div><dt class="label">label</dt><dd>${esc(a.label.toLowerCase())}</dd></div>` : ''}
+        <div><dt class="label">follow</dt><dd class="links">${(a.links||[]).map(([l,u]) => `<a href="${u}" target="_blank" rel="noopener">${esc(l)}</a>`).join(' · ')}</dd></div>
         <div><dt class="label">official</dt><dd><a href="${a.site}" target="_blank" rel="noopener">${esc(a.siteLabel)} ↗</a></dd></div>
       </dl>
       <a class="back" href="/#roster">← the full roster</a>
