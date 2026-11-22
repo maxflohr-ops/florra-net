@@ -85,6 +85,9 @@ for (const a of artists) {
 ${gtag}
 ${style}
 ${extra}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,800,100,1&family=Inter:wght@500;600;700&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,500;800&family=Syne:wght@800&family=Manrope:wght@600;700&display=swap">
+<link rel="stylesheet" href="/type-options.css">
+<script src="/type-options.js"></script>
 </head>
 <body>
 <header>

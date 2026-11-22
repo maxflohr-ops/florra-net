@@ -1,0 +1,20 @@
+/* type options preview (branch type-options-2 only). Chosen with ?type=a|b|c ; default = current */
+html[data-type] body{text-shadow:0 1px 1px rgba(0,0,0,.45),0 3px 8px rgba(0,0,0,.35)}
+html[data-type] h1,html[data-type] h2,html[data-type] h3,html[data-type] .contact a.mail{-webkit-text-stroke:0}
+/* A: warm editorial serif. Fraunces Black headlines, Inter body */
+html[data-type=a] h1,html[data-type=a] h2,html[data-type=a] h3,html[data-type=a] .contact a.mail{font-family:'Fraunces',Georgia,serif;font-weight:800;font-variation-settings:'SOFT' 100,'WONK' 1,'opsz' 144;letter-spacing:-.025em;text-transform:none}
+html[data-type=a] body,html[data-type=a] .label,html[data-type=a] header nav a,html[data-type=a] .artist .more{font-family:'Inter',Arial,sans-serif}
+html[data-type=a] body{font-weight:500}
+/* B: loud modern grotesk. Bricolage Grotesque ExtraBold throughout */
+html[data-type=b] h1,html[data-type=b] h2,html[data-type=b] h3,html[data-type=b] .contact a.mail{font-family:'Bricolage Grotesque',Arial,sans-serif;font-weight:800;font-variation-settings:'opsz' 96,'wdth' 90;letter-spacing:-.04em;line-height:.92}
+html[data-type=b] body,html[data-type=b] .label,html[data-type=b] header nav a,html[data-type=b] .artist .more{font-family:'Bricolage Grotesque',Arial,sans-serif;font-variation-settings:'opsz' 14}
+html[data-type=b] body{font-weight:500}
+/* C: art-world display. Syne ExtraBold headlines, Manrope body */
+html[data-type=c] h1,html[data-type=c] h2,html[data-type=c] h3,html[data-type=c] .contact a.mail{font-family:'Syne',Arial,sans-serif;font-weight:800;letter-spacing:-.03em;line-height:.95}
+html[data-type=c] body,html[data-type=c] .label,html[data-type=c] header nav a,html[data-type=c] .artist .more{font-family:'Manrope',Arial,sans-serif}
+html[data-type=c] body{font-weight:600}
+/* the florra wordmark stays in Fable Dust in every option */
+html[data-type] .wordmark{font-family:'Fable Dust',Georgia,serif}
+.type-switch{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:50;display:flex;gap:6px;background:rgba(20,26,21,.85);border:1px solid rgba(232,230,215,.25);padding:6px;border-radius:999px;font:600 14px Arial,sans-serif;text-shadow:none}
+.type-switch a{color:#eeeade;text-decoration:none;padding:7px 14px;border-radius:999px}
+.type-switch a[aria-current]{background:#eeeade;color:#202c23}
