@@ -1,6 +1,8 @@
 /* florra type: Fraunces light display (SOFT 0, high opsz), Inter body. Wordmark stays Fable Dust. */
 :root body{text-shadow:0 1px 1px rgba(0,0,0,.45),0 3px 8px rgba(0,0,0,.35)}
 :root h1,:root h2,:root h3,:root .contact a.mail{-webkit-text-stroke:0}
+/* Inter everywhere the old Instrument Sans was used (labels, nav, dt, footer) */
+:root{--reading:'Inter',Arial,sans-serif;--label:'Inter',Arial,sans-serif}
 /* A: Fraunces thin and tall. Light weight, sharp display cut (high opsz, SOFT 0), tight tracking, bigger sizes. Inter body */
 :root h1,:root h2,:root h3,:root .contact a.mail{font-family:'Fraunces',Georgia,serif;font-weight:300;font-variation-settings:'SOFT' 0,'WONK' 0,'opsz' 144;letter-spacing:-.035em;text-transform:none}
 :root body,:root .label,:root header nav a,:root .artist .more{font-family:'Inter',Arial,sans-serif}
@@ -12,3 +14,11 @@
 :root .section-head h2,:root .contact h2{font-size:clamp(48px,7.6vw,116px);line-height:1}
 :root .artist h3{font-size:52px;line-height:1}
 :root .artist-page h1{font-size:clamp(52px,7vw,112px);line-height:1}
+/* keyboard focus: visible ring on every link and button */
+a:focus-visible,button:focus-visible{outline:2px solid #efe9dc;outline-offset:4px;border-radius:2px}
+/* artist subtitle: lift copper to clear 4.5:1 on forest */
+.artist .who{filter:brightness(1.55)}
+/* hero contact line: one quiet, tappable way in */
+.hero-cta{margin-top:28px}
+.hero-cta a{display:inline-block;font-family:'Inter',Arial,sans-serif;font-weight:600;font-size:15px;letter-spacing:.04em;color:#efe9dc;text-decoration:none;border-bottom:1px solid rgba(239,233,220,.6);padding:6px 0}
+.hero-cta a:hover{border-bottom-color:#efe9dc}

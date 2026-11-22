@@ -12,7 +12,7 @@ mkdirSync(`${out}/assets/fonts`, { recursive: true });
 
 cpSync('mgmt/index.html', `${out}/index.html`);
 cpSync('mgmt/type.css', `${out}/type.css`);
-for (const f of ['california-hills.jpg', 'rose-botanical.png']) cpSync(`assets/${f}`, `${out}/assets/${f}`);
+for (const f of ['california-hills.webp', 'rose-botanical.webp']) cpSync(`assets/${f}`, `${out}/assets/${f}`);
 cpSync('assets/roster', `${out}/assets/roster`, { recursive: true, filter: p => !p.includes('/candidates') && !p.includes('/archive') });
 cpSync('assets/fonts/fable-dust.woff2', `${out}/assets/fonts/fable-dust.woff2`);
 mkdirSync(`${out}/assets/og`, { recursive: true });
@@ -26,7 +26,7 @@ if (existsSync(live)) { mkdirSync(`${out}/live`, { recursive: true }); cpSync(li
 const uploader = 'archive/production-2026-11-22/the-make-it-show/uploader.html';
 if (existsSync(uploader)) { mkdirSync(`${out}/the-make-it-show/uploader`, { recursive: true }); cpSync(uploader, `${out}/the-make-it-show/uploader/index.html`); }
 
-writeFileSync(`${out}/404.html`, readFileSync('mgmt/index.html', 'utf8').replace('<title>florra — artist management</title>', '<title>florra</title>'));
+writeFileSync(`${out}/404.html`, readFileSync('mgmt/index.html', 'utf8').replace('<title>florra — artist management</title>', '<title>page not found · florra</title><meta name="robots" content="noindex">'));
 writeFileSync(`${out}/robots.txt`, 'User-agent: *\nAllow: /\nDisallow: /live\nDisallow: /the-make-it-show/\nSitemap: https://www.florra.net/sitemap.xml\n');
 writeFileSync(`${out}/sitemap.xml`, '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n<url><loc>https://www.florra.net/</loc></url>\n</urlset>\n');
 console.log('Built the management-only site.');
