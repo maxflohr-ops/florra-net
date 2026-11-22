@@ -1,1 +1,214 @@
-{"cleanUrls":true,"headers":[{"source":"/(.*)","headers":[{"key":"X-Content-Type-Options","value":"nosniff"}]}]}
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/florra-os",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/florra-records",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/bounty-sounds",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/redstring",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/management",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/content",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/campaigns",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/press",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/cucumbers",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/greenhouse",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/bandersnatch",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/cited",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/ridgeclub",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/ebril",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/mckayla",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/bruce-flohr",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/capsule-01",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/florra-os.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/florra-records.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/bounty-sounds.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/redstring.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/management.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/content.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/campaigns.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/press.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/cucumbers.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/greenhouse.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/bandersnatch.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/cited.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/ridgeclub.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/ebril.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/mckayla.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/bruce-flohr.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/capsule-01.html",
+      "destination": "/",
+      "permanent": false
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000"
+        }
+      ]
+    },
+    {
+      "source": "/(og.jpg|apple-touch-icon.png)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=604800"
+        }
+      ]
+    }
+  ],
+  "buildCommand": "npm run build",
+  "outputDirectory": "public"
+}
