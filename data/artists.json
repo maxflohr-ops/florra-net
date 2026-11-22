@@ -148,11 +148,10 @@
     "credit": "",
     "bio": "mckayla maroney brings together music, livestreaming, and her work as an online book author. we're building her livestream, supporting her writing, and growing her brand.",
     "desc": "McKayla Maroney works across music, livestreaming and writing.",
-    "site": "https://open.spotify.com/artist/4YCIGc4mqhWaY5cQIv8Vcz",
-    "siteLabel": "listen on spotify",
+    "site": "https://twitch.tv/mckaylamaroney007",
+    "siteLabel": "watch on twitch",
     "sameAs": [
       "https://en.wikipedia.org/wiki/McKayla_Maroney",
-      "https://open.spotify.com/artist/4YCIGc4mqhWaY5cQIv8Vcz",
       "https://twitch.tv/mckaylamaroney007"
     ],
     "aliases": [
@@ -163,10 +162,6 @@
       [
         "twitch",
         "https://twitch.tv/mckaylamaroney007"
-      ],
-      [
-        "spotify",
-        "https://open.spotify.com/artist/4YCIGc4mqhWaY5cQIv8Vcz"
       ]
     ],
     "proof": [
