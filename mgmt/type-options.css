@@ -1,8 +1,8 @@
 /* type options preview (branch type-options-2 only). Chosen with ?type=a|b|c ; default = current */
 html[data-type] body{text-shadow:0 1px 1px rgba(0,0,0,.45),0 3px 8px rgba(0,0,0,.35)}
 html[data-type] h1,html[data-type] h2,html[data-type] h3,html[data-type] .contact a.mail{-webkit-text-stroke:0}
-/* A: warm editorial serif. Fraunces Black headlines, Inter body */
-html[data-type=a] h1,html[data-type=a] h2,html[data-type=a] h3,html[data-type=a] .contact a.mail{font-family:'Fraunces',Georgia,serif;font-weight:800;font-variation-settings:'SOFT' 100,'WONK' 1,'opsz' 144;letter-spacing:-.025em;text-transform:none}
+/* A: Fraunces thin and tall. Light weight, sharp display cut (high opsz, SOFT 0), tight tracking, bigger sizes. Inter body */
+html[data-type=a] h1,html[data-type=a] h2,html[data-type=a] h3,html[data-type=a] .contact a.mail{font-family:'Fraunces',Georgia,serif;font-weight:300;font-variation-settings:'SOFT' 0,'WONK' 0,'opsz' 144;letter-spacing:-.035em;text-transform:none}
 html[data-type=a] body,html[data-type=a] .label,html[data-type=a] header nav a,html[data-type=a] .artist .more{font-family:'Inter',Arial,sans-serif}
 html[data-type=a] body{font-weight:500}
 /* B: loud modern grotesk. Bricolage Grotesque ExtraBold throughout */
@@ -23,3 +23,8 @@ html[data-type=c] .hero h1{font-size:clamp(40px,5.6vw,92px)}
 html[data-type=c] .section-head h2,html[data-type=c] .contact h2{font-size:clamp(34px,5vw,72px)}
 html[data-type=c] .artist h3{font-size:34px}
 html[data-type=c] .artist-page h1{font-size:clamp(38px,4.6vw,76px)}
+/* A runs thin, so it gets more height: larger display sizes, airier line height */
+html[data-type=a] .hero h1{font-size:clamp(62px,8.8vw,148px);line-height:.98}
+html[data-type=a] .section-head h2,html[data-type=a] .contact h2{font-size:clamp(48px,7.6vw,116px);line-height:1}
+html[data-type=a] .artist h3{font-size:52px;line-height:1}
+html[data-type=a] .artist-page h1{font-size:clamp(52px,7vw,112px);line-height:1}
