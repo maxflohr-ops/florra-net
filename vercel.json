@@ -65,7 +65,7 @@
     {
       "source": "/mckayla",
       "destination": "/mckayla-maroney",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/bruce-flohr",
@@ -140,7 +140,7 @@
     {
       "source": "/mckayla.html",
       "destination": "/mckayla-maroney",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/bruce-flohr.html",
