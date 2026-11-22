@@ -22,3 +22,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #efe9dc;outline-offset:4p
 .hero-cta{margin-top:28px}
 .hero-cta a{display:inline-block;font-family:'Inter',Arial,sans-serif;font-weight:600;font-size:15px;letter-spacing:.04em;color:#efe9dc;text-decoration:none;border-bottom:1px solid rgba(239,233,220,.6);padding:6px 0}
 .hero-cta a:hover{border-bottom-color:#efe9dc}
+/* press line under the roster title */
+.press{margin:-22px 0 40px;color:#c9ccbd;line-height:2}
+.press a{color:#efe9dc;text-decoration:none;border-bottom:1px solid rgba(239,233,220,.45)}
+.press a:hover{border-bottom-color:#efe9dc}
