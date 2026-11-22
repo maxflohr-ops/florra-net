@@ -34,20 +34,25 @@
   /* heavier type: every face here ships a single regular weight, so the extra
      weight is a thin stroke in the text's own colour (about one weight step) */
   --heft-display:.024em;--heft-reading:.014em;--heft-label:.012em;
+  /* thickening shadow: tight same-colour shadows on every side widen each
+     stroke, plus a soft dark drop for depth */
+  --thick-display:.022em 0 0 currentColor,-.022em 0 0 currentColor,0 .022em 0 currentColor,0 -.012em 0 currentColor,.015em .015em 0 currentColor,-.015em .015em 0 currentColor,0 .05em .12em rgba(0,0,0,.45);
+  --thick-reading:.025em 0 0 currentColor,-.012em 0 0 currentColor,0 .02em 0 currentColor,0 1px 3px rgba(0,0,0,.35);
+  --thick-label:.04em 0 0 currentColor,0 .03em 0 currentColor,0 1px 2px rgba(0,0,0,.3);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--forest);color:var(--paper);font-family:var(--reading);font-size:19px;line-height:1.62;
-  -webkit-text-stroke:var(--heft-reading) currentColor;paint-order:stroke fill;-webkit-font-smoothing:antialiased}
+  -webkit-text-stroke:var(--heft-reading) currentColor;paint-order:stroke fill;text-shadow:var(--thick-reading);-webkit-font-smoothing:antialiased}
 a{color:inherit}
-.display,h1,h2,h3,.wordmark{font-family:var(--display);font-weight:400;-webkit-text-stroke:var(--heft-display) currentColor;letter-spacing:-.015em}
-.label{font-family:var(--label);font-size:11px;letter-spacing:.18em;text-transform:uppercase;-webkit-text-stroke:var(--heft-label) currentColor}
+.display,h1,h2,h3,.wordmark{font-family:var(--display);font-weight:400;-webkit-text-stroke:var(--heft-display) currentColor;text-shadow:var(--thick-display);letter-spacing:-.015em}
+.label{font-family:var(--label);font-size:11px;letter-spacing:.18em;text-transform:uppercase;-webkit-text-stroke:var(--heft-label) currentColor;text-shadow:var(--thick-label)}
 .skip{position:absolute;left:-9999px}.skip:focus{left:16px;top:16px;background:var(--paper);color:var(--ink);padding:8px 12px;z-index:9}
 
 /* header */
 header{position:absolute;top:0;left:0;right:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:28px 4.5vw}
 .wordmark{font-size:34px;text-decoration:none;line-height:1}
-header nav a{font-family:var(--label);font-size:13px;letter-spacing:.06em;text-decoration:none;margin-left:28px;-webkit-text-stroke:var(--heft-label) currentColor;border-bottom:1px solid transparent}
+header nav a{font-family:var(--label);font-size:13px;letter-spacing:.06em;text-decoration:none;margin-left:28px;-webkit-text-stroke:var(--heft-label) currentColor;text-shadow:var(--thick-label);border-bottom:1px solid transparent}
 header nav a:hover{border-bottom-color:currentColor}
 
 /* hero */
@@ -76,7 +81,7 @@ header nav a:hover{border-bottom-color:currentColor}
 .artist h3{font-size:44px;line-height:1}
 .artist .who{color:var(--copper);filter:brightness(1.35)}
 .artist p{color:#dcdccf;font-size:17px}
-.artist .more{margin-top:auto;padding-top:10px;font-family:var(--label);font-size:13px;letter-spacing:.06em;text-decoration:none;-webkit-text-stroke:var(--heft-label) currentColor}
+.artist .more{margin-top:auto;padding-top:10px;font-family:var(--label);font-size:13px;letter-spacing:.06em;text-decoration:none;-webkit-text-stroke:var(--heft-label) currentColor;text-shadow:var(--thick-label)}
 .artist .more:hover{text-decoration:underline}
 .artist:nth-child(1) img{object-position:62% 50%}
 
@@ -92,7 +97,7 @@ header nav a:hover{border-bottom-color:currentColor}
 /* contact */
 .contact{text-align:center;padding:16vh 4.5vw 14vh;border-top:1px solid var(--rule);position:relative}
 .contact h2{font-size:clamp(44px,7vw,104px);line-height:1}
-.contact a.mail{display:inline-block;margin-top:30px;font-family:var(--display);font-size:clamp(26px,3vw,40px);text-decoration:none;border-bottom:1px solid currentColor;-webkit-text-stroke:var(--heft-display) currentColor}
+.contact a.mail{display:inline-block;margin-top:30px;font-family:var(--display);font-size:clamp(26px,3vw,40px);text-decoration:none;border-bottom:1px solid currentColor;-webkit-text-stroke:var(--heft-display) currentColor;text-shadow:var(--thick-display)}
 .contact p{margin-top:22px;color:#cfd0c3}
 footer{display:flex;justify-content:space-between;padding:26px 4.5vw;border-top:1px solid var(--rule);color:var(--muted)}
 
