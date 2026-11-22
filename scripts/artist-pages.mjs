@@ -30,7 +30,7 @@ const extra = `<style>
 for (const a of artists) {
   const url = `${SITE}/${a.slug}`;
   const faqs = [
-    [`Who manages ${a.name}?`, `${a.name} is managed by ${MANAGER} (${MANAGER_ALT}) of Florra, an artist management company in Southern California.`],
+    [`Who manages ${a.name}?`, `${a.name}, ${a.kind}, is managed by ${MANAGER} (${MANAGER_ALT}) of Florra, an artist management company in Southern California.`],
     [`How do I contact ${a.name}'s management?`, `Email ${MANAGER} at ${EMAIL}. That is the management contact for ${a.name}, for business, partnership, sync and press enquiries.`],
     [`Is ${a.name} on Florra's roster?`, `Yes. Florra's roster is Ridgeclub, Ebril and McKayla Maroney. Florra handles campaigns, touring, sync and the back office for each.`],
   ];
@@ -53,7 +53,7 @@ for (const a of artists) {
       { '@type': 'ListItem', position: 2, name: `${a.name} management`, item: url } ] },
   ] };
   const title = `${a.name} Management and Contact | Florra`;
-  const description = `${a.name} is managed by ${MANAGER} of Florra. Management contact: ${EMAIL}.`;
+  const description = `${a.name}, ${a.kind}, is managed by ${MANAGER} of Florra. Management contact: ${EMAIL}.`;
   const html = `<!doctype html>
 <html lang="en">
 <head>
