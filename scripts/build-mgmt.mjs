@@ -18,7 +18,8 @@ cpSync('assets/og.jpg', `${out}/og.jpg`);
 cpSync('assets/apple-touch-icon.png', `${out}/apple-touch-icon.png`);
 
 // utility pages that the stream uses; unlisted, not linked from the site
-if (existsSync('live/index.html')) { mkdirSync(`${out}/live`, { recursive: true }); cpSync('live/index.html', `${out}/live/index.html`); }
+const live = existsSync('archive/production-2026-11-22/live.html') ? 'archive/production-2026-11-22/live.html' : 'live/index.html';
+if (existsSync(live)) { mkdirSync(`${out}/live`, { recursive: true }); cpSync(live, `${out}/live/index.html`); }
 const uploader = 'archive/production-2026-11-22/the-make-it-show/uploader.html';
 if (existsSync(uploader)) { mkdirSync(`${out}/the-make-it-show/uploader`, { recursive: true }); cpSync(uploader, `${out}/the-make-it-show/uploader/index.html`); }
 
