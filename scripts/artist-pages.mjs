@@ -67,7 +67,11 @@ for (const a of artists) {
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${url}">
-<meta property="og:image" content="${SITE}${a.img}">
+<meta property="og:image" content="${SITE}/assets/og/${a.slug}.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="${esc(a.name)} management and contact: Maxwell Flohr, max@florra.net">
+<meta name="twitter:image" content="${SITE}/assets/og/${a.slug}.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#202c23">
 <link rel="icon" href="/apple-touch-icon.png">
