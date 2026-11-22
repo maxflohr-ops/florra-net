@@ -1,1 +1,1 @@
-{"name":"florra-net","private":true,"type":"module","scripts":{"build":"node scripts/build.mjs","test":"node scripts/check.mjs"}}
+{"name":"florra-net","private":true,"type":"module","scripts":{"build":"node scripts/build-mgmt.mjs","build:collection":"node scripts/build.mjs","test":"node scripts/check.mjs"}}
