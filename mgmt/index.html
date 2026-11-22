@@ -16,6 +16,9 @@
 <meta name="theme-color" content="#202c23">
 <link rel="icon" href="/apple-touch-icon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Instrument+Sans:wght@500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&display=swap">
+<script>try{var t=new URLSearchParams(location.search).get("type");if(/^[abc]$/.test(t))document.documentElement.dataset.type=t}catch(e){}</script>
 <link rel="preload" href="/assets/fonts/fable-dust.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"florra","legalName":"florra llc","url":"https://www.florra.net/","email":"max@florra.net","founder":{"@type":"Person","name":"Max Flohr"}}</script>
 <!-- Google tag (gtag.js) -->
@@ -109,6 +112,30 @@ footer{display:flex;justify-content:space-between;padding:26px 4.5vw;border-top:
   header nav a{margin-left:18px}
 }
 @media (prefers-reduced-motion:reduce){.artist img{transition:none}}
+/* ---- type options (pick one; a is the default) ---- */
+/* real weights instead of the outline/shadow trick */
+:root{--heft-display:0;--heft-reading:0;--heft-label:0;--thick-reading:none;--thick-label:none;
+  --thick-display:0 .04em .14em rgba(0,0,0,.4)}
+body{-webkit-text-stroke:0;text-shadow:none}
+/* A: fable dust headings with a clean heavier edge + newsreader medium body */
+html:not([data-type]),html[data-type=a]{--reading:'Newsreader',Georgia,serif;--label:'Newsreader',Georgia,serif;--heft-display:.03em}
+html:not([data-type]) body,html[data-type=a] body{font-weight:500;font-size:20px}
+html:not([data-type]) .label,html[data-type=a] .label{font-weight:700;letter-spacing:.14em;font-size:12px}
+html:not([data-type]) header nav a,html[data-type=a] header nav a,html:not([data-type]) .artist .more,html[data-type=a] .artist .more{font-family:'Newsreader',serif;font-weight:700;font-size:15px}
+/* B: fable dust headings + instrument sans semibold */
+html[data-type=b]{--reading:'Instrument Sans',Arial,sans-serif;--label:'Instrument Sans',Arial,sans-serif;--heft-display:.03em}
+html[data-type=b] body{font-weight:500;font-size:18px;line-height:1.6}
+html[data-type=b] .label{font-weight:700}
+html[data-type=b] header nav a,html[data-type=b] .artist .more{font-family:'Instrument Sans',sans-serif;font-weight:600;font-size:14px}
+/* C: dm serif display headings + newsreader semibold body (no fable dust) */
+html[data-type=c]{--display:'DM Serif Display',Georgia,serif;--reading:'Newsreader',Georgia,serif;--label:'Newsreader',Georgia,serif}
+html[data-type=c] body{font-weight:600;font-size:20px}
+html[data-type=c] .label{font-weight:700;letter-spacing:.14em;font-size:12px}
+html[data-type=c] .display,html[data-type=c] h1,html[data-type=c] h2,html[data-type=c] h3,html[data-type=c] .wordmark{letter-spacing:-.025em}
+html[data-type=c] .hero h1{font-size:clamp(54px,7.2vw,118px);line-height:1}
+html[data-type=c] header nav a,html[data-type=c] .artist .more{font-family:'Newsreader',serif;font-weight:700;font-size:15px}
+.wordmark{font-family:'Fable Dust',serif!important}
+
 </style>
 </head>
 <body>
