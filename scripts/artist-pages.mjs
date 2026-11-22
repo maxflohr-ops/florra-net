@@ -85,6 +85,8 @@ for (const a of artists) {
 ${gtag}
 ${style}
 ${extra}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,100..900,0..100,0..1&family=Inter:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="/type.css">
 </head>
 <body>
 <header>

@@ -1,0 +1,14 @@
+/* florra type: Fraunces light display (SOFT 0, high opsz), Inter body. Wordmark stays Fable Dust. */
+:root body{text-shadow:0 1px 1px rgba(0,0,0,.45),0 3px 8px rgba(0,0,0,.35)}
+:root h1,:root h2,:root h3,:root .contact a.mail{-webkit-text-stroke:0}
+/* A: Fraunces thin and tall. Light weight, sharp display cut (high opsz, SOFT 0), tight tracking, bigger sizes. Inter body */
+:root h1,:root h2,:root h3,:root .contact a.mail{font-family:'Fraunces',Georgia,serif;font-weight:300;font-variation-settings:'SOFT' 0,'WONK' 0,'opsz' 144;letter-spacing:-.035em;text-transform:none}
+:root body,:root .label,:root header nav a,:root .artist .more{font-family:'Inter',Arial,sans-serif}
+:root body{font-weight:500}
+/* the florra wordmark stays in Fable Dust in every option */
+:root .wordmark{font-family:'Fable Dust',Georgia,serif}
+/* A runs thin, so it gets more height: larger display sizes, airier line height */
+:root .hero h1{font-size:clamp(62px,8.8vw,148px);line-height:.98}
+:root .section-head h2,:root .contact h2{font-size:clamp(48px,7.6vw,116px);line-height:1}
+:root .artist h3{font-size:52px;line-height:1}
+:root .artist-page h1{font-size:clamp(52px,7vw,112px);line-height:1}

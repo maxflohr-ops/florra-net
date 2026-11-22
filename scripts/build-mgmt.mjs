@@ -11,6 +11,7 @@ mkdirSync(`${out}/assets/roster`, { recursive: true });
 mkdirSync(`${out}/assets/fonts`, { recursive: true });
 
 cpSync('mgmt/index.html', `${out}/index.html`);
+cpSync('mgmt/type.css', `${out}/type.css`);
 for (const f of ['california-hills.jpg', 'rose-botanical.png']) cpSync(`assets/${f}`, `${out}/assets/${f}`);
 cpSync('assets/roster', `${out}/assets/roster`, { recursive: true, filter: p => !p.includes('/candidates') && !p.includes('/archive') });
 cpSync('assets/fonts/fable-dust.woff2', `${out}/assets/fonts/fable-dust.woff2`);
