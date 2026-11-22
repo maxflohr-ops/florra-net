@@ -13,7 +13,7 @@ const FAQS = [
 ];
 
 const LD = { '@context': 'https://schema.org', '@graph': [
-  { '@type': 'Organization', '@id': 'https://www.florra.net/#organization', name: 'Florra', alternateName: ['florra', 'Florra LLC', 'florra.net'], legalName: 'Florra LLC', url: 'https://www.florra.net/', logo: 'https://www.florra.net/og.jpg', email: 'max@florra.net',
+  { '@type': 'Organization', '@id': 'https://www.florra.net/#organization', name: 'Florra', alternateName: ['florra', 'Florra LLC', 'florra.net'], legalName: 'Florra LLC', url: 'https://www.florra.net/', logo: 'https://www.florra.net/assets/og/florra.jpg', email: 'max@florra.net',
     description: 'Florra is an artist management company in Southern California, founded by Max Flohr. It manages Ridgeclub, Ebril and McKayla Maroney, with no retainer.',
     address: { '@type': 'PostalAddress', addressRegion: 'CA', addressCountry: 'US' }, founder: { '@id': 'https://www.florra.net/#max-flohr' },
     knowsAbout: ['artist management', 'music marketing', 'TikTok creator seeding', 'touring', 'sync'],
