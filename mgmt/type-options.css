@@ -18,3 +18,8 @@ html[data-type] .wordmark{font-family:'Fable Dust',Georgia,serif}
 .type-switch{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:50;display:flex;gap:6px;background:rgba(20,26,21,.85);border:1px solid rgba(232,230,215,.25);padding:6px;border-radius:999px;font:600 14px Arial,sans-serif;text-shadow:none}
 .type-switch a{color:#eeeade;text-decoration:none;padding:7px 14px;border-radius:999px}
 .type-switch a[aria-current]{background:#eeeade;color:#202c23}
+/* Syne runs wide: size C's display type down so headlines keep to three lines */
+html[data-type=c] .hero h1{font-size:clamp(40px,5.6vw,92px)}
+html[data-type=c] .section-head h2,html[data-type=c] .contact h2{font-size:clamp(34px,5vw,72px)}
+html[data-type=c] .artist h3{font-size:34px}
+html[data-type=c] .artist-page h1{font-size:clamp(38px,4.6vw,76px)}
