@@ -40,16 +40,16 @@ a:focus-visible,button:focus-visible{outline:2px solid #efe9dc;outline-offset:4p
 /* typewriter slips, drawn like real key strikes. Struck and ghost letters are CSS-generated, so they never enter the page text or search. */
 /* 1. "artist" typed, then backed over with a row of x's that land a little uneven, the way a typist strikes a word out */
 .struck{display:inline-block;position:relative;font-family:'Courier Prime',monospace;margin-right:.08em}
-.struck::before{content:attr(data-w);opacity:.5}
-.struck::after{content:attr(data-x);position:absolute;left:.02em;top:.04em;opacity:.62;letter-spacing:0;transform:rotate(-.7deg);transform-origin:left center;text-shadow:.02em 0 0,0 1px 1px rgba(0,0,0,.45)}
+.struck::before{content:attr(data-w);opacity:.62}
+.struck::after{content:attr(data-x);position:absolute;left:.03em;top:.05em;opacity:.48;letter-spacing:0;transform:rotate(-.7deg);transform-origin:left center}
 /* 2. a sticky key: the r lands high and a hair crooked, lighter, with a faint second strike where it bounced */
 .sticky-key{display:inline-block;transform:translateY(-.06em) rotate(-2.5deg);opacity:.86;text-shadow:.035em .045em 0 rgba(236,228,211,.22),0 1px 1px rgba(0,0,0,.45),0 3px 8px rgba(0,0,0,.35)}
 /* 3. the full stop struck twice, the second hit just off the first and lighter */
 .retype{display:inline-block;position:relative}
-.retype::after{content:'.';position:absolute;left:.07em;top:.025em;opacity:.38;transform:rotate(6deg);filter:blur(.25px)}
+.retype::after{content:'.';content:'.' / '';position:absolute;left:.07em;top:.025em;opacity:.3;transform:rotate(6deg);filter:blur(.25px)}
 /* 4. correction tape: a matte patch over a mistyped year, faintly showing through, with 2026 typed again on top */
-.tape{position:relative;display:inline-block;padding:0 .3em;margin:0 -.1em;background:rgba(236,228,211,.09);border-radius:1px 3px 2px 4px/3px 1px 4px 2px;box-shadow:inset 0 0 0 .5px rgba(236,228,211,.07),inset 0 -2px 3px rgba(0,0,0,.12);transform:rotate(-.6deg)}
-.tape::before{content:'2062';position:absolute;left:.36em;top:.06em;opacity:.13;transform:rotate(.8deg);pointer-events:none}
+.tape{position:relative;display:inline-block;padding:0 .3em;margin:0 -.1em;background:linear-gradient(97deg,rgba(236,228,211,.05),rgba(236,228,211,.1) 40%,rgba(236,228,211,.08) 85%,rgba(236,228,211,.04));border-radius:1px 4px 2px 5px/4px 1px 5px 2px;box-shadow:inset 0 -2px 3px rgba(0,0,0,.12);transform:rotate(-.6deg)}
+.tape::before{content:'2062';content:'2062' / '';position:absolute;left:.42em;top:.1em;opacity:.22;transform:rotate(1.4deg);pointer-events:none}
 .tape>span{position:relative;text-shadow:.02em 0 0,0 1px 1px rgba(0,0,0,.45)}
 /* 5. a worn key: about one letter in 210 sits 2 to 4 degrees off and a touch low, inked heavier or lighter (see /type.js) */
 .tilt{display:inline-block}
