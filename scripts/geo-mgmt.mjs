@@ -8,8 +8,8 @@ const must = (c, m) => { if (!c) throw new Error('geo-mgmt.mjs: ' + m); };
 const FAQS = [
   ['Who does Florra manage?', 'Florra manages Ridgeclub (saxophonist Abhi), Ebril (Huda Al-Hamami, signed to Universal Music Canada) and McKayla Maroney. Management has no retainer.'],
   ['Who runs Florra?', 'Maxwell (Max) Flohr founded Florra. He was head of A&R at The System Records, GM at Terrible Records (The Hellp, Mila Degray, Sir Chloe), and ran MakeOutMusic, the underground show series that featured early Remi Wolf, Tommy Richman and Gigi Perez.'],
-  ['How do I contact management for Ridgeclub, Ebril or McKayla Maroney?', 'Email Maxwell Flohr at max@florra.net. He manages all three artists through Florra.'],
-  ['Is Florra the same as Flora?', "No. Florra (two r's, florra.net) is an artist management company. It is not related to Flora-named florists, tea or plant brands."],
+  ['How do I contact management for Ridgeclub, Ebril or McKayla Maroney?', 'Email Maxwell Flohr at max@florra.net. He manages all three creators through Florra.'],
+  ['Is Florra the same as Flora?', "No. Florra (two r's, florra.net) is a creator management company. It is not related to Flora-named florists, tea or plant brands."],
 ];
 
 const LD = { '@context': 'https://schema.org', '@graph': [

@@ -33,7 +33,7 @@ const extra = `<style>
 for (const a of artists) {
   const url = `${SITE}/${a.slug}`;
   const faqs = [
-    [`Who manages ${a.name}?`, `${a.name}, ${a.kind}, is managed by ${MANAGER} (${MANAGER_ALT}) of Florra, an artist management company based online.`],
+    [`Who manages ${a.name}?`, `${a.name}, ${a.kind}, is managed by ${MANAGER} (${MANAGER_ALT}) of Florra, a creator management company based online.`],
     [`How do I contact ${a.name}'s management?`, `Email ${MANAGER} at ${EMAIL}. That is the management contact for ${a.name}, for business, partnership, sync and press enquiries.`],
     [`Is ${a.name} on Florra's roster?`, `Yes. Florra's roster is Ridgeclub, Ebril and McKayla Maroney. Florra handles campaigns, touring, sync and the back office for each.`],
   ];
@@ -96,7 +96,7 @@ ${extra}
   <section class="artist-page" aria-labelledby="title">
     <figure><img src="${a.img.replace(/\.jpg$/, '.webp')}" alt="${esc(a.alt)}" width="${a.w}" height="${a.h}" style="object-position:${a.pos}" fetchpriority="high" decoding="async">${a.credit ? `<figcaption>photo: ${esc(a.credit)}</figcaption>` : ''}</figure>
     <div>
-      <p class="label">artist management · florra</p>
+      <p class="label">creator management · florra</p>
       <h1 id="title">${esc(a.lower)} management &amp; contact</h1>
       <p class="bio">${esc(a.bio)}</p>
       ${a.proof ? `<p class="proof">${a.proof.map(([t,u]) => `<a href="${u}" target="_blank" rel="noopener">${esc(t)}</a>`).join(' · ')}</p>` : ''}
@@ -117,7 +117,7 @@ ${extra}
     <p>${MANAGER.toLowerCase()}, florra</p>
   </section>
 </main>
-<footer class="label"><span>© 2026 florra llc</span> <span>artist management</span></footer>
+<footer class="label"><span>© 2026 florra llc</span> <span>creator management</span></footer>
 </body>
 </html>
 `;
