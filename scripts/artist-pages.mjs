@@ -91,7 +91,7 @@ ${extra}
 </head>
 <body>
 <header>
-  <a class="wordmark" href="/" aria-label="florra home">florra</a>
+  <a class="wordmark" href="/" aria-label="florra home">flo<span class="sticky-key">r</span>ra</a>
   <nav aria-label="primary"><a href="/#roster">roster</a><a href="#contact">contact ↗</a></nav>
 </header>
 <main>
@@ -119,7 +119,7 @@ ${extra}
     <p>${MANAGER.toLowerCase()}, florra</p>
   </section>
 </main>
-<footer class="label"><span>© 2026 florra llc</span> <span>creator management</span></footer>
+<footer class="label"><span>© <span class="tape">2026</span> florra llc</span> <span>creator management</span></footer>
 </body>
 </html>
 `;
