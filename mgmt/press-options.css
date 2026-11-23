@@ -7,13 +7,14 @@
 /* TW: a real typewriter. Special Elite headlines (inked, uneven), Courier Prime labels and nav */
 html[data-type=tw] h1,html[data-type=tw] h2,html[data-type=tw] h3,html[data-type=tw] .contact a.mail{font-family:'Special Elite','Courier Prime',monospace;font-weight:400;font-variation-settings:normal;letter-spacing:-.01em;text-transform:none;
   color:#ece4d3;text-shadow:0 0 .6px rgba(236,228,211,.9),0 -1px 0 rgba(0,0,0,.55),0 1px 0 rgba(255,255,255,.12),0 3px 10px rgba(0,0,0,.35)}
-html[data-type=tw] .hero h1{font-size:clamp(46px,6.4vw,104px);line-height:1.04}
+html[data-type=tw] .hero h1{font-size:clamp(40px,5.8vw,96px);line-height:1.06}
 html[data-type=tw] .hero h1 em{color:#d8c6a4}
 html[data-type=tw] .section-head h2,html[data-type=tw] .contact h2{font-size:clamp(40px,6vw,88px);line-height:1.05}
 html[data-type=tw] .artist h3{font-size:40px;line-height:1.05}
 html[data-type=tw] .artist-page h1{font-size:clamp(40px,5.4vw,88px);line-height:1.05}
 html[data-type=tw] .label,html[data-type=tw] header nav a,html[data-type=tw] .artist .more,html[data-type=tw] .hero-cta a,html[data-type=tw] footer{font-family:'Courier Prime',monospace;font-weight:700;letter-spacing:.06em}
-html[data-type=tw] .strike{display:inline-block;white-space:pre}
+html[data-type=tw] .word{white-space:nowrap}
+html[data-type=tw] .strike{display:inline-block}
 
 /* LP: the current thin Fraunces, letterpressed: ink sits in the page, lit from above */
 html[data-type=lp] h1,html[data-type=lp] h2,html[data-type=lp] h3,html[data-type=lp] .contact a.mail{font-family:'Fraunces Press','Fraunces',Georgia,serif;font-weight:300;
