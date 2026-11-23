@@ -18,7 +18,7 @@ html[data-type=tw] .strike{display:inline-block}
 
 /* LP: the current thin Fraunces, letterpressed: ink sits in the page, lit from above */
 html[data-type=lp] h1,html[data-type=lp] h2,html[data-type=lp] h3,html[data-type=lp] .contact a.mail{font-family:'Fraunces Press','Fraunces',Georgia,serif;font-weight:300;
-  color:#e3dac8;text-shadow:0 -1px 0 rgba(0,0,0,.7),0 1.5px 0 rgba(255,250,235,.22),0 0 1px rgba(227,218,200,.6),0 6px 18px rgba(0,0,0,.28)}
+  color:#d6ccb7;text-shadow:0 -1.5px 0 rgba(0,0,0,.9),0 -3px 3px rgba(0,0,0,.45),0 1.5px 0 rgba(255,246,226,.42),0 3px 2px rgba(255,246,226,.12)}
 html[data-type=lp] .hero h1 em{color:#d2bf99}
 
 .press-switch{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:50;display:flex;gap:6px;background:rgba(20,26,21,.85);border:1px solid rgba(232,230,215,.25);padding:6px;border-radius:999px;font:600 14px Arial,sans-serif;text-shadow:none}
