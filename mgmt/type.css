@@ -1,19 +1,26 @@
-/* florra type: Fraunces light display (SOFT 0, high opsz), Inter body. Wordmark stays Fable Dust. */
+/* florra type: typewriter headlines (Special Elite), Courier Prime labels, Inter body. Wordmark stays Fable Dust. */
 :root body{text-shadow:0 1px 1px rgba(0,0,0,.45),0 3px 8px rgba(0,0,0,.35)}
 :root h1,:root h2,:root h3,:root .contact a.mail{-webkit-text-stroke:0}
 /* Inter everywhere the old Instrument Sans was used (labels, nav, dt, footer) */
 :root{--reading:'Inter',Arial,sans-serif;--label:'Inter',Arial,sans-serif}
-/* A: Fraunces thin and tall. Light weight, sharp display cut (high opsz, SOFT 0), tight tracking, bigger sizes. Inter body */
-:root h1,:root h2,:root h3,:root .contact a.mail{font-family:'Fraunces',Georgia,serif;font-weight:300;font-variation-settings:'SOFT' 0,'WONK' 0,'opsz' 144;letter-spacing:-.035em;text-transform:none}
+/* typewriter: Special Elite headlines, inked and struck unevenly (see /type.js); Courier Prime labels and nav. Fonts self-hosted. */
+@font-face{font-family:"Special Elite";font-weight:400;font-display:swap;src:url(/assets/fonts/special-elite.woff2) format("woff2")}
+@font-face{font-family:"Courier Prime";font-weight:400;font-display:swap;src:url(/assets/fonts/courier-prime-400.woff2) format("woff2")}
+@font-face{font-family:"Courier Prime";font-weight:700;font-display:swap;src:url(/assets/fonts/courier-prime-700.woff2) format("woff2")}
+:root h1,:root h2,:root h3,:root .contact a.mail{font-family:'Special Elite','Courier Prime',monospace;font-weight:400;font-variation-settings:normal;letter-spacing:-.01em;text-transform:none;color:#ece4d3;text-shadow:0 0 .6px rgba(236,228,211,.9),0 -1px 0 rgba(0,0,0,.55),0 1px 0 rgba(255,255,255,.12),0 3px 10px rgba(0,0,0,.35)}
+:root .hero h1 em{color:#d8c6a4}
 :root body,:root .label,:root header nav a,:root .artist .more{font-family:'Inter',Arial,sans-serif}
 :root body{font-weight:500}
 /* the florra wordmark stays in Fable Dust in every option */
 :root .wordmark{font-family:'Fable Dust',Georgia,serif}
-/* A runs thin, so it gets more height: larger display sizes, airier line height */
-:root .hero h1{font-size:clamp(62px,8.8vw,148px);line-height:.98}
-:root .section-head h2,:root .contact h2{font-size:clamp(48px,7.6vw,116px);line-height:1}
-:root .artist h3{font-size:52px;line-height:1}
-:root .artist-page h1{font-size:clamp(52px,7vw,112px);line-height:1}
+/* typewriter sizes: monospace runs wide, so display sizes come down a little */
+:root .hero h1{font-size:clamp(40px,5.8vw,96px);line-height:1.06}
+:root .section-head h2,:root .contact h2{font-size:clamp(40px,6vw,88px);line-height:1.05}
+:root .artist h3{font-size:40px;line-height:1.05}
+:root .artist-page h1{font-size:clamp(40px,5.4vw,88px);line-height:1.05}
+:root .label,:root header nav a,:root .artist .more,:root .hero-cta a,:root footer{font-family:'Courier Prime',monospace;font-weight:700;letter-spacing:.06em}
+.word{white-space:nowrap}
+.strike{display:inline-block}
 /* keyboard focus: visible ring on every link and button */
 a:focus-visible,button:focus-visible{outline:2px solid #efe9dc;outline-offset:4px;border-radius:2px}
 /* artist subtitle: lift copper to clear 4.5:1 on forest */

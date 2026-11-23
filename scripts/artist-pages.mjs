@@ -80,14 +80,14 @@ for (const a of artists) {
 <link rel="icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" href="/assets/fonts/fable-dust.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/special-elite.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">${JSON.stringify(ld)}</script>
 ${gtag}
 ${style}
 ${extra}
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@144,300,0,0&family=Inter:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap">
 <link rel="stylesheet" href="/type.css">
-<link rel="stylesheet" href="/press-options.css">
-<script src="/press-options.js"></script>
+<script src="/type.js" defer></script>
 </head>
 <body>
 <header>
