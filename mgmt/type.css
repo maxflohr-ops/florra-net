@@ -66,3 +66,9 @@ a:focus-visible,button:focus-visible{outline:2px solid #efe9dc;outline-offset:4p
 /* still life: the rose lies in the grounds with fallen petals, shadows and dusting baked into one image; grass blades in the grain */
 :root .hero .rose{height:auto;width:min(66vw,1150px);max-height:none;right:-3vw;bottom:-7vh;opacity:1;filter:none;-webkit-mask-image:none;mask-image:none}
 @media (max-width:900px){:root .hero .rose{width:125vw;right:-4vw;top:70px;bottom:auto;opacity:.8}}
+
+/* alumni: past artists, typed in the headline face */
+.alumni-list{list-style:none;margin:0;padding:0;columns:3;column-gap:4.5vw}
+.alumni-list li{break-inside:avoid;font-family:'Special Elite','Courier Prime',monospace;font-size:clamp(24px,2.6vw,36px);line-height:1.25;color:#ece4d3;padding:10px 0;border-bottom:1px solid var(--rule);text-shadow:0 0 .6px rgba(236,228,211,.9),0 -1px 0 rgba(0,0,0,.55),0 3px 10px rgba(0,0,0,.35)}
+@media (max-width:900px){.alumni-list{columns:2}}
+@media (max-width:520px){header nav a{margin-left:16px}}
