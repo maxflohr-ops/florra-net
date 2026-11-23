@@ -14,8 +14,8 @@ const FAQS = [
 
 const LD = { '@context': 'https://schema.org', '@graph': [
   { '@type': 'Organization', '@id': 'https://www.florra.net/#organization', name: 'Florra', alternateName: ['florra', 'Florra LLC', 'florra.net'], legalName: 'Florra LLC', url: 'https://www.florra.net/', logo: 'https://www.florra.net/assets/og/florra.jpg', email: 'max@florra.net',
-    description: 'Florra is an artist management company in Southern California, founded by Max Flohr. It manages Ridgeclub, Ebril and McKayla Maroney, with no retainer.',
-    address: { '@type': 'PostalAddress', addressRegion: 'CA', addressCountry: 'US' }, founder: { '@id': 'https://www.florra.net/#max-flohr' },
+    description: 'Florra is an artist management company based online, founded by Max Flohr. It manages Ridgeclub, Ebril and McKayla Maroney, with no retainer.',
+    founder: { '@id': 'https://www.florra.net/#max-flohr' },
     knowsAbout: ['artist management', 'music marketing', 'TikTok creator seeding', 'touring', 'sync'],
     sameAs: ['https://www.wikidata.org/wiki/Q142251143'] },
   { '@type': 'Person', '@id': 'https://www.florra.net/#max-flohr', name: 'Maxwell Flohr', alternateName: 'Max Flohr', jobTitle: 'Artist manager, founder of Florra', worksFor: { '@id': 'https://www.florra.net/#organization' }, email: 'max@florra.net',
@@ -26,7 +26,7 @@ const LD = { '@context': 'https://schema.org', '@graph': [
 
 const LLMS = `# Florra
 
-> Florra (florra.net, Florra LLC) is an artist management company in Southern California, founded by Maxwell (Max) Flohr. A small roster, looked after closely, with no retainer. Not to be confused with "Flora" brands.
+> Florra (florra.net, Florra LLC) is an artist management company based online, founded by Maxwell (Max) Flohr. A small roster, looked after closely, with no retainer. Not to be confused with "Flora" brands.
 
 ## Roster (all managed by Maxwell Flohr, management contact max@florra.net)
 - Ridgeclub: saxophonist Abhi. Debut EP "Crawlspace" is out. Management and contact: https://www.florra.net/ridgeclub . Official site: https://ridgeclubhouse.com

@@ -23,7 +23,7 @@ try:
     rose = Image.open('assets/rose-botanical.png').convert('RGBA'); rose.thumbnail((520, 620)); img.alpha_composite(rose, (W - rose.width - 30, H - rose.height + 40))
 except FileNotFoundError: pass
 d = ImageDraw.Draw(img)
-d.text((72, 92), 'ARTIST MANAGEMENT · SOUTHERN CALIFORNIA', font=f(SANS, 22), fill=MUTED)
+d.text((72, 92), 'ARTIST MANAGEMENT · BASED ONLINE', font=f(SANS, 22), fill=MUTED)
 shadow_text(img, (66, 150), 'florra', f(FABLE, 190), PAPER, blur=14, offset=(0, 10))
 shadow_text(img, (72, 400), 'a small roster, looked after closely.', f(FABLE, 46), PAPER)
 d.text((72, 500), 'Ridgeclub  ·  Ebril  ·  McKayla Maroney', font=f(SANS, 30), fill=PAPER)
