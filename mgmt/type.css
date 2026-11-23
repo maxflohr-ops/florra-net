@@ -57,8 +57,12 @@ a:focus-visible,button:focus-visible{outline:2px solid #efe9dc;outline-offset:4p
 
 /* ground coffee: the whole page sits on a fine, dark roast grain (640px tile, ~38 KB). The hills photo stays in the repo, unused. */
 :root{--forest:#24170f;--rule:rgba(232,220,200,.18);--muted:#b3a693}
-:root body{background:linear-gradient(rgba(20,12,7,.4),rgba(20,12,7,.4)),url(/assets/coffee-grounds.webp) 0 0/640px repeat #24170f}
+:root body{background:linear-gradient(rgba(20,12,7,.4),rgba(20,12,7,.4)),url(/assets/coffee-grass.webp) 0 0/640px repeat #24170f}
 :root .artist{background:rgba(20,12,7,.55);border-color:rgba(232,220,200,.16);backdrop-filter:blur(1px)}
 :root .artist figure,:root .artist-page figure{background:#1a110b}
 :root .artist .credit,:root .artist .num,:root .artist-page figcaption{background:rgba(20,12,7,.62)}
 :root footer{background:rgba(18,11,6,.6)}
+
+/* still life: the rose lies in the grounds with fallen petals, shadows and dusting baked into one image; grass blades in the grain */
+:root .hero .rose{height:auto;width:min(66vw,1150px);max-height:none;right:-3vw;bottom:-7vh;opacity:1;filter:none;-webkit-mask-image:none;mask-image:none}
+@media (max-width:900px){:root .hero .rose{width:165vw;right:-62vw;bottom:-2vh;opacity:.6}}
