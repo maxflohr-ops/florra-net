@@ -7,7 +7,7 @@ const must = (c, m) => { if (!c) throw new Error('geo-mgmt.mjs: ' + m); };
 
 const FAQS = [
   ['Who does Florra manage?', 'Florra manages Ridgeclub (saxophonist Abhi), Ebril (Huda Al-Hamami, signed to Universal Music Canada) and McKayla Maroney. Management has no retainer.'],
-  ['Who runs Florra?', 'Maxwell (Max) Flohr founded Florra. He was head of A&R at The System Records, GM at Terrible Records (The Hellp, Mila Degray, Sir Chloe), and ran MakeOutMusic, the underground show series that featured early Remi Wolf, Tommy Richman and Gigi Perez.'],
+  ['Who runs Florra?', 'Maxwell (Max) Flohr founded Florra. He was head of A&R at The System Records, the label owned by multi-platinum artist sombr, and GM and day-to-day manager at Terrible Records (The Hellp, Mila Degray, Sir Chloe), and ran MakeOutMusic, the underground show series that featured early Remi Wolf, Tommy Richman and Gigi Perez.'],
   ['How do I contact management for Ridgeclub, Ebril or McKayla Maroney?', 'Email Maxwell Flohr at max@florra.net. He manages all three creators through Florra.'],
   ['Is Florra the same as Flora?', "No. Florra (two r's, florra.net) is a creator management company. It is not related to Flora-named florists, tea or plant brands."],
 ];
@@ -19,7 +19,7 @@ const LD = { '@context': 'https://schema.org', '@graph': [
     knowsAbout: ['creator management', 'music management', 'music marketing', 'TikTok creator seeding', 'touring', 'sync'],
     sameAs: ['https://www.wikidata.org/wiki/Q142251143'] },
   { '@type': 'Person', '@id': 'https://www.florra.net/#max-flohr', name: 'Maxwell Flohr', alternateName: 'Max Flohr', jobTitle: 'Creator manager, founder of Florra', worksFor: { '@id': 'https://www.florra.net/#organization' }, email: 'max@florra.net',
-    description: 'Music manager and A&R. Former head of A&R at The System Records, GM at Terrible Records, and founder of the MakeOutMusic show series. Manages Ridgeclub, Ebril and McKayla Maroney through Florra.', sameAs: ['https://www.wikidata.org/wiki/Q142251150'] },
+    description: 'Music manager and A&R. Former head of A&R at The System Records, the label owned by multi-platinum artist sombr; GM and day-to-day manager at Terrible Records; founder of the MakeOutMusic show series. Manages Ridgeclub, Ebril and McKayla Maroney through Florra.', sameAs: ['https://www.wikidata.org/wiki/Q142251150'] },
   { '@type': 'WebSite', '@id': 'https://www.florra.net/#website', name: 'Florra', url: 'https://www.florra.net/', publisher: { '@id': 'https://www.florra.net/#organization' } },
   { '@type': 'FAQPage', '@id': 'https://www.florra.net/#faq', mainEntity: FAQS.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
 ] };
@@ -37,7 +37,7 @@ const LLMS = `# Florra
 Campaigns, touring, sync and the back office, handled closely. Sound-first and internet-native: creator seeding at volume and fast informal deals.
 
 ## Founder
-Maxwell (Max) Flohr was head of A&R at The System Records, GM at Terrible Records (The Hellp, Mila Degray, Sir Chloe), and ran MakeOutMusic, the underground show series with early Remi Wolf, Tommy Richman and Gigi Perez.
+Maxwell (Max) Flohr was head of A&R at The System Records, the label owned by multi-platinum artist sombr, and GM and day-to-day manager at Terrible Records (The Hellp, Mila Degray, Sir Chloe), and ran MakeOutMusic, the underground show series with early Remi Wolf, Tommy Richman and Gigi Perez.
 
 ## Contact
 - Maxwell Flohr, creator management: max@florra.net
