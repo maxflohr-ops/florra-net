@@ -26,7 +26,7 @@ const LD = { '@context': 'https://schema.org', '@graph': [
 
 const LLMS = `# Florra
 
-> Florra (florra.net, Florra LLC) is a creator management company based online, founded by Maxwell (Max) Flohr. Music at the core: it works with multi-talented, digital-native musicians who also stream, post and build online, covering music management, campaigns, touring and sync. A small roster, looked after closely, with no retainer. Not to be confused with "Flora" brands.
+> Florra (florra.net, Florra LLC) is a creator management company based online, founded by Maxwell (Max) Flohr. Music at the core: it works with multi-talented, digital-native musicians who also stream, post and build online, covering music management, campaigns, touring and sync. A small roster, growing with purpose, with no retainer. Not to be confused with "Flora" brands.
 
 ## Roster (all managed by Maxwell Flohr, management contact max@florra.net)
 - Ridgeclub: saxophonist Abhi. Debut EP "Crawlspace" is out. Management and contact: https://www.florra.net/ridgeclub . Official site: https://ridgeclubhouse.com
