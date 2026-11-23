@@ -119,7 +119,7 @@ ${extra}
     <p>${MANAGER.toLowerCase()}, florra</p>
   </section>
 </main>
-<footer class="label"><span>© <span class="tape">2026</span> florra llc</span> <span>creator management</span></footer>
+<footer class="label"><span>© <span class="tape"><span>2026</span></span> florra llc</span> <span>creator management</span></footer>
 </body>
 </html>
 `;
