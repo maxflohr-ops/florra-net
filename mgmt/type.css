@@ -54,3 +54,11 @@ a:focus-visible,button:focus-visible{outline:2px solid #efe9dc;outline-offset:4p
 /* 5. a worn key: about one letter in 210 sits 2 to 4 degrees off and a touch low, inked heavier or lighter (see /type.js) */
 .tilt{display:inline-block}
 .tilt.heavy{text-shadow:.018em 0 0,0 1px 1px rgba(0,0,0,.45),0 3px 8px rgba(0,0,0,.35)}
+
+/* ground coffee: the whole page sits on a fine, dark roast grain (640px tile, ~38 KB). The hills photo stays in the repo, unused. */
+:root{--forest:#24170f;--rule:rgba(232,220,200,.18);--muted:#b3a693}
+:root body{background:#24170f url(/assets/coffee-grounds.webp) 0 0/640px repeat}
+:root .artist{background:rgba(20,12,7,.55);border-color:rgba(232,220,200,.16);backdrop-filter:blur(1px)}
+:root .artist figure,:root .artist-page figure{background:#1a110b}
+:root .artist .credit,:root .artist .num,:root .artist-page figcaption{background:rgba(20,12,7,.62)}
+:root footer{background:rgba(18,11,6,.6)}

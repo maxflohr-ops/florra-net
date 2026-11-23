@@ -13,7 +13,7 @@ mkdirSync(`${out}/assets/fonts`, { recursive: true });
 cpSync('mgmt/index.html', `${out}/index.html`);
 cpSync('mgmt/type.css', `${out}/type.css`);
 cpSync('mgmt/type.js', `${out}/type.js`);
-for (const f of ['california-hills.webp', 'rose-botanical.webp']) cpSync(`assets/${f}`, `${out}/assets/${f}`);
+for (const f of ['california-hills.webp', 'rose-botanical.webp', 'coffee-grounds.webp']) cpSync(`assets/${f}`, `${out}/assets/${f}`);
 cpSync('assets/roster', `${out}/assets/roster`, { recursive: true, filter: p => !p.includes('/candidates') && !p.includes('/archive') });
 cpSync('assets/fonts/fable-dust.woff2', `${out}/assets/fonts/fable-dust.woff2`);
 for (const f of ['special-elite','courier-prime-400','courier-prime-700']) cpSync(`assets/fonts/${f}.woff2`, `${out}/assets/fonts/${f}.woff2`);
