@@ -14,7 +14,7 @@ const FAQS = [
 
 const LD = { '@context': 'https://schema.org', '@graph': [
   { '@type': 'Organization', '@id': 'https://www.florra.net/#organization', name: 'Florra', alternateName: ['florra', 'Florra LLC', 'florra.net'], legalName: 'Florra LLC', url: 'https://www.florra.net/', logo: 'https://www.florra.net/assets/og/florra.jpg', email: 'max@florra.net',
-    description: 'Florra is a creator management company based online, founded by Max Flohr. It manages creators across music, livestream and writing (Ridgeclub, Ebril and McKayla Maroney), with no retainer, including music management, campaigns, touring and sync.',
+    description: 'Florra is a creator management company based online, founded by Max Flohr, for multi-talented, digital-native musicians who also stream, post and build online. It manages Ridgeclub, Ebril and McKayla Maroney, with no retainer, covering music management, campaigns, touring and sync.',
     founder: { '@id': 'https://www.florra.net/#max-flohr' },
     knowsAbout: ['creator management', 'music management', 'music marketing', 'TikTok creator seeding', 'touring', 'sync'],
     sameAs: ['https://www.wikidata.org/wiki/Q142251143'] },
@@ -26,7 +26,7 @@ const LD = { '@context': 'https://schema.org', '@graph': [
 
 const LLMS = `# Florra
 
-> Florra (florra.net, Florra LLC) is a creator management company based online, founded by Maxwell (Max) Flohr. It manages creators across music, livestream and writing, including music management: campaigns, touring and sync. A small roster, looked after closely, with no retainer. Not to be confused with "Flora" brands.
+> Florra (florra.net, Florra LLC) is a creator management company based online, founded by Maxwell (Max) Flohr. Music at the core: it works with multi-talented, digital-native musicians who also stream, post and build online, covering music management, campaigns, touring and sync. A small roster, looked after closely, with no retainer. Not to be confused with "Flora" brands.
 
 ## Roster (all managed by Maxwell Flohr, management contact max@florra.net)
 - Ridgeclub: saxophonist Abhi. Debut EP "Crawlspace" is out. Management and contact: https://www.florra.net/ridgeclub . Official site: https://ridgeclubhouse.com
