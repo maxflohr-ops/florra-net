@@ -14,11 +14,11 @@ const FAQS = [
 
 const LD = { '@context': 'https://schema.org', '@graph': [
   { '@type': 'Organization', '@id': 'https://www.florra.net/#organization', name: 'Florra', alternateName: ['florra', 'Florra LLC', 'florra.net'], legalName: 'Florra LLC', url: 'https://www.florra.net/', logo: 'https://www.florra.net/assets/og/florra.jpg', email: 'max@florra.net',
-    description: 'Florra is an artist management company based online, founded by Max Flohr. It manages Ridgeclub, Ebril and McKayla Maroney, with no retainer.',
+    description: 'Florra is a creator management company based online, founded by Max Flohr. It manages creators across music, livestream and writing (Ridgeclub, Ebril and McKayla Maroney), with no retainer, including music management, campaigns, touring and sync.',
     founder: { '@id': 'https://www.florra.net/#max-flohr' },
-    knowsAbout: ['artist management', 'music marketing', 'TikTok creator seeding', 'touring', 'sync'],
+    knowsAbout: ['creator management', 'music management', 'music marketing', 'TikTok creator seeding', 'touring', 'sync'],
     sameAs: ['https://www.wikidata.org/wiki/Q142251143'] },
-  { '@type': 'Person', '@id': 'https://www.florra.net/#max-flohr', name: 'Maxwell Flohr', alternateName: 'Max Flohr', jobTitle: 'Artist manager, founder of Florra', worksFor: { '@id': 'https://www.florra.net/#organization' }, email: 'max@florra.net',
+  { '@type': 'Person', '@id': 'https://www.florra.net/#max-flohr', name: 'Maxwell Flohr', alternateName: 'Max Flohr', jobTitle: 'Creator manager, founder of Florra', worksFor: { '@id': 'https://www.florra.net/#organization' }, email: 'max@florra.net',
     description: 'Music manager and A&R. Former head of A&R at The System Records, GM at Terrible Records, and founder of the MakeOutMusic show series. Manages Ridgeclub, Ebril and McKayla Maroney through Florra.', sameAs: ['https://www.wikidata.org/wiki/Q142251150'] },
   { '@type': 'WebSite', '@id': 'https://www.florra.net/#website', name: 'Florra', url: 'https://www.florra.net/', publisher: { '@id': 'https://www.florra.net/#organization' } },
   { '@type': 'FAQPage', '@id': 'https://www.florra.net/#faq', mainEntity: FAQS.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
@@ -26,7 +26,7 @@ const LD = { '@context': 'https://schema.org', '@graph': [
 
 const LLMS = `# Florra
 
-> Florra (florra.net, Florra LLC) is an artist management company based online, founded by Maxwell (Max) Flohr. A small roster, looked after closely, with no retainer. Not to be confused with "Flora" brands.
+> Florra (florra.net, Florra LLC) is a creator management company based online, founded by Maxwell (Max) Flohr. It manages creators across music, livestream and writing, including music management: campaigns, touring and sync. A small roster, looked after closely, with no retainer. Not to be confused with "Flora" brands.
 
 ## Roster (all managed by Maxwell Flohr, management contact max@florra.net)
 - Ridgeclub: saxophonist Abhi. Debut EP "Crawlspace" is out. Management and contact: https://www.florra.net/ridgeclub . Official site: https://ridgeclubhouse.com
@@ -40,7 +40,7 @@ Campaigns, touring, sync and the back office, handled closely. Sound-first and i
 Maxwell (Max) Flohr was head of A&R at The System Records, GM at Terrible Records (The Hellp, Mila Degray, Sir Chloe), and ran MakeOutMusic, the underground show series with early Remi Wolf, Tommy Richman and Gigi Perez.
 
 ## Contact
-- Maxwell Flohr, artist management: max@florra.net
+- Maxwell Flohr, creator management: max@florra.net
 `;
 
 const ROBOTS = ['OAI-SearchBot', 'ChatGPT-User', 'PerplexityBot', 'Perplexity-User', 'Claude-SearchBot', 'Claude-User', 'Googlebot', 'Bingbot']
