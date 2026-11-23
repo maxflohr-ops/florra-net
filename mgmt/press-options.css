@@ -1,0 +1,25 @@
+/* pressed-type preview (branch type-press only). ?type=tw | ?type=lp ; no param = current */
+@font-face{font-family:"Special Elite";font-weight:400;font-display:swap;src:url(/assets/fonts/special-elite.woff2) format("woff2")}
+@font-face{font-family:"Courier Prime";font-weight:400;font-display:swap;src:url(/assets/fonts/courier-prime-400.woff2) format("woff2")}
+@font-face{font-family:"Courier Prime";font-weight:700;font-display:swap;src:url(/assets/fonts/courier-prime-700.woff2) format("woff2")}
+@font-face{font-family:"Fraunces Press";font-weight:300;font-display:swap;src:url(/assets/fonts/fraunces-300.woff2) format("woff2")}
+
+/* TW: a real typewriter. Special Elite headlines (inked, uneven), Courier Prime labels and nav */
+html[data-type=tw] h1,html[data-type=tw] h2,html[data-type=tw] h3,html[data-type=tw] .contact a.mail{font-family:'Special Elite','Courier Prime',monospace;font-weight:400;font-variation-settings:normal;letter-spacing:-.01em;text-transform:none;
+  color:#ece4d3;text-shadow:0 0 .6px rgba(236,228,211,.9),0 -1px 0 rgba(0,0,0,.55),0 1px 0 rgba(255,255,255,.12),0 3px 10px rgba(0,0,0,.35)}
+html[data-type=tw] .hero h1{font-size:clamp(46px,6.4vw,104px);line-height:1.04}
+html[data-type=tw] .hero h1 em{color:#d8c6a4}
+html[data-type=tw] .section-head h2,html[data-type=tw] .contact h2{font-size:clamp(40px,6vw,88px);line-height:1.05}
+html[data-type=tw] .artist h3{font-size:40px;line-height:1.05}
+html[data-type=tw] .artist-page h1{font-size:clamp(40px,5.4vw,88px);line-height:1.05}
+html[data-type=tw] .label,html[data-type=tw] header nav a,html[data-type=tw] .artist .more,html[data-type=tw] .hero-cta a,html[data-type=tw] footer{font-family:'Courier Prime',monospace;font-weight:700;letter-spacing:.06em}
+html[data-type=tw] .strike{display:inline-block;white-space:pre}
+
+/* LP: the current thin Fraunces, letterpressed: ink sits in the page, lit from above */
+html[data-type=lp] h1,html[data-type=lp] h2,html[data-type=lp] h3,html[data-type=lp] .contact a.mail{font-family:'Fraunces Press','Fraunces',Georgia,serif;font-weight:300;
+  color:#e3dac8;text-shadow:0 -1px 0 rgba(0,0,0,.7),0 1.5px 0 rgba(255,250,235,.22),0 0 1px rgba(227,218,200,.6),0 6px 18px rgba(0,0,0,.28)}
+html[data-type=lp] .hero h1 em{color:#d2bf99}
+
+.press-switch{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:50;display:flex;gap:6px;background:rgba(20,26,21,.85);border:1px solid rgba(232,230,215,.25);padding:6px;border-radius:999px;font:600 14px Arial,sans-serif;text-shadow:none}
+.press-switch a{color:#eeeade;text-decoration:none;padding:7px 14px;border-radius:999px}
+.press-switch a[aria-current]{background:#eeeade;color:#202c23}

@@ -86,6 +86,8 @@ ${style}
 ${extra}
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@144,300,0,0&family=Inter:wght@500;600;700&display=swap">
 <link rel="stylesheet" href="/type.css">
+<link rel="stylesheet" href="/press-options.css">
+<script src="/press-options.js"></script>
 </head>
 <body>
 <header>

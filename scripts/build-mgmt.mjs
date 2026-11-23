@@ -15,6 +15,8 @@ cpSync('mgmt/type.css', `${out}/type.css`);
 for (const f of ['california-hills.webp', 'rose-botanical.webp']) cpSync(`assets/${f}`, `${out}/assets/${f}`);
 cpSync('assets/roster', `${out}/assets/roster`, { recursive: true, filter: p => !p.includes('/candidates') && !p.includes('/archive') });
 cpSync('assets/fonts/fable-dust.woff2', `${out}/assets/fonts/fable-dust.woff2`);
+for (const f of ['special-elite','courier-prime-400','courier-prime-700','fraunces-300']) cpSync(`assets/fonts/${f}.woff2`, `${out}/assets/fonts/${f}.woff2`);
+for (const f of ['press-options.css','press-options.js']) if (existsSync(`mgmt/${f}`)) cpSync(`mgmt/${f}`, `${out}/${f}`);
 mkdirSync(`${out}/assets/og`, { recursive: true });
 cpSync('assets/og', `${out}/assets/og`, { recursive: true });
 cpSync('assets/og.jpg', `${out}/og.jpg`);
