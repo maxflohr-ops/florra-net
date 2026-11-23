@@ -17,9 +17,9 @@ const LD = { '@context': 'https://schema.org', '@graph': [
     description: 'Florra is an artist management company in Southern California, founded by Max Flohr. It manages Ridgeclub, Ebril and McKayla Maroney, with no retainer.',
     address: { '@type': 'PostalAddress', addressRegion: 'CA', addressCountry: 'US' }, founder: { '@id': 'https://www.florra.net/#max-flohr' },
     knowsAbout: ['artist management', 'music marketing', 'TikTok creator seeding', 'touring', 'sync'],
-    sameAs: ['https://ridgeclubhouse.com', 'https://www.ebril.net'] },
+    sameAs: ['https://www.wikidata.org/wiki/Q142251143'] },
   { '@type': 'Person', '@id': 'https://www.florra.net/#max-flohr', name: 'Maxwell Flohr', alternateName: 'Max Flohr', jobTitle: 'Artist manager, founder of Florra', worksFor: { '@id': 'https://www.florra.net/#organization' }, email: 'max@florra.net',
-    description: 'Music manager and A&R. Former head of A&R at The System Records, GM at Terrible Records, and founder of the MakeOutMusic show series. Manages Ridgeclub, Ebril and McKayla Maroney through Florra.' },
+    description: 'Music manager and A&R. Former head of A&R at The System Records, GM at Terrible Records, and founder of the MakeOutMusic show series. Manages Ridgeclub, Ebril and McKayla Maroney through Florra.', sameAs: ['https://www.wikidata.org/wiki/Q142251150'] },
   { '@type': 'WebSite', '@id': 'https://www.florra.net/#website', name: 'Florra', url: 'https://www.florra.net/', publisher: { '@id': 'https://www.florra.net/#organization' } },
   { '@type': 'FAQPage', '@id': 'https://www.florra.net/#faq', mainEntity: FAQS.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
 ] };
