@@ -72,3 +72,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #efe9dc;outline-offset:4p
 .alumni-list li{break-inside:avoid;font-family:'Special Elite','Courier Prime',monospace;font-size:clamp(24px,2.6vw,36px);line-height:1.25;color:#ece4d3;padding:10px 0;border-bottom:1px solid var(--rule);text-shadow:0 0 .6px rgba(236,228,211,.9),0 -1px 0 rgba(0,0,0,.55),0 3px 10px rgba(0,0,0,.35)}
 @media (max-width:900px){.alumni-list{columns:2}}
 @media (max-width:520px){header nav a{margin-left:16px}}
+
+/* personal client service: one line of heading, one line of promise */
+.service .section-head{margin-bottom:0}
+.service .section-head p{max-width:460px;font-size:19px;color:#e4e1d2}
