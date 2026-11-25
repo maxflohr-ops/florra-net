@@ -76,3 +76,6 @@ a:focus-visible,button:focus-visible{outline:2px solid #efe9dc;outline-offset:4p
 /* personal client service: one line of heading, one line of promise */
 .service .section-head{margin-bottom:0}
 .service .section-head p{max-width:460px;font-size:19px;color:#e4e1d2}
+
+/* a slipped letter never splits its word across lines */
+.slipword{white-space:nowrap}
