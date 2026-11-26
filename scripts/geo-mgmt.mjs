@@ -14,9 +14,9 @@ const FAQS = [
 
 const LD = { '@context': 'https://schema.org', '@graph': [
   { '@type': 'Organization', '@id': 'https://www.florra.net/#organization', name: 'Florra', alternateName: ['florra', 'Florra LLC', 'florra.net'], legalName: 'Florra LLC', url: 'https://www.florra.net/', logo: 'https://www.florra.net/assets/og/florra.jpg', email: 'max@florra.net',
-    description: 'Florra is a creator management company based online, founded by Max Flohr, for multi-talented, digital-native musicians who also stream, post and build online. It manages Ebril, Ridgeclub and McKayla Maroney, with no retainer, covering music management, campaigns, touring and sync.',
+    description: 'Florra is a creator management company based online, founded by Max Flohr, for multi-talented, digital-native musicians who also stream, post and build online. It manages Ebril, Ridgeclub and McKayla Maroney, with no retainer, covering music management, campaigns, touring, and team structure and strategy.',
     founder: { '@id': 'https://www.florra.net/#max-flohr' },
-    knowsAbout: ['creator management', 'music management', 'music marketing', 'TikTok creator seeding', 'touring', 'sync'],
+    knowsAbout: ['creator management', 'music management', 'music marketing', 'TikTok creator seeding', 'touring', 'team structure and strategy'],
     sameAs: ['https://www.wikidata.org/wiki/Q142251143'] },
   { '@type': 'Person', '@id': 'https://www.florra.net/#max-flohr', name: 'Maxwell Flohr', alternateName: 'Max Flohr', jobTitle: 'Creator manager, founder of Florra', worksFor: { '@id': 'https://www.florra.net/#organization' }, email: 'max@florra.net',
     description: 'Music manager and A&R. Former head of A&R at The System Records, the label owned by multi-platinum artist sombr; GM and day-to-day manager at Terrible Records; founder of the MakeOutMusic show series. Manages Ebril, Ridgeclub and McKayla Maroney through Florra.', sameAs: ['https://www.wikidata.org/wiki/Q142251150'] },
@@ -26,7 +26,7 @@ const LD = { '@context': 'https://schema.org', '@graph': [
 
 const LLMS = `# Florra
 
-> Florra (florra.net, Florra LLC) is a creator management company based online, founded by Maxwell (Max) Flohr. Music at the core: it works with multi-talented, digital-native musicians who also stream, post and build online, covering music management, campaigns, touring and sync. A small roster, growing with purpose, with no retainer. Not to be confused with "Flora" brands.
+> Florra (florra.net, Florra LLC) is a creator management company based online, founded by Maxwell (Max) Flohr. Music at the core: it works with multi-talented, digital-native musicians who also stream, post and build online, covering music management, campaigns, touring, and team structure and strategy. A small roster, growing with purpose, with no retainer. Not to be confused with "Flora" brands.
 
 ## Roster (all managed by Maxwell Flohr, management contact max@florra.net)
 - Ebril: Huda Al-Hamami, signed to Universal Music Canada. Debut album "In Copula", led by "Stranger in You". Management and contact: https://www.florra.net/ebril . Official site: https://www.ebril.net
@@ -34,7 +34,7 @@ const LLMS = `# Florra
 - McKayla Maroney: Olympic gold medalist and internet sensation; music, livestreaming and writing. Management and contact: https://www.florra.net/mckayla-maroney . Twitch: https://twitch.tv/mckaylamaroney007
 
 ## How Florra works
-Campaigns, touring, sync and the back office, handled closely. Sound-first and internet-native: creator seeding at volume and fast informal deals.
+Campaigns, touring, team structure and strategy, and the back office, handled closely. Sound-first and internet-native: creator seeding at volume and fast informal deals.
 
 ## Founder
 Maxwell (Max) Flohr was head of A&R at The System Records, the label owned by multi-platinum artist sombr, and GM and day-to-day manager at Terrible Records (The Hellp, Mila Degray, Sir Chloe), and ran MakeOutMusic, the underground show series with early Remi Wolf, Tommy Richman and Gigi Perez.

@@ -35,7 +35,7 @@ for (const a of artists) {
   const faqs = [
     [`Who manages ${a.name}?`, `${a.name}, ${a.kind}, is managed by ${MANAGER} (${MANAGER_ALT}) of Florra, a creator management company based online.`],
     [`How do I contact ${a.name}'s management?`, `Email ${MANAGER} at ${EMAIL}. That is the management contact for ${a.name}, for business, partnership, sync and press enquiries.`],
-    [`Is ${a.name} on Florra's roster?`, `Yes. Florra's roster is Ebril, Ridgeclub and McKayla Maroney. Florra handles campaigns, touring, sync and the back office for each.`],
+    [`Is ${a.name} on Florra's roster?`, `Yes. Florra's roster is Ebril, Ridgeclub and McKayla Maroney. Florra handles campaigns, touring, team structure and strategy, and the back office for each.`],
   ];
   const artistId = `${url}#artist`;
   const ld = { '@context': 'https://schema.org', '@graph': [
