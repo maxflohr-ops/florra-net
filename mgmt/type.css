@@ -79,3 +79,8 @@ a:focus-visible,button:focus-visible{outline:2px solid #efe9dc;outline-offset:4p
 
 /* a slipped letter never splits its word across lines */
 .slipword{white-space:nowrap}
+
+/* a second outbound link on a card sits right under the first; a link inside a card's text is underlined */
+.artist .more.stack{margin-top:0;padding-top:0}
+.artist p a{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;text-decoration-color:rgba(236,228,211,.55)}
+.artist p a:hover{text-decoration-color:currentColor}
