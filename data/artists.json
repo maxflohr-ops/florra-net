@@ -141,7 +141,7 @@
     "name": "McKayla Maroney",
     "lower": "mckayla maroney",
     "type": "Person",
-    "who": "music · livestream · writing",
+    "who": "olympic gold medalist · internet sensation",
     "img": "/assets/roster/mckayla.jpg",
     "w": 1021,
     "h": 1176,
@@ -149,7 +149,7 @@
     "alt": "McKayla Maroney looking over her shoulder against a red wall",
     "credit": "",
     "bio": "mckayla maroney brings together music, livestreaming, and her work as an online book author. we're building her livestream, supporting her writing, and growing her brand.",
-    "desc": "McKayla Maroney works across music, livestreaming and writing.",
+    "desc": "McKayla Maroney, the Olympic gold medalist and internet sensation, works across music, livestreaming and writing.",
     "site": "https://twitch.tv/mckaylamaroney007",
     "siteLabel": "watch on twitch",
     "sameAs": [
@@ -160,7 +160,7 @@
     "aliases": [
       "McKayla"
     ],
-    "kind": "the musician, livestreamer and author",
+    "kind": "the Olympic gold medalist, musician, livestreamer and author",
     "links": [
       [
         "twitch",

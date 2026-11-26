@@ -31,7 +31,7 @@ const LLMS = `# Florra
 ## Roster (all managed by Maxwell Flohr, management contact max@florra.net)
 - Ridgeclub: saxophonist Abhi. Debut EP "Crawlspace" is out. Management and contact: https://www.florra.net/ridgeclub . Official site: https://ridgeclubhouse.com
 - Ebril: Huda Al-Hamami, signed to Universal Music Canada. Debut album "In Copula", led by "Stranger in You". Management and contact: https://www.florra.net/ebril . Official site: https://www.ebril.net
-- McKayla Maroney: music, livestreaming and writing. Management and contact: https://www.florra.net/mckayla-maroney . Twitch: https://twitch.tv/mckaylamaroney007
+- McKayla Maroney: Olympic gold medalist and internet sensation; music, livestreaming and writing. Management and contact: https://www.florra.net/mckayla-maroney . Twitch: https://twitch.tv/mckaylamaroney007
 
 ## How Florra works
 Campaigns, touring, sync and the back office, handled closely. Sound-first and internet-native: creator seeding at volume and fast informal deals.
