@@ -26,7 +26,7 @@ d = ImageDraw.Draw(img)
 d.text((72, 92), 'CREATOR MANAGEMENT · BASED ONLINE', font=f(SANS, 22), fill=MUTED)
 shadow_text(img, (66, 150), 'florra', f(FABLE, 190), PAPER, blur=14, offset=(0, 10))
 shadow_text(img, (72, 400), 'a small roster, growing with purpose.', f(FABLE, 46), PAPER)
-d.text((72, 500), 'Ridgeclub  ·  Ebril  ·  McKayla Maroney', font=f(SANS, 30), fill=PAPER)
+d.text((72, 500), 'Ebril  ·  Ridgeclub  ·  McKayla Maroney', font=f(SANS, 30), fill=PAPER)
 d.text((72, 548), 'Maxwell Flohr  ·  max@florra.net', font=f(SANS, 24), fill=MUTED)
 img.convert('RGB').save('assets/og/florra.jpg', quality=88)
 

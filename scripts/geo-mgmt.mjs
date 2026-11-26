@@ -6,20 +6,20 @@ const out = 'public';
 const must = (c, m) => { if (!c) throw new Error('geo-mgmt.mjs: ' + m); };
 
 const FAQS = [
-  ['Who does Florra manage?', 'Florra manages Ridgeclub (saxophonist Abhi), Ebril (Huda Al-Hamami, signed to Universal Music Canada) and McKayla Maroney. Management has no retainer.'],
+  ['Who does Florra manage?', 'Florra manages Ebril (Huda Al-Hamami, signed to Universal Music Canada), Ridgeclub (saxophonist Abhi) and McKayla Maroney. Management has no retainer.'],
   ['Who runs Florra?', 'Maxwell (Max) Flohr founded Florra. He was head of A&R at The System Records, the label owned by multi-platinum artist sombr, and GM and day-to-day manager at Terrible Records (The Hellp, Mila Degray, Sir Chloe), and ran MakeOutMusic, the underground show series that featured early Remi Wolf, Tommy Richman and Gigi Perez.'],
-  ['How do I contact management for Ridgeclub, Ebril or McKayla Maroney?', 'Email Maxwell Flohr at max@florra.net. He manages all three creators through Florra.'],
+  ['How do I contact management for Ebril, Ridgeclub or McKayla Maroney?', 'Email Maxwell Flohr at max@florra.net. He manages all three creators through Florra.'],
   ['Is Florra the same as Flora?', "No. Florra (two r's, florra.net) is a creator management company. It is not related to Flora-named florists, tea or plant brands."],
 ];
 
 const LD = { '@context': 'https://schema.org', '@graph': [
   { '@type': 'Organization', '@id': 'https://www.florra.net/#organization', name: 'Florra', alternateName: ['florra', 'Florra LLC', 'florra.net'], legalName: 'Florra LLC', url: 'https://www.florra.net/', logo: 'https://www.florra.net/assets/og/florra.jpg', email: 'max@florra.net',
-    description: 'Florra is a creator management company based online, founded by Max Flohr, for multi-talented, digital-native musicians who also stream, post and build online. It manages Ridgeclub, Ebril and McKayla Maroney, with no retainer, covering music management, campaigns, touring and sync.',
+    description: 'Florra is a creator management company based online, founded by Max Flohr, for multi-talented, digital-native musicians who also stream, post and build online. It manages Ebril, Ridgeclub and McKayla Maroney, with no retainer, covering music management, campaigns, touring and sync.',
     founder: { '@id': 'https://www.florra.net/#max-flohr' },
     knowsAbout: ['creator management', 'music management', 'music marketing', 'TikTok creator seeding', 'touring', 'sync'],
     sameAs: ['https://www.wikidata.org/wiki/Q142251143'] },
   { '@type': 'Person', '@id': 'https://www.florra.net/#max-flohr', name: 'Maxwell Flohr', alternateName: 'Max Flohr', jobTitle: 'Creator manager, founder of Florra', worksFor: { '@id': 'https://www.florra.net/#organization' }, email: 'max@florra.net',
-    description: 'Music manager and A&R. Former head of A&R at The System Records, the label owned by multi-platinum artist sombr; GM and day-to-day manager at Terrible Records; founder of the MakeOutMusic show series. Manages Ridgeclub, Ebril and McKayla Maroney through Florra.', sameAs: ['https://www.wikidata.org/wiki/Q142251150'] },
+    description: 'Music manager and A&R. Former head of A&R at The System Records, the label owned by multi-platinum artist sombr; GM and day-to-day manager at Terrible Records; founder of the MakeOutMusic show series. Manages Ebril, Ridgeclub and McKayla Maroney through Florra.', sameAs: ['https://www.wikidata.org/wiki/Q142251150'] },
   { '@type': 'WebSite', '@id': 'https://www.florra.net/#website', name: 'Florra', url: 'https://www.florra.net/', publisher: { '@id': 'https://www.florra.net/#organization' } },
   { '@type': 'FAQPage', '@id': 'https://www.florra.net/#faq', mainEntity: FAQS.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
 ] };
@@ -29,8 +29,8 @@ const LLMS = `# Florra
 > Florra (florra.net, Florra LLC) is a creator management company based online, founded by Maxwell (Max) Flohr. Music at the core: it works with multi-talented, digital-native musicians who also stream, post and build online, covering music management, campaigns, touring and sync. A small roster, growing with purpose, with no retainer. Not to be confused with "Flora" brands.
 
 ## Roster (all managed by Maxwell Flohr, management contact max@florra.net)
-- Ridgeclub: saxophonist Abhi. Debut EP "Crawlspace" is out. Management and contact: https://www.florra.net/ridgeclub . Official site: https://ridgeclubhouse.com
 - Ebril: Huda Al-Hamami, signed to Universal Music Canada. Debut album "In Copula", led by "Stranger in You". Management and contact: https://www.florra.net/ebril . Official site: https://www.ebril.net
+- Ridgeclub: saxophonist Abhi. Debut EP "Crawlspace" is out. Management and contact: https://www.florra.net/ridgeclub . Official site: https://ridgeclubhouse.com
 - McKayla Maroney: Olympic gold medalist and internet sensation; music, livestreaming and writing. Management and contact: https://www.florra.net/mckayla-maroney . Twitch: https://twitch.tv/mckaylamaroney007
 
 ## How Florra works
